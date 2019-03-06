@@ -1,0 +1,17 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+nav {
+  width: 100vw;
+  height: 50vh;
+}
+
+div {
+  width: 30%;
+  height: 30%;
+  display: inline-block;
+  text-align: center;
+}
