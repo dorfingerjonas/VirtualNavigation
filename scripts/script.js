@@ -1,18 +1,32 @@
 
 function init() {
   const text = "virtual skiarea navigation";
+  let element = document.getElementById('headline');
+  textAnimation(text, 100, element);
+}
+
+function textAnimation(text, duration, element) {
   let i = 0;
   let content = "";
-  let h = document.getElementById('headline');
+  let counter = 0;
 
-  setInterval(() => {
-    h.textContent = "";
+  let interval = setInterval(() => {
+    element.textContent = "";
     content += text.charAt(i);
-    h.textContent += content;
-
-    for (let j = 0; j < text.length - i - 1; j++) {
-      h.textContent += "_";
-    }
+    element.textContent = content + "|";
     i++;
-  }, 200);
+    if (i >= text.length) {
+      clearInterval(interval);
+
+      setInterval(() => {
+        if (counter % 2 === 0) {
+          element.textContent = content + "";
+          counter++;
+        } else {
+          element.textContent = content + "|";
+          counter++;
+        }
+      }, 200);
+    }
+  }, duration);
 }
