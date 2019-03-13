@@ -20,12 +20,11 @@ function textAnimation(text, duration, element) {
 
       setInterval(() => {
         if (counter % 2 === 0) {
-          element.textContent = content + "";
-          counter++;
+          element.textContent = content + " ";
         } else {
           element.textContent = content + "|";
-          counter++;
         }
+        counter++;
       }, 200);
     }
   }, duration);
