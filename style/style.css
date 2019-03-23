@@ -22,27 +22,14 @@ body {
   display: block;
 }
 
-#wrapper a {
-  float: left;
+nav {
   display: flex;
   justify-content: space-around;
-}
-/* nav {
-  width: 100vw;
-  height: 50vh;
-}
-
-div {
-  width: 30%;
-  height: 30%;
-  display: inline-block;
   text-align: center;
-} */
+}
 
 span {
-  font-family: 'Sniglet', cursive;
-  font-family: monospace;
-  font-size: 600%;
+  font-size: 450%;
 }
 
 /* @keyframes startAnimation {
