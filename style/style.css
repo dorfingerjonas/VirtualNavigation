@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Gotham Light';
+  src: url(../fonts/Gotham-XLight.otf) format('opentype');
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -7,10 +12,11 @@ body {
   background-attachment: fixed;
   margin: 0;
   overflow: hidden;
-  font-family: 'Calibri';
+  font-family: 'Gotham Light';
   display: flex;
   align-items: center;
   justify-content: center;
+  text-transform: uppercase;
 }
 #wrapper {
   display: block;
