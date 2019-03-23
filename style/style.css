@@ -17,19 +17,38 @@ body {
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
+  color: white;
 }
 #wrapper {
   display: block;
 }
 
+h1 {
+  font-size: 350%;
+  font-weight: lighter;
+  letter-spacing: 0.2em;
+}
+
 nav {
+  user-select: none;
   display: flex;
   justify-content: space-around;
   text-align: center;
+  font-size: 80%;
+  text-align: center;
 }
 
-span {
-  font-size: 450%;
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:link {
+  transition: all 0.2s linear;
+}
+
+a:hover {
+  color: silver;
 }
 
 /* @keyframes startAnimation {
