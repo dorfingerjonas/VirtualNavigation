@@ -2,9 +2,31 @@
 <html lang="de" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Log In - Virtual Navigation</title>
+    <title>Registrieren - Virtual Navigation</title>
+    <link rel="stylesheet" href="../style/registrieren.css">
+    <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
+    <script src="../scripts/script.js" charset="utf-8"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script>
+      let config = {
+        apiKey: "AIzaSyDHuGnlajKcr4s8_vn9XC5McqalXvWTBsg",
+        authDomain: "virtualskiareanavigation.firebaseapp.com",
+        databaseURL: "https://virtualskiareanavigation.firebaseio.com",
+        projectId: "virtualskiareanavigation",
+        storageBucket: "virtualskiareanavigation.appspot.com",
+        messagingSenderId: "428865397333"
+      };
+      firebase.initializeApp(config);
+    </script>
   </head>
-  <body>
+  <body onload="init()">
+    <div id="wrapper">
+      <h1 id="headline">Registrieren</h1>
+        <section>
+          <form id="anmelden" action="index.html" method="post">
 
+          </form>
+        </section>
+    </div>
   </body>
 </html>
