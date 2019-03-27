@@ -5,6 +5,7 @@
     <title>Virtual Navigation</title>
     <link rel="stylesheet" href="style/style.css">
     <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
     <script src="scripts/script.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   </head>
@@ -26,14 +27,22 @@
 
       <section id="Account">
         <h2 id="headline">Anmelden/Registrieren</h2>
-        <form id='anmelden' action='index.html' method='post'>
+        <div class="alignToCenter">
+          <form id='anmelden' action='index.html' method='post'>
 
-          <input id='email' type='email' placeholder='Email'>
-          <input id='password' type='password' placeholder='Password'>
-          <button onclick="loginBtn" type="button">Log In</button>
-          <button onclick="signupBtn" type="button">Sign Up</button>
+            <input id='firstname' class="accountElm" type='text' placeholder='Vorname'>
+            <input id='middlename' class="accountElm" type='email' placeholder='Mittelname'>
+            <input id='lastname' class="accountElm" type='text' placeholder='Nachname'>
+            <input id='nickname' class="accountElm" type='text' placeholder='Nickname'>
+            <input id='email' class="accountElm" type='email' placeholder='Email'>
+            <input id='emailConfirmed' class="accountElm" type='email' placeholder='Email wiederholen'>
+            <input id='password' class="accountElm" type='password' placeholder='Password'>
+            <input id='passwordConfirmed' class="accountElm" type='password' placeholder='Password wiederholen'>
+            <button id="login" class="accountElm" type="button">Log In</button>
+            <button id="signup" class="accountElm" type="button">Sign Up</button>
 
-        </form>
+          </form>
+        </div>
       </section>
 
       <section id="Technik">
