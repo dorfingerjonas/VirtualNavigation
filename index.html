@@ -6,40 +6,60 @@
     <link rel="stylesheet" href="style/style.css">
     <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="scripts/script.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="scripts/account.js" charset="utf-8"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-functions.js"></script>
   </head>
   <body>
     <div id="Home">
       <h1 id="headline">Virtual Skiarea-navigation</h1>
         <nav id="nav">
           <a title="Home" href="#Home">Home</a>
-          <a title="Anmelden/Registrieren" href="#Account">Anmelden/Registrieren</a>
+          <a title="Account" href="#Account">Account</a>
           <a title="Technik" href="#Technik">Technik</a>
-          <a  title="Über uns" href="#Überuns">Über uns</a>
+          <a title="Über uns" href="#Überuns">Über uns</a>
           <a title="Kontaktiere uns" href="#Kontakt">Kontaktiere uns</a>
-          <i title="Ausloggen" class="fas fa-sign-out-alt"></i>
+          <p> <span id="usernameField"></span>&nbsp;<i id="accountArrow" class="fas fa-sort-down"></i></p>
+          <ul id="accPopUp">
+            <li>Signed in as <br> <span id="usernamePopUp"></span> </li>
+            <hr>
+            <li><b>STATUS</b></li>
+            <hr>
+            <li id="settings">Einstellungen <i title="Einstellungen" class="fas fa-cogs"></i></li>
+            <li id="logoutBtn">Abmelden <i title="Ausloggen" class="fas fa-sign-out-alt"></i></li>
+            <hr><li id="settings"><i title="Einstellungen" class="fas fa-cogs"></i> Einstellungen</li>
+            <li id="logoutBtn"><i title="Ausloggen" class="fas fa-sign-out-alt"></i> Abmelden</li>
+          </ul>
         </nav>
+
+
+      <!-- TODO: SELECT  LI SETTINGS AND LOGOUT-->
+
 
       <section id="homeSection">
 
       </section>
 
       <section id="Account">
-        <h2 id="headline">Anmelden/Registrieren</h2>
+        <h2 id="headline">Account</h2>
         <div class="alignToCenter">
           <form id='anmelden' action='index.html' method='post'>
-
             <input id='firstname' class="accountElm" type='text' placeholder='Vorname'>
-            <input id='middlename' class="accountElm" type='email' placeholder='Mittelname'>
             <input id='lastname' class="accountElm" type='text' placeholder='Nachname'>
-            <input id='nickname' class="accountElm" type='text' placeholder='Nickname'>
+            <input id='username' class="accountElm" type='text' placeholder='Benutzername'>
             <input id='email' class="accountElm" type='email' placeholder='Email'>
-            <input id='emailConfirmed' class="accountElm" type='email' placeholder='Email wiederholen'>
-            <input id='password' class="accountElm" type='password' placeholder='Password'>
-            <input id='passwordConfirmed' class="accountElm" type='password' placeholder='Password wiederholen'>
-            <button id="login" class="accountElm" type="button">Log In</button>
-            <button id="signup" class="accountElm" type="button">Sign Up</button>
+            <input id='password' class="accountElm" type='password' placeholder='Passwort'>
+            <p id="errField" class="errorField"></p>
+            <button id="loginBtn" class="accountElm" type="button">Log In</button>
+            <button id="signupBtn" class="accountElm" type="button">Sign Up</button>
+
+            <p id="user"></p>
 
           </form>
         </div>

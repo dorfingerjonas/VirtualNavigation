@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   font-family: 'Gotham Light';
-  text-transform: uppercase;
+
   color: black;
   display: flex;
   align-items: center;
@@ -33,6 +33,7 @@ h1 {
   letter-spacing: 0.2em;
   text-align: center;
   user-select: none;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -42,6 +43,7 @@ h2 {
   letter-spacing: 0.2em;
   text-align: center;
   user-select: none;
+  text-transform: uppercase;
 }
 
 nav {
@@ -50,7 +52,7 @@ nav {
   left: 0;
   user-select: none;
   padding: 0 5vw 0 5vw;
-
+  text-transform: uppercase;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -60,6 +62,30 @@ nav {
   height: 7vh;
   background-color: white;
   font-weight: bold;
+}
+
+#accPopUp {
+  display: none;
+  font-family: 'Roboto', sans-serif;
+  list-style-type: none;
+  width: 10vw;
+  position: absolute;
+  text-transform: none;
+  background: white;
+  font-weight: 100;
+  padding: 0.5%;
+  text-align: left;
+  border-radius: 10px;
+  box-shadow: 1px 3px 5px 0px rgba(143,143,143,1);
+}
+
+#accPopUp li {
+  margin: 5%;
+}
+
+#accountArrow {
+  display: none;
+  cursor: pointer;
 }
 
 a {
@@ -86,11 +112,14 @@ section {
   background-repeat: space;
   background-size: cover;
   padding-top: 2%;
-  border-bottom: 1px solid black;
 }
 
 #homeSection {
   height: 70vh;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .alignToCenter {
@@ -121,7 +150,7 @@ section {
   margin: 2%;
 }
 
-#login {
+#loginBtn {
   background: #1a73e8;
   border-radius: 5px;
   outline: none;
@@ -134,7 +163,7 @@ section {
   letter-spacing: .35px;
 }
 
-#signup {
+#signupBtn {
   background: white;
   border-radius: 5px;
   outline: none;
@@ -147,18 +176,13 @@ section {
   letter-spacing: .35px;
 }
 
-/*
-#Technik {
-  background-image: url(../img/skier.jpg);
+#logoutBtn, #settings {
+  cursor: pointer;
 }
 
-#Überuns {
-  background-image: url(../img/skier2.jpg);
+.errorField {
+  display: none;
 }
-
-#Kontakt {
-  background-image: url(../img/winteraktivitaeten.jpg);
-}*/
 
 .contentWrapper {
   height: 50vh;
