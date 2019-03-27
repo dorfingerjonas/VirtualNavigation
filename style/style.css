@@ -5,42 +5,53 @@
 
 body {
   width: 100vw;
-  height: 100vh;
-  background-image: url(../img/hornspitz2.jpg);
-  background-repeat: space;
-  background-size: cover;
-  background-attachment: fixed;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   font-family: 'Gotham Light';
+  text-transform: uppercase;
+  color: black;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-transform: uppercase;
-  color: white;
 }
+
 #wrapper {
   display: block;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
   font-size: 350%;
+  margin-top: 0;
   font-weight: lighter;
   letter-spacing: 0.2em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 350%;
+  margin-top: 0;
+  font-weight: lighter;
+  letter-spacing: 0.2em;
+  text-align: center;
 }
 
 nav {
+  position: relative;
   user-select: none;
   display: flex;
   justify-content: space-around;
   text-align: center;
-  font-size: 80%;
+  font-size: 110%;
   text-align: center;
 }
 
 a {
-  color: white;
+  color: black;
   text-decoration: none;
+  font-weight: 400;
 }
 
 a:link {
@@ -50,6 +61,47 @@ a:link {
 a:hover {
   color: silver;
 }
+
+section {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  background-repeat: space;
+  background-size: cover;
+  padding-top: 2%;
+  border: 1px solid black;
+}
+
+/* #home {
+  background-image: url(../img/hornspitz2.jpg);
+}
+
+#Account {
+  background-image: url(../img/edtalm.jpg);
+}
+
+#Technik {
+  background-image: url(../img/skier.jpg);
+}
+
+#Überuns {
+  background-image: url(../img/skier2.jpg);
+}
+
+#Kontakt {
+  background-image: url(../img/winteraktivitaeten.jpg);
+}*/
+
+.contentWrapper {
+  height: 50vh;
+  width: 100vw;
+  background-color: white;
+  position: relative;
+  top: 40vh;
+}
+
+
+
 
 /* @keyframes startAnimation {
   0%     {}
