@@ -1,20 +1,13 @@
-
 window.addEventListener('load', () => {
   let navTag = document.getElementById('nav');
 
-  // let interval =  setInterval(() => {
-  //   console.log(scrollY);
-  //
-  //   if (scrollY > 168.8) {
-  //     navTag.style.position = "sticky";
-  //   } else {
-  //     navTag.style.position = "relative"
-  //   }
-  // }, 10);
+  let interval =  setInterval(() => {
+    console.log(parseInt(scrollY));
 
-  setInterval(function () {
-    scrollY += 20;
-    console.log(scrollY);
-  }, 250);
-
+    if (scrollY > 200) {
+      navTag.style.boxShadow = '0px 7px 4px -2px rgba(184,184,184,1)';
+    } else {
+      navTag.style.boxShadow = '0px 0px 0px 0px rgba(184,184,184,1)';
+    }
+  }, 10);
 });
