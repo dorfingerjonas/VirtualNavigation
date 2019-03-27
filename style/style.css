@@ -20,7 +20,7 @@ body {
   justify-content: center;
 }
 
-#wrapper {
+#Home {
   display: block;
   margin: 0;
   padding: 0;
@@ -37,7 +37,7 @@ h1 {
 
 h2 {
   font-size: 350%;
-  margin-top: 0;
+  margin-top: 5%;
   font-weight: lighter;
   letter-spacing: 0.2em;
   text-align: center;
@@ -49,6 +49,7 @@ nav {
   top: 0;
   left: 0;
   user-select: none;
+  padding: 0 5vw 0 5vw;
 
   display: flex;
   justify-content: space-around;
@@ -84,10 +85,11 @@ section {
   border-bottom: 1px solid black;
 }
 
-/* #home {
-  background-image: url(../img/hornspitz2.jpg);
+#homeSection {
+  height: 70vh;
 }
 
+/*
 #Account {
   background-image: url(../img/edtalm.jpg);
 }
