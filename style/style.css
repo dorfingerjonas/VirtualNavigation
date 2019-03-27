@@ -3,6 +3,10 @@
   src: url(../fonts/Gotham-XLight.otf) format('opentype');
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100vw;
   margin: 0;
@@ -24,10 +28,11 @@ body {
 
 h1 {
   font-size: 350%;
-  margin-top: 0;
+  margin-top: 10;
   font-weight: lighter;
   letter-spacing: 0.2em;
   text-align: center;
+  user-select: none;
 }
 
 h2 {
@@ -36,22 +41,29 @@ h2 {
   font-weight: lighter;
   letter-spacing: 0.2em;
   text-align: center;
+  user-select: none;
 }
 
 nav {
-  position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
   user-select: none;
+
   display: flex;
   justify-content: space-around;
+  align-items: center;
   text-align: center;
   font-size: 110%;
   text-align: center;
+  height: 7vh;
+  background-color: white;
+  font-weight: bold;
 }
 
 a {
   color: black;
   text-decoration: none;
-  font-weight: 400;
 }
 
 a:link {
@@ -69,7 +81,7 @@ section {
   background-repeat: space;
   background-size: cover;
   padding-top: 2%;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 /* #home {
