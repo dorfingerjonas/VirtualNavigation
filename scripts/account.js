@@ -12,6 +12,7 @@ window.addEventListener('load', () => {
 
   let database = firebase.database();
 
+  const errField = document.getElementById('errField');
   const emailTxt = document.getElementById('email');
   const passwordTxt = document.getElementById('password');
   const loginBtn = document.getElementById('loginBtn');
@@ -21,6 +22,7 @@ window.addEventListener('load', () => {
   const usernamePopUp = document.getElementById('usernamePopUp');
   const accountArrow = document.getElementById('accountArrow');
   const accountPopUp = document.getElementById('accPopUp');
+  const settings = document.getElementById('settings');
   let isAccountPopUpVisible = false;
   let username;
   let vorname;
@@ -36,8 +38,6 @@ window.addEventListener('load', () => {
 
     const promise = auth.signInWithEmailAndPassword(email, password);
     promise.catch((error) => {
-
-      const errField = document.getElementById('errField');
 
       errField.style.display = "block";
       errField.textContent = error.message;
@@ -57,8 +57,6 @@ window.addEventListener('load', () => {
     resetErrorField();
     const promise = auth.createUserWithEmailAndPassword(email, password);
     promise.catch((error) => {
-
-      const errField = document.getElementById('errField');
 
       errField.style.display = "block";
       errField.textContent = error.message;
@@ -107,7 +105,6 @@ window.addEventListener('load', () => {
     }
   });
 
-  const settings = document.getElementById('settings');
   settings.addEventListener('click', () => {
       window.location.href='./settings';
       console.log('settings page opened');
@@ -163,8 +160,7 @@ window.addEventListener('load', () => {
   }
 });
 
-function resetErrorField() {
-  const errField = document.getElementById('errField');
+function resetErrorField() {  const errField = document.getElementById('errField');
 
   errField.style.display = "none";
   errField.textContent = "";
