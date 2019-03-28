@@ -83,6 +83,10 @@ nav {
   margin: 5%;
 }
 
+#accPopUp li i {
+  margin-right: 5px;
+}
+
 #accountArrow {
   display: none;
   cursor: pointer;
