@@ -76,7 +76,7 @@ nav {
   padding: 0.5%;
   text-align: left;
   border-radius: 10px;
-  box-shadow: 1px 3px 5px 0px rgba(143,143,143,1);
+  box-shadow: 2px 2px 5px 3px rgba(143,143,143,0.8);
 }
 
 #accPopUp li {
@@ -147,7 +147,7 @@ button:hover {
   color: black;
   font-weight: thin;
   font-size: 100%;
-  width: 20vw;
+  width: 17vw;
 }
 
 .accountElm {
@@ -195,9 +195,6 @@ button:hover {
   position: relative;
   top: 40vh;
 }
-
-
-
 
 /* @keyframes startAnimation {
   0%     {}
