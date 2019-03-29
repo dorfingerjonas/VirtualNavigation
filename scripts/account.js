@@ -23,10 +23,10 @@ window.addEventListener('load', () => {
   const accountArrow = document.getElementById('accountArrow');
   const accountPopUp = document.getElementById('accPopUp');
   const settings = document.getElementById('settings');
+  const firstnameTxt = document.getElementById('firstname');
+  const lastnameTxt = document.getElementById('lastname');
+  const usernameTxt = document.getElementById('username');
   let isAccountPopUpVisible = false;
-  let username;
-  let vorname;
-  let lastname;
 
   loginBtn.addEventListener('click', () => {
     console.log("login button pressed");
@@ -43,16 +43,18 @@ window.addEventListener('load', () => {
       errField.textContent = error.message;
 
     });
+    console.log("logged in");
   });
 
   signupBtn.addEventListener('click', () => {
+
     console.log("signup button pressed");
     const email = emailTxt.value;
     const password = passwordTxt.value;
+    const firstname = firstnameTxt.value;
+    const lastname = lastnameTxt.value;
+    const username = usernameTxt.value;
     const auth = firebase.auth();
-    firstname = document.getElementById('firstname').value;
-    lastname = document.getElementById('lastname').value;
-    username = document.getElementById('username').value;
 
     resetErrorField();
     const promise = auth.createUserWithEmailAndPassword(email, password);
@@ -62,11 +64,11 @@ window.addEventListener('load', () => {
       errField.textContent = error.message;
     });
 
-    let userId = firebase.auth().currentUser.uid;
-
-    console.log(userId);
-
-    writeUserToDatabase(firstname, lastname, username, email, userId);
+    setTimeout(function () {
+      let userId = firebase.auth().currentUser.uid;
+      console.log(userId);
+      writeUserToDatabase(firstname, lastname, username, email, userId);
+    }, 2000);
   });
 
   logoutBtn.addEventListener('click', () => {
@@ -95,10 +97,11 @@ window.addEventListener('load', () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       document.getElementById('user').textContent = user.email;
-      getFirstname();
-      getUsername();
-
-      accountArrow.style.display = "inline-block";
+      setTimeout(function () {
+        accountArrow.style.display = "inline-block";
+        writefirstnameToPopUp(user);
+        writeUsernameToPopUp(user);
+      }, 2500);
     } else {
       document.getElementById('user').textContent = "not logged in";
       accountArrow.style.display = "none";
@@ -127,35 +130,23 @@ window.addEventListener('load', () => {
     });
   }
 
-  function getUsername() {
-    let userId = firebase.auth().currentUser.uid;
+  function writeUsernameToPopUp(user) {
+    let userId = user.uid;
 
     return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-      usernamePopUp.textContent = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+      let username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+      usernamePopUp.textContent = username;
+      console.log(username);
     });
   }
 
-  function getFirstname() {
-    let userId = firebase.auth().currentUser.uid;
+  function writefirstnameToPopUp(user) {
+    let userId = user.uid;
 
     return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-      usernameField.textContent = (snapshot.val() && snapshot.val().firstname) || 'Anonymous';
-    });
-  }
-
-  function getLastname() {
-    let userId = firebase.auth().currentUser.uid;
-
-    return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-      let lastname = (snapshot.val() && snapshot.val().lastname) || 'Anonymous';
-    });
-  }
-
-  function getEmail() {
-    let userId = firebase.auth().currentUser.uid;
-
-    return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-      let email = (snapshot.val() && snapshot.val().email) || 'Anonymous';
+      let firstname = (snapshot.val() && snapshot.val().firstname) || 'Anonymous';
+      usernameField.textContent = firstname;
+      console.log(firstname);
     });
   }
 });
