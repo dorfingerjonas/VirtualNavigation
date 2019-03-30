@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <title>Virtual Navigation</title>
     <link rel="stylesheet" href="style/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <script src="scripts/script.js" charset="utf-8"></script>
+    <script src="scripts/scrollAnimations.js" charset="utf-8"></script>
     <script src="scripts/account.js" charset="utf-8"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
@@ -60,7 +61,39 @@
       </section>
 
       <section id="Funktionen">
+
+
         <h2 id="headline">Funktionen</h2>
+        <div class="alignToCenter">
+        <div data-aos="fade-down">
+          <img src="img/skibrille.jpeg" alt="Skibrille">
+        </div>
+        <!-- <label>Skibrillen Model: Smith IO Recon</label> -->
+        <div id="textWrapper">
+        <p>
+          Wer auf 160 Pistenkilometern kein Highlight verpassen will, braucht vor allem eines:
+          die optimale Orientierung. Egal ob kürzester Weg zur Hütte, Wetterdaten, Pisten- und Liftstatus,
+          die Datenskibrille von dem Skiparadies Dachstein West sorgt für den perfekten Durchblick.
+          Die Technologie bringt alle Skigebietsinfos in Echtzeit direkt vor das Auge und sorgt dafür,
+          dass man an keiner schönen Hütte oder keinem herausragenden Fotopoint mehr vorbeifährt.
+          Außerdem kann man sich vom Live-Navi den kurzesten Weg einblenden lassen.
+        </p>
+        <br>
+
+          Das kann die Smarte Skibrille:
+          <ul>
+            <li>Pistennavigation</li>
+            <li>Entfernung und Richtung zu allen interessanten Punkten in der gesamten Dachstein West Region (Achtung: Alle Angaben in Luftlinie!)</li>
+            <li>Lift- und Pistenstatus</li>
+            <li>Aktuelle Wetterinformationen, sowie stunden- und tageweise Wettervorschau</li>
+            <li>Die Geschwindigkeitsfunktion kann mit einem individuellen Schwellenwert eingestellt werden!</li>
+            <li>Distanz tracking</li>
+            <li>Skitag Statistisch zusammenfassen</li>
+            <li>An konkrete Nutzerbedürfnisse anpassbar</li>
+          </ul>
+          <br>
+        </div>
+       </div>
       </section>
 
       <section id="Überuns">
@@ -71,5 +104,11 @@
         <h2 id="headline">Kontakt</h2>
       </section>
     </div>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1400,
+    });
+  </script>
   </body>
 </html>
