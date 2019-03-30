@@ -44,6 +44,7 @@ h2 {
   text-align: center;
   user-select: none;
   text-transform: uppercase;
+  font-family: 'Gotham Light';
 }
 
 nav {
@@ -62,6 +63,7 @@ nav {
   height: 7vh;
   background-color: white;
   font-weight: bold;
+  z-index: 101;
 }
 
 #accPopUp {
@@ -194,6 +196,29 @@ button:hover {
   background-color: white;
   position: relative;
   top: 40vh;
+}
+
+#Funktionen {
+  font-family: 'Roboto', sans-serif;
+}
+
+#Funktionen #textWrapper {
+  width: 35vw;
+  margin-right: 5vw;
+  text-align: justify;
+  font-weight: 300;
+  line-height: 1.75em;
+}
+
+#Funktionen img {
+  width: 50vw;
+  display: block;
+  z-index: -101;
+}
+
+#Funktionen label {
+  position: absolute;
+  left: 0px;
 }
 
 /* @keyframes startAnimation {
