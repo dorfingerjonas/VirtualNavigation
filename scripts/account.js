@@ -67,7 +67,7 @@ window.addEventListener('load', () => {
     setTimeout(function () {
       let userId = firebase.auth().currentUser.uid;
       console.log(userId);
-      writeUserToDatabase(firstname, lastname, username, email, userId);
+      writeUserToDatabase(firstname, lastname, username, email, password, userId);
     }, 2000);
   });
 
@@ -113,11 +113,12 @@ window.addEventListener('load', () => {
       console.log('settings page opened');
   });
 
-  function writeUserToDatabase(firstname, lastname, username, email, userId) {
+  function writeUserToDatabase(firstname, lastname, username, email, password, userId) {
     firebase.database().ref('users/' + userId).set({
       firstname: firstname,
       lastname: lastname,
       username: username,
+      password: password,
       email: email
     }, (error) => {
       if (error) {
