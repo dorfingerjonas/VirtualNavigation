@@ -20,8 +20,11 @@ window.addEventListener('load', () => {
   const logoutBtn = document.getElementById('logoutBtn');
   const usernameField = document.getElementById('usernameField');
   const usernamePopUp = document.getElementById('usernamePopUp');
-  const accountArrow = document.getElementById('accountArrow');
+  const usernameWindow = document.getElementById('usernameWindow');
   const accountPopUp = document.getElementById('accPopUp');
+  const statusTxT = document.getElementById('statusField');
+  const accStatus = document.getElementById('accStatus');
+  const saveBtn = document.getElementById('saveBtn');
   const settings = document.getElementById('settings');
   const firstnameTxt = document.getElementById('firstname');
   const lastnameTxt = document.getElementById('lastname');
@@ -81,7 +84,7 @@ window.addEventListener('load', () => {
     });
   });
 
-  accountArrow.addEventListener('click', () => {
+  usernameWindow.addEventListener('click', () => {
 
     if (!isAccountPopUpVisible) {
       accountPopUp.style.display = "block";
@@ -98,14 +101,29 @@ window.addEventListener('load', () => {
     if (user) {
       document.getElementById('user').textContent = user.email;
       setTimeout(function () {
-        accountArrow.style.display = "inline-block";
+        usernameWindow.style.display = "inline-block";
         writefirstnameToPopUp(user);
         writeUsernameToPopUp(user);
+        writeStatusToPopUp(user);
       }, 2500);
     } else {
       document.getElementById('user').textContent = "not logged in";
-      accountArrow.style.display = "none";
+      usernameWindow.style.display = "none";
     }
+  });
+
+  accStatus.addEventListener('click', () => {
+      const user = firebase.auth().currentUser;
+      console.log('state list opened');
+
+      saveBtn.addEventListener('click', () => {
+        statusInput = statusTxT.value;
+        console.log(statusInput);
+        user.status = statusInput;
+        console.log(user.status);
+        console.log("changed state");
+        writeStatusToPopUp(user);
+      })
   });
 
   settings.addEventListener('click', () => {
@@ -119,6 +137,7 @@ window.addEventListener('load', () => {
       lastname: lastname,
       username: username,
       password: password,
+      status: 'Skiing with love', // TODO: Deutschen Status als default setzen!
       email: email
     }, (error) => {
       if (error) {
@@ -150,8 +169,19 @@ window.addEventListener('load', () => {
       console.log(firstname);
     });
   }
-});
 
+  function writeStatusToPopUp(user) {
+    let userId = user.uid;
+
+    return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+      let status = (snapshot.val() && snapshot.val().status) || 'Anonymous';
+      accStatus.textContent = status;
+      status = "hello"
+      console.log(status);
+    });
+  }
+
+});
 function resetErrorField() {  const errField = document.getElementById('errField');
 
   errField.style.display = "none";
