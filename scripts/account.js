@@ -119,8 +119,8 @@ window.addEventListener('load', () => {
       saveBtn.addEventListener('click', () => {
         statusInput = statusTxT.value;
         console.log(statusInput);
-        user.status = statusInput;
-        console.log(user.status);
+        setNewStatus(user, statusInput);
+        // user.status = statusInput;
         console.log("changed state");
         writeStatusToPopUp(user);
       })
@@ -176,13 +176,21 @@ window.addEventListener('load', () => {
     return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
       let status = (snapshot.val() && snapshot.val().status) || 'Anonymous';
       accStatus.textContent = status;
-      status = "hello"
       console.log(status);
     });
   }
 
+  function setNewStatus(user, newStatus) {
+    firebase.database().ref('/users/UjTQ4UX33AYiGCHBr9rlxcHxcs62').update({
+      status: 'hello genusstreff'
+    });
+  }
+  user.status = newStatus;
+  console.log(user.status);
 });
-function resetErrorField() {  const errField = document.getElementById('errField');
+
+function resetErrorField() {
+  const errField = document.getElementById('errField');
 
   errField.style.display = "none";
   errField.textContent = "";
