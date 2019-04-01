@@ -25,7 +25,6 @@ window.addEventListener('load', () => {
   const statusTxT = document.getElementById('statusField');
   const accStatus = document.getElementById('accStatus');
   const saveBtn = document.getElementById('saveBtn');
-  const statusPopUp = document.getElementById('statusPopUp');
   const settings = document.getElementById('settings');
   const firstnameTxt = document.getElementById('firstname');
   const lastnameTxt = document.getElementById('lastname');
@@ -115,19 +114,19 @@ window.addEventListener('load', () => {
 
   accStatus.addEventListener('click', () => {
       const user = firebase.auth().currentUser;
-      statusPopUp.style.display = "block";
+      const statusWrapper = document.getElementById('statusWrapper');
+      statusWrapper.style.display = "flex";
       console.log('state list opened');
 
       saveBtn.addEventListener('click', () => {
         statusInput = statusTxT.value;
         console.log(statusInput);
         setNewStatus(user, statusInput);
-        // user.status = statusInput;
         console.log("changed state");
         writeStatusToPopUp(user);
       });
       document.getElementById('closeStatus').addEventListener('click', () => {
-        statusPopUp.style.display = "none";
+        statusWrapper.style.display = "none";
         console.log("closed state list");
       });
   });
