@@ -25,6 +25,7 @@ window.addEventListener('load', () => {
   const statusTxT = document.getElementById('statusField');
   const accStatus = document.getElementById('accStatus');
   const saveBtn = document.getElementById('saveBtn');
+  const statusPopUp = document.getElementById('statusPopUp');
   const settings = document.getElementById('settings');
   const firstnameTxt = document.getElementById('firstname');
   const lastnameTxt = document.getElementById('lastname');
@@ -114,6 +115,7 @@ window.addEventListener('load', () => {
 
   accStatus.addEventListener('click', () => {
       const user = firebase.auth().currentUser;
+      statusPopUp.style.display = "block";
       console.log('state list opened');
 
       saveBtn.addEventListener('click', () => {
@@ -123,7 +125,11 @@ window.addEventListener('load', () => {
         // user.status = statusInput;
         console.log("changed state");
         writeStatusToPopUp(user);
-      })
+      });
+      document.getElementById('closeStatus').addEventListener('click', () => {
+        statusPopUp.style.display = "none";
+        console.log("closed state list");
+      });
   });
 
   settings.addEventListener('click', () => {
@@ -181,12 +187,10 @@ window.addEventListener('load', () => {
   }
 
   function setNewStatus(user, newStatus) {
-    firebase.database().ref('/users/UjTQ4UX33AYiGCHBr9rlxcHxcs62').update({
-      status: 'hello genusstreff'
+    firebase.database().ref('/users/' + user.uid).update({
+      status: newStatus
     });
   }
-  user.status = newStatus;
-  console.log(user.status);
 });
 
 function resetErrorField() {

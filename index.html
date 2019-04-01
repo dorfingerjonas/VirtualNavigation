@@ -20,28 +20,31 @@
   <body>
     <div id="Home">
       <h1 id="headline">Virtual Skiarea-navigation</h1>
-        <nav id="nav">
-          <a title="Home" href="#Home">Home</a>
-          <a title="Account" href="#Account">Account</a>
-          <a title="Funktionen" href="#Funktionen">Funktionen</a>
-          <a title="Über uns" href="#Überuns">Über uns</a>
-          <a title="Kontaktiere uns" href="#Kontakt">Kontaktiere uns</a>
-          <p id="usernameWindow"> <span id="usernameField"></span>&nbsp;<i class="fas fa-sort-down"></i></p>
-          <ul id="accPopUp">
-            <li>Signed in as <span id="usernamePopUp"></span> </li>
-            <hr>
-            <li id="accStatus"></li>
-            <hr>
-            <li id="settings"><i title="Einstellungen" class="fas fa-cogs"></i> Einstellungen</li>
-            <li id="logoutBtn"><i title="Ausloggen" class="fas fa-sign-out-alt"></i> Abmelden</li>
-          </ul>
-        </nav>
+      <nav id="nav">
+        <a title="Home" href="#Home">Home</a>
+        <a title="Account" href="#Account">Account</a>
+        <a title="Funktionen" href="#Funktionen">Funktionen</a>
+        <a title="Über uns" href="#Überuns">Über uns</a>
+        <a title="Kontaktiere uns" href="#Kontakt">Kontaktiere uns</a>
+        <p id="usernameWindow"> <span id="usernameField"></span>&nbsp;<i class="fas fa-sort-down"></i></p>
+        <ul id="accPopUp">
+          <li>Signed in as <span id="usernamePopUp"></span> </li>
+          <hr>
+          <li id="accStatus"></li>
+          <hr>
+          <li id="settings"><i title="Einstellungen" class="fas fa-cogs"></i> Einstellungen</li>
+          <li id="logoutBtn"><i title="Ausloggen" class="fas fa-sign-out-alt"></i> Abmelden</li>
+        </ul>
+      </nav>
 
+      <div id="statusWrapper">
         <div id="statusPopUp">
+          <i id="closeStatus" class="far fa-times-circle"></i>
           <p>Geben Sie Ihren neuen Status ein:</p>
-          <input type="text" value="" id="statusField" placeholder="neuer Status">
+          <input type="text" value="" id="statusField" placeholder="neuer Status" maxlength="20">
           <button type="button" id="saveBtn">Speichern</button>
         </div>
+      </div>
 
       <section id="homeSection">
 
