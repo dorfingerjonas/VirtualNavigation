@@ -61,6 +61,7 @@ window.addEventListener('load', () => {
     const auth = firebase.auth();
 
     resetErrorField();
+
     const promise = auth.createUserWithEmailAndPassword(email, password);
     promise.catch((error) => {
 
@@ -85,13 +86,37 @@ window.addEventListener('load', () => {
     });
   });
 
-  usernameWindow.addEventListener('click', () => {
+  // usernameWindow.addEventListener('click', () => {
+  //
+  //   let addClickListener = () => {
+  //     window.addEventListener('click', clickEvent);
+  //     usernameWindow.removeEventListener('mouseup', addClickListener);
+  //   }
+  //
+  //   let clickEvent = (event) => {
+  //     let isChild = false;
+  //
+  //     for (let child of accountPopUp.childNodes) {
+  //       if (event.target === child) {
+  //         isChild = true;
+  //       }
+  //     }
+  //
+  //     if (!isChild) {
+  //       accountPopUp.style.display = "none";
+  //       window.removeEventListener('click', clickEvent);
+  //       isAccountPopUpVisible = false;
+  //     }
+  //   };
+  //
+  //   usernameWindow.addEventListener('mouseup', addClickListener);
 
+  usernameWindow.addEventListener('click', () => {
     if (!isAccountPopUpVisible) {
       accountPopUp.style.display = "block";
       accountPopUp.style.top = "2vw";
-      accountPopUp.style.right = "12vw";
-      isAccountPopUpVisible = true;
+      accountPopUp.style.right = "6.5vw";
+     isAccountPopUpVisible = true;
     } else {
       accountPopUp.style.display = "none";
       isAccountPopUpVisible = false;
