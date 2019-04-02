@@ -12,6 +12,7 @@ window.addEventListener('load', () => {
 
   let database = firebase.database();
 
+  const body = document.getElementById('body');
   const errField = document.getElementById('errField');
   const emailTxt = document.getElementById('email');
   const passwordTxt = document.getElementById('password');
@@ -115,7 +116,7 @@ window.addEventListener('load', () => {
   accStatus.addEventListener('click', () => {
       const user = firebase.auth().currentUser;
       const statusWrapper = document.getElementById('statusWrapper');
-      statusWrapper.style.display = "flex";
+      changeDisplayProperty('statusWrapper', 'flex');
       console.log('state list opened');
 
       saveBtn.addEventListener('click', () => {
@@ -125,8 +126,9 @@ window.addEventListener('load', () => {
         console.log("changed state");
         writeStatusToPopUp(user);
       });
+
       document.getElementById('closeStatus').addEventListener('click', () => {
-        statusWrapper.style.display = "none";
+        changeDisplayProperty('statusWrapper', 'none');
         console.log("closed state list");
       });
   });
@@ -197,4 +199,8 @@ function resetErrorField() {
 
   errField.style.display = "none";
   errField.textContent = "";
+}
+
+function changeDisplayProperty(id, property) {
+  document.getElementById(id).style.display = property;
 }
