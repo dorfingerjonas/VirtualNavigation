@@ -13,7 +13,6 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   font-family: 'Gotham Light';
-
   color: black;
   display: flex;
   align-items: center;
@@ -59,7 +58,6 @@ nav {
   align-items: center;
   text-align: center;
   font-size: 110%;
-  text-align: center;
   height: 7vh;
   background-color: white;
   font-weight: bold;
@@ -112,7 +110,7 @@ i {
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   margin: 0;
   background-repeat: space;
@@ -235,9 +233,13 @@ button:hover {
 
 #statusPopUp {
   font-family: 'Roboto', sans-serif;
-  width: 27vw;
+  width: 30vw;
   text-align: center;
-
+  background-color: white;
+  box-shadow: 2px 2px 5px 3px rgba(143,143,143,0.8);
+  border-radius: 10px;
+  z-index: 101;
+  padding: 7px;
 }
 
 #closeStatus {
@@ -247,6 +249,7 @@ button:hover {
 
 #statusPopUp p {
   font-size: 130%;
+  user-select: none;
 }
 
 #statusPopUp input {
@@ -270,6 +273,7 @@ button:hover {
   font-weight: thin;
   font-size: 100%;
   margin: 20px;
+  user-select: none;
 }
 
 /* @keyframes startAnimation {
