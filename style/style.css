@@ -83,6 +83,11 @@ nav {
   margin: 5%;
 }
 
+#accPopUp #accStatus:hover {
+  color: blue;
+  cursor: pointer;
+}
+
 #accPopUp li i {
   margin-right: 5px;
 }
