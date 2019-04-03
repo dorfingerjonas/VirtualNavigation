@@ -28,9 +28,9 @@
         <a title="Kontaktiere uns" href="#Kontakt">Kontaktiere uns</a>
         <p id="usernameWindow"> <span id="usernameField"></span>&nbsp;<i class="fas fa-sort-down"></i></p>
         <ul id="accPopUp">
-          <li>Signed in as <span id="usernamePopUp"></span> </li>
+          <li>Signed in as <span title="Username" id="usernamePopUp"></span> </li>
           <hr>
-          <li id="accStatus"></li>
+          <li title="Status" id="accStatus"></li>
           <hr>
           <li id="settings"><i title="Einstellungen" class="fas fa-cogs"></i> Einstellungen</li>
           <li id="logoutBtn"><i title="Ausloggen" class="fas fa-sign-out-alt"></i> Abmelden</li>
@@ -61,6 +61,7 @@
             <input id='password' class="accountElm" type='password' placeholder='Passwort'>
             <p id="errField" class="errorField"></p>
             <button id="loginBtn" class="accountElm" type="button">Log In</button>
+            <p id="asuTextField">Bereits Registriert? <span id="alreadySignedUp">Anmelden</span> </p>
             <button id="signupBtn" class="accountElm" type="button">Sign Up</button>
 
             <p id="user"></p>
