@@ -23,10 +23,12 @@
       <h1 id="headline">Virtual Skiarea-navigation</h1>
       <nav id="nav">
         <a title="Home" href="#Home">Home</a>
-        <a title="Account" href="#Account">Account</a>
         <a title="Funktionen" href="#Funktionen">Funktionen</a>
         <a title="Über uns" href="#Überuns">Über uns</a>
         <a title="Kontaktiere uns" href="#Kontakt">Kontaktiere uns</a>
+
+        <a title="Anmelden" id="accountNav">Anmelden</a>
+
         <p id="usernameWindow"> <span id="usernameField"></span>&nbsp;<i class="fas fa-sort-down"></i></p>
         <ul id="accPopUp">
           <li>Signed in as <span title="Username" id="usernamePopUp"></span> </li>
@@ -38,39 +40,42 @@
         </ul>
       </nav>
 
+      <div id="accountWindow">
+        <div id="Account">
+          <div class="xWrapper"><i id="closeAccountWndw" class="material-icons">&#xe5cd;</i></div>
+          <h2 id="headline">Account</h2>
+          <div class="alignToCenter">
+            <form id='anmelden' action='index.html' method='post'>
+              <input id='firstname' class="accountElm" type='text' placeholder='Vorname'>
+              <input id='lastname' class="accountElm" type='text' placeholder='Nachname'>
+              <input id='username' class="accountElm" type='text' placeholder='Benutzername'>
+              <input id='email' class="accountElm" type='email' placeholder='Email'>
+              <input id='password' class="accountElm" type='password' placeholder='Passwort'>
+
+              <p id="errField"></p>
+
+              <button id="signupBtn" class="accountElm" type="button">Sign Up</button>
+              <button id="loginBtn" class="accountElm" type="button">Log In</button>
+
+              <p id="asuTextFieldSignIn">Bereits Registriert? <span id="alreadySignedUp">Anmelden</span></p>
+              <p id="asuTextFieldSignUp">Noch nicht Registriert? <span id="notSignedUp">Registrieren</span></p>
+
+              <p id="user"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <div id="statusWrapper">
         <div id="statusPopUp">
-          <div id="xWrapper"><i id="closeStatus" class="material-icons">&#xe5cd;</i></div>
+          <div class="xWrapper"><i id="closeStatus" class="material-icons">&#xe5cd;</i></div>
           <p>Geben Sie Ihren neuen Status ein:</p>
           <input type="text" value="" id="statusField" placeholder="neuer Status" maxlength="20">
           <button type="button" id="saveBtn">Speichern</button>
         </div>
       </div>
 
-      <section id="homeSection">
-
-      </section>
-
-      <section id="Account">
-        <h2 id="headline">Account</h2>
-        <div class="alignToCenter">
-          <form id='anmelden' action='index.html' method='post'>
-            <input id='firstname' class="accountElm" type='text' placeholder='Vorname'>
-            <input id='lastname' class="accountElm" type='text' placeholder='Nachname'>
-            <input id='username' class="accountElm" type='text' placeholder='Benutzername'>
-            <input id='email' class="accountElm" type='email' placeholder='Email'>
-            <input id='password' class="accountElm" type='password' placeholder='Passwort'>
-            <p id="errField"></p>
-            <button id="signupBtn" class="accountElm" type="button">Sign Up</button>
-            <button id="loginBtn" class="accountElm" type="button">Log In</button>
-            <p id="asuTextFieldSignIn">Bereits Registriert? <span id="alreadySignedUp">Anmelden</span></p>
-            <p id="asuTextFieldSignUp">Noch nicht Registriert? <span id="notSignedUp">Registrieren</span></p>
-
-            <p id="user"></p>
-
-          </form>
-        </div>
-      </section>
+      <section id="homeSection"></section>
 
       <section id="Funktionen">
         <h2 id="headline">Funktionen</h2>

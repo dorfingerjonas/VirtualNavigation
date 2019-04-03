@@ -33,7 +33,7 @@ window.addEventListener('load', () => {
   const firstnameTxt = document.getElementById('firstname');
   const lastnameTxt = document.getElementById('lastname');
   const usernameTxt = document.getElementById('username');
-  let isAccountPopUpVisible = false;
+  let isUserPopUpVisible = false;
 
   loginBtn.addEventListener('click', () => {
     console.log("login button pressed");
@@ -89,6 +89,17 @@ window.addEventListener('load', () => {
     });
   });
 
+  const accNav = document.getElementById('accountNav');
+  const accWindow = document.getElementById('accountWindow');
+  const closeAccountWndw = document.getElementById('closeAccountWndw');
+
+  accNav.addEventListener('click', () => {
+      changeDisplayProperty('accountWindow', 'flex');
+      closeAccountWndw.addEventListener('click', () => {
+        changeDisplayProperty('accountWindow', 'none');
+    })
+  });
+
   // usernameWindow.addEventListener('click', () => {
   //
   //   let addClickListener = () => {
@@ -108,36 +119,39 @@ window.addEventListener('load', () => {
   //     if (!isChild) {
   //       accountPopUp.style.display = "none";
   //       window.removeEventListener('click', clickEvent);
-  //       isAccountPopUpVisible = false;
+  //       isUserPopUpVisible = false;
   //     }
   //   };
   //
   //   usernameWindow.addEventListener('mouseup', addClickListener);
 
   usernameWindow.addEventListener('click', () => {
-    if (!isAccountPopUpVisible) {
+    if (!isUserPopUpVisible) {
       accountPopUp.style.display = "block";
       accountPopUp.style.top = "2vw";
       accountPopUp.style.right = "6.5vw";
-     isAccountPopUpVisible = true;
+     isUserPopUpVisible = true;
     } else {
       accountPopUp.style.display = "none";
-      isAccountPopUpVisible = false;
+      isUserPopUpVisible = false;
     }
   });
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       document.getElementById('user').textContent = user.email;
-      setTimeout(function () {
-        usernameWindow.style.display = "inline-block";
+      setTimeout(() => {
+        changeDisplayProperty('accountWindow', 'none');
+        changeDisplayProperty('accountNav', 'none');
+        changeDisplayProperty('usernameWindow', 'inline-block')
         writefirstnameToPopUp(user);
         writeUsernameToPopUp(user);
         writeStatusToPopUp(user);
       }, 2500);
     } else {
       document.getElementById('user').textContent = "not logged in";
-      usernameWindow.style.display = "none";
+      changeDisplayProperty('usernameWindow', 'none');
+      changeDisplayProperty('accountNav', 'inline-block');
     }
   });
 
