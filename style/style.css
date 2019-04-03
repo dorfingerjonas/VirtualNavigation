@@ -260,6 +260,13 @@ button:hover {
   padding: 7px;
 }
 
+#xWrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+
 #closeStatus {
   position: sticky;
   right: 0;
