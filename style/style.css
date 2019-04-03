@@ -170,6 +170,17 @@ button:hover {
   font-size: 100%;
   box-shadow: 1px 3px 5px 0px rgba(143,143,143,1);
   letter-spacing: .35px;
+  display: none;
+}
+
+#asuTextFieldSignUp {
+  display: none;
+}
+
+#anmelden span {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
 }
 
 #signupBtn {
@@ -185,11 +196,13 @@ button:hover {
   letter-spacing: .35px;
 }
 
+
+
 #logoutBtn, #settings {
   cursor: pointer;
 }
 
-.errorField {
+#errField {
   display: none;
 }
 

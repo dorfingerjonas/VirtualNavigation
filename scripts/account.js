@@ -16,9 +16,12 @@ window.addEventListener('load', () => {
   const errField = document.getElementById('errField');
   const emailTxt = document.getElementById('email');
   const passwordTxt = document.getElementById('password');
+  const anmelden = document.getElementById('anmelden');
   const loginBtn = document.getElementById('loginBtn');
   const signupBtn = document.getElementById('signupBtn');
   const logoutBtn = document.getElementById('logoutBtn');
+  const activateSignIn = document.getElementById('alreadySignedUp');
+  const activateSignUp = document.getElementById('notSignedUp');
   const usernameField = document.getElementById('usernameField');
   const usernamePopUp = document.getElementById('usernamePopUp');
   const usernameWindow = document.getElementById('usernameWindow');
@@ -217,6 +220,26 @@ window.addEventListener('load', () => {
       status: newStatus
     });
   }
+
+  activateSignIn.addEventListener('click', () => {
+    changeDisplayProperty('asuTextFieldSignIn', 'none');
+    changeDisplayProperty('signupBtn', 'none');
+    changeDisplayProperty('firstname', 'none');
+    changeDisplayProperty('lastname', 'none');
+    changeDisplayProperty('username', 'none');
+    changeDisplayProperty('loginBtn', 'block');
+    changeDisplayProperty('asuTextFieldSignUp', 'block');
+  });
+
+  activateSignUp.addEventListener('click', () => {
+    changeDisplayProperty('loginBtn', 'none');
+    changeDisplayProperty('asuTextFieldSignUp', 'none');
+    changeDisplayProperty('asuTextFieldSignIn', 'block');
+    changeDisplayProperty('signupBtn', 'block');
+    changeDisplayProperty('firstname', 'block');
+    changeDisplayProperty('lastname', 'block');
+    changeDisplayProperty('username', 'block');
+  })
 });
 
 function resetErrorField() {
