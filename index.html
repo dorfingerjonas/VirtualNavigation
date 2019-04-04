@@ -43,25 +43,32 @@
         <div id="Account">
           <div class="xWrapper"><i id="closeAccountWndw" class="material-icons">&#xe5cd;</i></div>
           <h2 id="headline">Account</h2>
-          <div class="alignToCenter">
-            <form id='anmelden' action='index.html' method='post'>
-              <input id='firstname' class="accountElm" type='text' placeholder='Vorname'>
-              <input id='lastname' class="accountElm" type='text' placeholder='Nachname'>
-              <input id='username' class="accountElm" type='text' placeholder='Benutzername'>
-              <input id='email' class="accountElm" type='email' placeholder='Email'>
-              <input id='password' class="accountElm" type='password' placeholder='Passwort'>
+          <div id="login">
+            <div class="alignToCenter">
+              <form id='anmelden' action='index.html' method='post'>
+                <input id='firstname' class="accountElm" type='text' placeholder='Vorname'>
+                <input id='lastname' class="accountElm" type='text' placeholder='Nachname'>
+                <input id='username' class="accountElm" type='text' placeholder='Benutzername'>
+                <input id='emailSignIn' class="accountElm" type='email' placeholder='Email'>
+                <input id='passwordSignIn' class="accountElm" type='password' placeholder='Passwort'>
+                <button id="loginBtn" class="accountElm" type="button">Log In</button>
+                <p id="asuTextFieldSignUp">Noch nicht Registriert? <span id="notSignedUp">Registrieren</span></p>
+            </div>
+          </div>
+          <div id="signup">
+            <input id='emailSignUp' class="accountElm" type='email' placeholder='Email'>
+            <input id='passwordSignUp' class="accountElm" type='password' placeholder='Passwort'>
+
+            <button id="signupBtn" class="accountElm" type="button">Sign Up</button>
+
+            <p id="asuTextFieldSignIn">Bereits Registriert? <span id="alreadySignedUp">Anmelden</span></p>
+          </div>
+
+
 
               <p id="errField"></p>
-
-              <button id="signupBtn" class="accountElm" type="button">Sign Up</button>
-              <button id="loginBtn" class="accountElm" type="button">Log In</button>
-
-              <p id="asuTextFieldSignIn">Bereits Registriert? <span id="alreadySignedUp">Anmelden</span></p>
-              <p id="asuTextFieldSignUp">Noch nicht Registriert? <span id="notSignedUp">Registrieren</span></p>
-
               <p id="user"></p>
             </form>
-          </div>
         </div>
       </div>
 

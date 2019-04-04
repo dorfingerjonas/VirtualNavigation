@@ -33,6 +33,9 @@ window.addEventListener('load', () => {
   const firstnameTxt = document.getElementById('firstname');
   const lastnameTxt = document.getElementById('lastname');
   const usernameTxt = document.getElementById('username');
+  const accNav = document.getElementById('accountNav');
+  const accWindow = document.getElementById('accountWindow');
+  const closeAccountWndw = document.getElementById('closeAccountWndw');
   let isUserPopUpVisible = false;
 
   loginBtn.addEventListener('click', () => {
@@ -89,9 +92,6 @@ window.addEventListener('load', () => {
     });
   });
 
-  const accNav = document.getElementById('accountNav');
-  const accWindow = document.getElementById('accountWindow');
-  const closeAccountWndw = document.getElementById('closeAccountWndw');
 
   accNav.addEventListener('click', () => {
       changeDisplayProperty('accountWindow', 'flex');
