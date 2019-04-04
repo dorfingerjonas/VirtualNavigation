@@ -62,6 +62,7 @@ nav {
   background-color: white;
   font-weight: bold;
   z-index: 101;
+  transition: box-shadow 0.1s linear;
 }
 
 #accPopUp {
@@ -147,6 +148,8 @@ button:hover {
   justify-content: center;
   align-items: center;
   z-index: 50;
+  font-size: 90%;
+  transition: top 0.1s linear;
 }
 
 #Account {
@@ -156,6 +159,12 @@ button:hover {
   height: 60vh;
   box-shadow: 2px 2px 5px 3px rgba(143,143,143,0.8);
   border-radius: 7px;
+}
+
+#Account h2 {
+  margin-bottom: 2%;
+  margin-top: 0;
+  font-size: 250%;
 }
 
 #Account #anmelden  {
