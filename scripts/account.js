@@ -14,9 +14,7 @@ window.addEventListener('load', () => {
 
   const body = document.getElementById('body');
   const errField = document.getElementById('errField');
-  const emailTxt = document.getElementById('email');
-  const passwordTxt = document.getElementById('password');
-  const anmelden = document.getElementById('anmelden');
+  const anmelden = document.getElementById('anmelden'); // jetzt class: accountForm
   const loginBtn = document.getElementById('loginBtn');
   const signupBtn = document.getElementById('signupBtn');
   const logoutBtn = document.getElementById('logoutBtn');
@@ -30,9 +28,6 @@ window.addEventListener('load', () => {
   const accStatus = document.getElementById('accStatus');
   const saveBtn = document.getElementById('saveBtn');
   const settings = document.getElementById('settings');
-  const firstnameTxt = document.getElementById('firstname');
-  const lastnameTxt = document.getElementById('lastname');
-  const usernameTxt = document.getElementById('username');
   const accNav = document.getElementById('accountNav');
   const accWindow = document.getElementById('accountWindow');
   const closeAccountWndw = document.getElementById('closeAccountWndw');
@@ -40,16 +35,17 @@ window.addEventListener('load', () => {
 
   loginBtn.addEventListener('click', () => {
     console.log("login button pressed");
-    const email = emailTxt.value;
-    const password = passwordTxt.value;
+    const email = document.getElementById('emailSignIn').value;
+    const password = document.getElementById('passwordSignIn').value;
     const auth = firebase.auth();
 
     resetErrorField();
+    changeDisplayProperty('errField', 'none');
 
     const promise = auth.signInWithEmailAndPassword(email, password);
     promise.catch((error) => {
 
-      errField.style.display = "block";
+      changeDisplayProperty('errField', 'block');
       errField.textContent = error.message;
 
     });
@@ -57,21 +53,22 @@ window.addEventListener('load', () => {
   });
 
   signupBtn.addEventListener('click', () => {
-
     console.log("signup button pressed");
-    const email = emailTxt.value;
-    const password = passwordTxt.value;
-    const firstname = firstnameTxt.value;
-    const lastname = lastnameTxt.value;
-    const username = usernameTxt.value;
+
+    const email = document.getElementById('emailSignUp').value;
+    const password = document.getElementById('passwordSignUp').value;
+    const firstname = document.getElementById('firstname').value;
+    const lastname = document.getElementById('lastname').value;
+    const username = document.getElementById('username').value;
     const auth = firebase.auth();
 
     resetErrorField();
+    changeDisplayProperty('errField', 'none');
 
     const promise = auth.createUserWithEmailAndPassword(email, password);
     promise.catch((error) => {
 
-      errField.style.display = "block";
+      changeDisplayProperty('errField', 'block');
       errField.textContent = error.message;
     });
 
@@ -139,7 +136,7 @@ window.addEventListener('load', () => {
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      document.getElementById('user').textContent = user.email;
+      console.log(user.email);
       setTimeout(() => {
         changeDisplayProperty('accountWindow', 'none');
         changeDisplayProperty('accountNav', 'none');
@@ -149,7 +146,7 @@ window.addEventListener('load', () => {
         writeStatusToPopUp(user);
       }, 2500);
     } else {
-      document.getElementById('user').textContent = "not logged in";
+      console.log("not logged in");
       changeDisplayProperty('usernameWindow', 'none');
       changeDisplayProperty('accountNav', 'inline-block');
     }
@@ -235,24 +232,15 @@ window.addEventListener('load', () => {
     });
   }
 
+  // const activateSignIn = document.getElementById('alreadySignedUp');
+  // const activateSignUp = document.getElementById('notSignedUp');
+
   activateSignIn.addEventListener('click', () => {
-    changeDisplayProperty('asuTextFieldSignIn', 'none');
-    changeDisplayProperty('signupBtn', 'none');
-    changeDisplayProperty('firstname', 'none');
-    changeDisplayProperty('lastname', 'none');
-    changeDisplayProperty('username', 'none');
-    changeDisplayProperty('loginBtn', 'block');
-    changeDisplayProperty('asuTextFieldSignUp', 'block');
+    document.getElementById('accountWrapper').style.left = '-25vw';
   });
 
   activateSignUp.addEventListener('click', () => {
-    changeDisplayProperty('loginBtn', 'none');
-    changeDisplayProperty('asuTextFieldSignUp', 'none');
-    changeDisplayProperty('asuTextFieldSignIn', 'block');
-    changeDisplayProperty('signupBtn', 'block');
-    changeDisplayProperty('firstname', 'block');
-    changeDisplayProperty('lastname', 'block');
-    changeDisplayProperty('username', 'block');
+    document.getElementById('signup').style.left = '0';
   })
 });
 
