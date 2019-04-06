@@ -138,6 +138,11 @@ button:hover {
   justify-content: center;
 }
 
+
+
+
+/*Account Style*/
+
 #accountWindow {
   position: fixed;
   top: 5vw;
@@ -159,19 +164,22 @@ button:hover {
   height: 60vh;
   box-shadow: 2px 2px 5px 3px rgba(143,143,143,0.8);
   border-radius: 7px;
+  overflow: hidden;
 }
 
-#Account h2 {
+#Account #headline {
   margin-bottom: 2%;
   margin-top: 0;
-  font-size: 250%;
+  font-size: 170%;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
 
-#Account #anmelden  {
+#Account .accountForm  {
   width: 20vw;
 }
 
-#Account #anmelden input {
+#Account .accountForm input {
   border-radius: 5px;
   outline: none;
   border: #1a73e8 2px solid;
@@ -197,18 +205,20 @@ button:hover {
   font-size: 100%;
   box-shadow: 1px 3px 5px 0px rgba(143,143,143,1);
   letter-spacing: .35px;
-  display: none;
   user-select: none;
 }
 
-#asuTextFieldSignUp {
-  display: none;
-}
-
-#anmelden span {
+#Account span {
   text-decoration: underline;
   color: blue;
   cursor: pointer;
+}
+
+#accountWrapper {
+  width: 50vw;
+  transition: all 0.7 ease-out;
+  position: relative;
+  /* left: 0; */
 }
 
 #signupBtn {
@@ -242,25 +252,24 @@ button:hover {
   top: 40vh;
 }
 
-#Funktionen {
+section {
   font-family: 'Roboto', sans-serif;
 }
 
-#Funktionen #textWrapper {
+.textWrapper {
   width: 35vw;
-  margin-right: 5vw;
   text-align: justify;
   font-weight: 300;
   line-height: 1.75em;
 }
 
-#Funktionen img {
+img {
   width: 50vw;
   display: block;
   z-index: -101;
 }
 
-#Funktionen label {
+label {
   position: absolute;
   left: 0px;
 }
