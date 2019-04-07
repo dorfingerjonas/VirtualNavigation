@@ -38,7 +38,7 @@
           <li title="Status" id="accStatus"></li>
           <hr>
           <li title="Einstellungen" id="settings"><i class="fas fa-cogs"></i> Einstellungen</li>
-          <li title="Ausloggen" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Abmelden</li>
+          <li title="Abmelden" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Abmelden</li>
         </ul>
       </nav>
 
@@ -46,7 +46,6 @@
         <div id="Account">
           <div class="xWrapper"><i id="closeAccountWndw" class="material-icons">&#xe5cd;</i></div>
           <p id="headline">Account</p>
-          <div id="accountWrapper">
             <div id="signup">
               <div class="alignToCenter">
                 <form class="accountForm" action='index.html' method='post'>
@@ -56,6 +55,7 @@
                   <input id='emailSignUp' class="accountElm" type='email' placeholder='Email'>
                   <input id='passwordSignUp' class="accountElm" type='password' placeholder='Passwort'>
                   <button id="signupBtn" class="accountElm" type="button">Sign Up</button>
+                  <p id="errField"></p>
                 </form>
               </div>
               <p id="asuTextFieldSignIn" style="margin-left: 3vw">Bereits Registriert? <span id="alreadySignedUp">Anmelden</span></p>
@@ -67,11 +67,10 @@
                   <input id='passwordSignIn' class="accountElm" type='password' placeholder='Passwort'>
                   <button id="loginBtn" class="accountElm" type="button">Log In</button>
                   <p id="asuTextFieldSignUp">Noch nicht Registriert? <span id="notSignedUp">Registrieren</span></p>
+                  <p id="errField"></p>
                 </form>
               </div>
             </div>
-          </div>
-            <p id="errField"></p>
         </div>
       </div>
 
