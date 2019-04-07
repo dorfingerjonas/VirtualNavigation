@@ -244,6 +244,20 @@ button:hover {
   display: none;
 }
 
+#signin {
+  transition: right 500ms ease-out;
+  position: relative;
+  right: -25vw;
+  top: 0;
+}
+
+#signup {
+  transition: left 500ms ease-out;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
 .contentWrapper {
   height: 50vh;
   width: 100vw;
