@@ -152,12 +152,17 @@
 
       <section id="Kontakt">
         <h2>Kontakt</h2>
-        <input type="text" value="" placeholder="Vorname">
-        <input type="text" value="" placeholder="Nachname">
-        <input type="email" value="" placeholder="E-Mail Adresse">
-        <input type="text" value="" placeholder="Nachricht">
-        <input type="checkbox" value=""> Ich habe die AGB und die Datenschutzbedingungen gelesen und stimme diesen zu.
-        <button type="button">Senden</button>
+        <div id="kontaktWrapper">
+          <form id="kontaktForm" action="index.html" method="post">
+            <input id="contactFirstname" type="text" value="" placeholder="Vorname">
+            <input id="contactLastname" type="text" value="" placeholder="Nachname">
+            <input id="contactMail" type="email" value="" placeholder="E-Mail Adresse">
+            <textarea placeholder="Nachricht" id="contactMessage" rows="8" cols="80"></textarea>
+            <input type="checkbox" id="contactCheckbox"> <label>Ich habe die AGB und die Datenschutzbedingungen gelesen und stimme diesen zu.</label>
+            <button type="button">Senden</button>
+          </form>
+          </div>
+        </div>
       </section>
     </div>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
