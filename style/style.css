@@ -234,7 +234,7 @@ button:hover {
   transition: right 500ms ease-out;
   position: relative;
   right: -25vw;
-  top: 0;
+  top: -33vh;
 }
 
 #signup {
