@@ -89,7 +89,6 @@ window.addEventListener('load', () => {
     });
   });
 
-
   accNav.addEventListener('click', () => {
       changeDisplayProperty('accountWindow', 'flex');
       closeAccountWndw.addEventListener('click', () => {
@@ -232,15 +231,14 @@ window.addEventListener('load', () => {
     });
   }
 
-  // const activateSignIn = document.getElementById('alreadySignedUp');
-  // const activateSignUp = document.getElementById('notSignedUp');
-
   activateSignIn.addEventListener('click', () => {
-    document.getElementById('accountWrapper').style.left = '-25vw';
+    document.getElementById('signup').style.left = '-25vw';
+    document.getElementById('signin').style.right = '0';
   });
 
   activateSignUp.addEventListener('click', () => {
     document.getElementById('signup').style.left = '0';
+    document.getElementById('signin').style.right = '-25vw';
   })
 });
 
