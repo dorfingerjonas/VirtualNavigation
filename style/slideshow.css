@@ -1,0 +1,47 @@
+#images {
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+#images img {
+  width: 60vw;
+  position: relative;
+}
+
+#iconWrapper {
+  width: 60vw;
+  height: 35vh;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 55%;
+}
+
+#iconWrapper i {
+  font-size: 450%;
+}
+
+#arrowRight {
+  position: absolute;
+  right: 0;
+  animation: arrowRightAnim 750ms ease-in-out infinite;
+}
+
+#arrowLeft {
+  position: absolute;
+  left: 0;
+  animation: arrowLeftAnim 750ms ease-in-out infinite;
+}
+
+@keyframes arrowLeftAnim {
+  0%   {left: 0}
+  50%  {left: 10px}
+  100% {left: 0}
+}
+
+@keyframes arrowRightAnim {
+  0%   {right: 0}
+  50%  {right: 10px}
+  100% {right: 0}
+}
