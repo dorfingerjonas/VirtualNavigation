@@ -3,11 +3,56 @@
   <head>
     <meta charset="utf-8">
     <title>Settings - Virtual Navigation</title>
+    <link rel="icon" href="../img/favicon.png">
+    <link rel="stylesheet" href="../style/settings.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
   </head>
   <body>
     <h1>SETTINGS</h1>
     <a href="../index.html">back</a>
-    <p>this page will be filled with content to edit yout account</p>
-    <h1>THIS IS A PLACEHOLDER FOR THE WHOLE PAGE CONTENT</h1>
+
+    <div id="wrapper">
+      <form id="settings" action="index.html" method="post">
+        <div id="statusWrapper">
+          <p>Status ändern</p>
+          <input type="text" value="" placeholder="neuer Status">
+          <br>
+          <button type="button" id="stateBtn">Speichern</button>
+        </div>
+
+        <div id="usernameWrapper">
+          <p>Username ändern</p>
+          <input type="text" value="" placeholder="Neuer Username">
+          <br>
+          <button type="button" id="usernameBtn">Speichern</button>
+        </div>
+
+        <div id="imageWrapper">
+          <p>Profilbild setzen</p>
+          <input type="file" value="" placeholder="Profilbild">
+          <br>
+          <button type="button" id="imageBtn">Speichern</button>
+        </div>
+
+        <div id="emailWrapper">
+          <p>E-Mail Adresse ändern</p>
+          <input type="email" value="" placeholder="Neue E-Mail Adresse">
+          <br>
+          <button type="button" id="emailBtn">Speichern</button>
+          <br>
+          <button type="button" id="verifyBtn">E-Mail Adresse Bestätigen</button>
+        </div>
+
+        <div id="passwordWrapper">
+          <p>Passwort zurücksetzen</p>
+          <input type="password" value="" placeholder="altes Passwort">
+          <input type="password" value="" placeholder="neues Passwort">
+          <input type="password" value="" placeholder="neues Passwort wiederholen">
+          <br>
+          <button type="button" id="passwordBtn">Speichern</button>
+        </div>
+      </form>
+    </div>
+
   </body>
 </html>
