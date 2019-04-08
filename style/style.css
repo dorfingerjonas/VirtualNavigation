@@ -160,6 +160,10 @@ button:hover {
   overflow: hidden;
 }
 
+#Account i {
+  margin: 7px;
+}
+
 #Account #headline {
   margin-bottom: 2%;
   margin-top: 0;
@@ -314,7 +318,7 @@ label {
   user-select: none;
 }
 
-#statusPopUp, #Kontakt input {
+#statusPopUp input, #Kontakt input {
   border-radius: 5px;
   outline: none;
   border: #1a73e8 2px solid;
