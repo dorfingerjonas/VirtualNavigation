@@ -75,7 +75,7 @@ window.addEventListener('load', () => {
     setTimeout(function () {
       let userId = firebase.auth().currentUser.uid;
       console.log(userId);
-      writeUserToDatabase(firstname, lastname, username, email, password, userId);
+      writeUserToDatabase(firstname, lastname, username, email, userId);
     }, 2000);
   });
 
@@ -176,12 +176,11 @@ window.addEventListener('load', () => {
       console.log('settings page opened');
   });
 
-  function writeUserToDatabase(firstname, lastname, username, email, password, userId) {
+  function writeUserToDatabase(firstname, lastname, username, email, userId) {
     firebase.database().ref('users/' + userId).set({
       firstname: firstname,
       lastname: lastname,
       username: username,
-      password: password,
       status: 'Skiing with love', // TODO: Deutschen Status als default setzen!
       email: email
     }, (error) => {
