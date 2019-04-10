@@ -234,14 +234,14 @@ button:hover {
 }
 
 #signin {
-  transition: right 500ms ease-out;
+  transition: right 250ms ease-out;
   position: relative;
   right: -25vw;
-  top: -33vh;
+  top: -37vh;
 }
 
 #signup {
-  transition: left 500ms ease-out;
+  transition: left 250ms ease-out;
   position: relative;
   left: 0;
   top: 0;
@@ -261,6 +261,7 @@ section {
 
 .textWrapper {
   width: 35vw;
+
   text-align: justify;
   font-weight: 300;
   line-height: 1.75em;
@@ -383,7 +384,13 @@ label {
 
 #Kontakt input {
   width: 100%;
-  margin: 2%;
+  margin: 1%;
+}
+
+#Kontakt input[type="checkbox"] {
+  width: 2%;
+  margin: 1%;
+  display: inline-block;
 }
 
 #Kontakt #contactMessage {
@@ -396,7 +403,7 @@ label {
   padding: 7px;
   font-size: 100%;
   resize: none;
-  margin: 2%;
+  margin: 1%;
 }
 
 #Kontakt label {
