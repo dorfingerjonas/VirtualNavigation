@@ -33,7 +33,7 @@
 
         <p id="usernameWindow"> <span id="usernameField"></span>&nbsp;<i class="fas fa-sort-down"></i></p>
         <ul id="accPopUp">
-          <li>Signed in as <span title="Username" id="usernamePopUp"></span> </li>
+          <li>Eingeloggt als: <span title="Username" id="usernamePopUp"></span> </li>
           <hr>
           <li title="Status" id="accStatus"></li>
           <hr>
@@ -80,6 +80,8 @@
           <p>Geben Sie Ihren neuen Status ein:</p>
           <input type="text" value="" id="statusField" placeholder="neuer Status" maxlength="20">
           <button type="button" id="saveBtn">Speichern</button>
+          <br>
+          <span id="statusRes"></span>
         </div>
       </div>
 
@@ -97,7 +99,7 @@
       <section id="Funktionen">
         <h2>Funktionen</h2>
         <div class="alignToCenter">
-        <div data-aos="fade-down">
+        <div data-aos="fade-down" style="z-index: -1">
           <img title="Smith IO Recon" src="img/skibrille.jpeg" alt="Skibrille">
         </div>
         <!-- <label>Skibrillen Model: Smith IO Recon</label> -->
