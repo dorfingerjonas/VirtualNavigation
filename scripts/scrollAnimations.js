@@ -5,10 +5,10 @@ window.addEventListener('load', () => {
   let interval =  setInterval(() => {
 
     if (scrollY > 130) {
-      navTag.style.boxShadow = '0px 7px 4px -2px rgba(184,184,184,1)';
+      navTag.style.boxShadow = '2px 2px 8px rgba(0,0,0,0.5)';
       accWndw.style.top = "0";
     } else {
-      navTag.style.boxShadow = '0px 0px 0px 0px rgba(184,184,184,1)';
+      navTag.style.boxShadow = 'none';
       accWndw.style.top = '5vw';
     }
   }, 10);
