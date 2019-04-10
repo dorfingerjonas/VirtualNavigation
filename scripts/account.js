@@ -72,11 +72,11 @@ window.addEventListener('load', () => {
       errField.textContent = error.message;
     });
 
-    setTimeout(function () {
+    promise.then(() => {
       let userId = firebase.auth().currentUser.uid;
       console.log(userId);
       writeUserToDatabase(firstname, lastname, username, email, userId);
-    }, 2000);
+    });
   });
 
   logoutBtn.addEventListener('click', () => {
@@ -136,14 +136,12 @@ window.addEventListener('load', () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       console.log(user.email);
-      setTimeout(() => {
         changeDisplayProperty('accountWindow', 'none');
         changeDisplayProperty('accountNav', 'none');
         changeDisplayProperty('usernameWindow', 'inline-block')
         writefirstnameToPopUp(user);
         writeUsernameToPopUp(user);
         writeStatusToPopUp(user);
-      }, 2500);
     } else {
       console.log("not logged in");
       changeDisplayProperty('usernameWindow', 'none');
