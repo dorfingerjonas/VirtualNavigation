@@ -2,15 +2,16 @@
   user-select: none;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #images img {
-  width: 60vw;
+  width: 40vw;
   position: relative;
 }
 
 #iconWrapper {
-  width: 60vw;
+  width: 40vw;
   height: 35vh;
   display: flex;
   justify-content: space-between;
