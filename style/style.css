@@ -338,6 +338,7 @@ label {
   font-size: 100%;
   margin: 20px;
   user-select: none;
+  cursor: pointer;
 }
 
 #homeSection {
