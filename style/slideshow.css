@@ -26,13 +26,13 @@
 #arrowRight {
   position: absolute;
   right: 0;
-  animation: arrowRightAnim 750ms ease-in-out infinite;
+  animation: arrowRightAnim 1000ms ease-in-out infinite;
 }
 
 #arrowLeft {
   position: absolute;
   left: 0;
-  animation: arrowLeftAnim 750ms ease-in-out infinite;
+  animation: arrowLeftAnim 1000ms ease-in-out infinite;
 }
 
 @keyframes arrowLeftAnim {
