@@ -40,12 +40,30 @@ button {
 }
 
 input {
-  border-radius: 5px;
   outline: none;
-  border: #1a73e8 2px solid;
-  padding: 7px;
-  color: black;
+  border: none;
+  border-bottom: lightgray 2px solid;
+  height: 1.5vw;
+  width: 20vw;
+  display: block;
   font-size: 100%;
+  transition: border-bottom 250ms ease;
+  cursor: text;
+}
+
+span {
+  user-select: none;
+  position: relative;
+  left: 0;
+  transition: font-size 250ms, top 250ms;
+  pointer-events: none;
+  font-weight: 100;
+  font-size: 12pt;
+  top: 1.25vw;
+}
+
+input:focus {
+  border-bottom: darkblue 2px solid;
 }
 
 p {
