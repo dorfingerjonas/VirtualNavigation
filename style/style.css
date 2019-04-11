@@ -27,7 +27,6 @@ body {
 
 h1 {
   font-size: 350%;
-  margin-top: 10;
   font-weight: lighter;
   letter-spacing: 0.2em;
   text-align: center;
@@ -123,6 +122,7 @@ section {
   background-repeat: space;
   background-size: cover;
   padding-top: 2%;
+  z-index: -1;
 }
 
 button:hover {
@@ -145,7 +145,6 @@ button:hover {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  z-index: 50;
   font-size: 90%;
   transition: top 0.1s linear;
 }
@@ -270,7 +269,7 @@ section {
 img {
   width: 50vw;
   display: block;
-  z-index: -101;
+  z-index: -100;
 }
 
 label {
@@ -297,8 +296,8 @@ label {
   background-color: white;
   box-shadow: 2px 2px 5px 3px rgba(143,143,143,0.8);
   border-radius: 10px;
-  z-index: 101;
   padding: 7px;
+  z-index: 100;
 }
 
 .xWrapper {
@@ -319,7 +318,7 @@ label {
   user-select: none;
 }
 
-#statusPopUp input, #Kontakt input {
+#statusPopUp input, #Kontakt input, #passwordPopUp input {
   border-radius: 5px;
   outline: none;
   border: #1a73e8 2px solid;
@@ -342,12 +341,62 @@ label {
   cursor: pointer;
 }
 
-#homeSection {
-  margin-top: -15vh;
-  height: 70vh;
+/*Password vergessen*/
+
+#passwordWrapper {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+#passwordPopUp {
+  font-family: 'Roboto', sans-serif;
+  width: 30vw;
+  text-align: center;
+  background-color: white;
+  box-shadow: 2px 2px 5px 3px rgba(143,143,143,0.8);
+  border-radius: 10px;
+  padding: 7px;
+  z-index: 100;
+}
+
+#closePassword {
+  position: sticky;
+  right: 0;
+}
+
+#passwordPopUp p {
+  font-size: 130%;
+  user-select: none;
+}
+
+#passwordPopUp button {
+  border-radius: 5px;
+  outline: none;
+  border: #28a745;
+  background-color: #28a745;
+  background-image: linear-gradient(-180deg,#34d058,#28a745 90%);
+  color: #fff;
+  padding: 7px;
+  font-size: 100%;
+  margin: 20px;
+  user-select: none;
+  cursor: pointer;
+}
+
+/*Home*/
+
+#homeSection {
+  position: relative;
+  top: 0;
+  left: 0;
+  min-height: 80vh;
 }
 
 /*Kontakt*/
