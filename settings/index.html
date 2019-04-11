@@ -20,42 +20,52 @@
 
     <div id="wrapper">
       <form id="settings" action="index.html" method="post">
-        <div id="statusWrapper">
-          <p>Status ändern</p>
-          <input type="text" value="" placeholder="neuer Status">
-          <br>
-          <button type="button" id="stateBtn">Speichern</button>
-        </div>
-
         <div id="usernameWrapper">
-          <p>Username ändern</p>
-          <input type="text" value="" placeholder="Neuer Username">
+          <span id="usernameTxt">Username ändern</span>
+          <input type="text" id="username">
+          <br>
+          <span id="usernameFDB"> </span>
           <br>
           <button type="button" id="usernameBtn">Speichern</button>
         </div>
 
+        <div id="statusWrapper">
+          <span id="stateTxt">neuer Status</span>
+          <input type="text" id="state">
+          <br>
+          <span id="stateFDB"> </span>
+          <br>
+          <button type="button" id="stateBtn">Speichern</button>
+        </div>
+
         <div id="imageWrapper">
           <p>Profilbild setzen</p>
-          <input type="file" value="" placeholder="Profilbild">
+          <input type="file" id="file">
           <br>
           <button type="button" id="imageBtn">Speichern</button>
         </div>
 
         <div id="emailWrapper">
-          <p>E-Mail Adresse ändern</p>
-          <input type="email" value="" placeholder="Neue E-Mail Adresse">
+          <span id="emailTxt">e-mail adresse</span>
+          <input type="email" id="email">
+          <br>
+          <span id="emailFDB"> </span>
           <br>
           <button type="button" id="emailBtn">Speichern</button>
           <br>
           <button type="button" id="verifyBtn">E-Mail Adresse Bestätigen</button>
+          <span id="verifyFDB"> </span>
         </div>
 
         <div id="passwordWrapper">
-          <p>Passwort zurücksetzen</p>
-          <input type="password" value="" placeholder="altes Passwort">
-          <input type="password" value="" placeholder="neues Passwort">
-          <input type="password" value="" placeholder="neues Passwort wiederholen">
+          <span id="oldPWTxt">altes passwort</span>
+          <input type="password" id="oldPW">
+          <span id="newPWTxt">neues passwort</span>
+          <input type="password" id="newPW">
+          <span id="CfmNewPWTxt">neues passwort wiederholen</span>
+          <input type="password" id="CfmNewPW">
           <br>
+          <span id="pwFDB"> </span>
           <button type="button" id="passwordBtn">Speichern</button>
         </div>
       </form>
