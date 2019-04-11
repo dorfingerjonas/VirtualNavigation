@@ -97,30 +97,32 @@ window.addEventListener('load', () => {
     })
   });
 
-  // usernameWindow.addEventListener('click', () => {
-  //
-  //   let addClickListener = () => {
-  //     window.addEventListener('click', clickEvent);
-  //     usernameWindow.removeEventListener('mouseup', addClickListener);
-  //   }
-  //
-  //   let clickEvent = (event) => {
-  //     let isChild = false;
-  //
-  //     for (let child of accountPopUp.childNodes) {
-  //       if (event.target === child) {
-  //         isChild = true;
-  //       }
-  //     }
-  //
-  //     if (!isChild) {
-  //       accountPopUp.style.display = "none";
-  //       window.removeEventListener('click', clickEvent);
-  //       isUserPopUpVisible = false;
-  //     }
-  //   };
-  //
-  //   usernameWindow.addEventListener('mouseup', addClickListener);
+  function closePopUp(){
+    // usernameWindow.addEventListener('click', () => {
+    //
+    //   let addClickListener = () => {
+    //     window.addEventListener('click', clickEvent);
+    //     usernameWindow.removeEventListener('mouseup', addClickListener);
+    //   }
+    //
+    //   let clickEvent = (event) => {
+    //     let isChild = false;
+    //
+    //     for (let child of accountPopUp.childNodes) {
+    //       if (event.target === child) {
+    //         isChild = true;
+    //       }
+    //     }
+    //
+    //     if (!isChild) {
+    //       accountPopUp.style.display = "none";
+    //       window.removeEventListener('click', clickEvent);
+    //       isUserPopUpVisible = false;
+    //     }
+    //   };
+    //
+    //   usernameWindow.addEventListener('mouseup', addClickListener);
+    }
 
   usernameWindow.addEventListener('click', () => {
     if (!isUserPopUpVisible) {
@@ -161,11 +163,15 @@ window.addEventListener('load', () => {
 
       saveBtn.addEventListener('click', () => {
         statusInput = statusTxT.value;
-        console.log(statusInput);
-        setNewStatus(user, statusInput);
-        statusRes.textContent = 'Neuer Status wurde erfolgreich gespeichert.';
-        console.log("changed state");
-        writeStatusToPopUp(user);
+        if (statusInput !== '') {
+          console.log(statusInput);
+          setNewStatus(user, statusInput);
+          statusRes.textContent = 'Neuer Status wurde erfolgreich gespeichert.';
+          console.log("changed state");
+          writeStatusToPopUp(user);
+        } else {
+          statusRes.textContent = 'Eingegebener Status ist ungültig.';
+        }
       });
 
       document.getElementById('closeStatus').addEventListener('click', () => {
