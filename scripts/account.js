@@ -31,6 +31,7 @@ window.addEventListener('load', () => {
   const accNav = document.getElementById('accountNav');
   const accWindow = document.getElementById('accountWindow');
   const closeAccountWndw = document.getElementById('closeAccountWndw');
+  const resetPassword = document.getElementById('forgotPassword');
   let isUserPopUpVisible = false;
 
   loginBtn.addEventListener('click', () => {
@@ -172,6 +173,32 @@ window.addEventListener('load', () => {
         console.log("closed state list");
       });
   });
+
+  resetPassword.addEventListener('click', () => {
+      const auth = firebase.auth();
+      const passwordWrapper = document.getElementById('passwordWrapper');
+      const passwordRes = document.getElementById('passwordRes');
+      const send = document.getElementById('sendPWReset');
+      
+      changeDisplayProperty('passwordWrapper', 'flex');
+
+      send.addEventListener('click', () => {
+        const emailAdress = document.getElementById('passwordField').value;
+
+        if (emailAdress !== '') {
+          console.log("senden");
+          auth.sendPasswordResetEmail(emailAdress);
+
+          setTimeout(function () {
+            changeDisplayProperty('passwordWrapper', 'none');
+          }, 2500);
+        }
+      });
+
+      document.getElementById('closePassword').addEventListener('click', () => {
+        changeDisplayProperty('passwordWrapper', 'none');
+      });
+    });
 
   settings.addEventListener('click', () => {
       window.location.href='./settings';
