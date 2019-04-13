@@ -22,6 +22,7 @@
 
 #iconWrapper i {
   font-size: 450%;
+  z-index: 101;
 }
 
 #arrowRight {

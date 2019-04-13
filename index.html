@@ -14,6 +14,7 @@
     <script src="scripts/scrollAnimations.js" charset="utf-8"></script>
     <script src="scripts/account.js" charset="utf-8"></script>
     <script src="scripts/slideshow.js" charset="utf-8"></script>
+    <script src="scripts/inputAnimation.js" charset="utf-8"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
@@ -49,28 +50,35 @@
             <div id="signup">
               <div class="alignToCenter">
                 <form class="accountForm" action='index.html' method='post'>
-                  <input id='firstname' class="accountElm" type='text' placeholder='Vorname'>
-                  <input id='lastname' class="accountElm" type='text' placeholder='Nachname'>
-                  <input id='username' class="accountElm" type='text' placeholder='Benutzername'>
-                  <input id='emailSignUp' class="accountElm" type='email' placeholder='Email'>
-                  <input id='passwordSignUp' class="accountElm" type='password' placeholder='Passwort'>
-                  <button id="signupBtn" class="accountElm" type="button">Sign Up</button>
+                  <span id="firstnameTxt">Vorname</span>
+                  <input id='firstname' type='text'>
+                  <span id="lastnameTxt">Nachname</span>
+                  <input id='lastname' type='text'>
+                  <span id="usernameTxt">Nutzname</span>
+                  <input id='username' type='text'>
+                  <span id="emailSignUpTxt">E-Mail</span>
+                  <input id='emailSignUp' type='email'>
+                  <span id="passwordSignUpTxt">Passwort</span>
+                  <input id='passwordSignUp' type='password'>
+                  <button id="signupBtn" type="button">Sign Up</button>
                   <p id="errField"></p>
                 </form>
               </div>
-              <p id="asuTextFieldSignIn" style="margin-left: 3vw">Bereits Registriert? <span id="alreadySignedUp">Anmelden</span></p>
+              <p id="asuTextFieldSignIn" style="margin-left: 3vw">Bereits Registriert? <span class="infoSpan" id="alreadySignedUp">Anmelden</span></p>
             </div>
             <div id="signin">
               <div class="alignToCenter">
                 <form class="accountForm" action="index.html" method="post">
-                  <input id='emailSignIn' class="accountElm" type='email' placeholder='Email'>
-                  <input id='passwordSignIn' class="accountElm" type='password' placeholder='Passwort'>
-                  <button id="loginBtn" class="accountElm" type="button">Log In</button>
-                  <p id="asuTextFieldSignUp">Noch nicht Registriert? <span id="notSignedUp">Registrieren</span></p>
-                  <span id="forgotPassword">Passwort vergessen?</span>
+                  <span id="emailSignInTxt">E-Mail</span>
+                  <input id='emailSignIn' type="email">
+                  <span id="passwordSignInTxt">Password</span>
+                  <input id='passwordSignIn' type='password'>
+                  <button id="loginBtn" type="button">Log In</button>
                   <p id="errField"></p>
                 </form>
               </div>
+              <p id="asuTextFieldSignUp" style="margin-left: 3vw">Noch nicht Registriert? <span class="infoSpan" id="notSignedUp">Registrieren</span></p>
+              <span id="forgotPassword" style="margin-left: 3vw" class="infoSpan">Passwort vergessen?</span>
             </div>
         </div>
       </div>
@@ -79,7 +87,8 @@
         <div id="passwordPopUp">
           <div class="xWrapper"><i id="closePassword" class="material-icons">&#xe5cd;</i></div>
           <p>Geben Sie Ihre E-Mail Adresse ein, um Ihr Passwort zurückzusetzen:</p>
-          <input type="email" value="" id="passwordField" placeholder="E-Mail Adresse">
+          <span id="passwordFieldTxt">E-Mail</span>
+          <input type="email" id="passwordField">
           <button type="button" id="sendPWReset">Senden</button>
           <br>
         </div>
@@ -89,7 +98,8 @@
         <div id="statusPopUp">
           <div class="xWrapper"><i id="closeStatus" class="material-icons">&#xe5cd;</i></div>
           <p>Geben Sie Ihren neuen Status ein:</p>
-          <input type="text" value="" id="statusField" placeholder="neuer Status" maxlength="20">
+          <span id="statusFieldTxt">neuer Status</span>
+          <input type="text" value="" id="statusField" maxlength="20">
           <button type="button" id="saveBtn">Speichern</button>
           <br>
           <span id="statusRes"></span>

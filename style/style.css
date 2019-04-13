@@ -175,7 +175,7 @@ button:hover {
   width: 20vw;
 }
 
-#Account .accountForm input {
+/* #Account .accountForm input {
   border-radius: 5px;
   outline: none;
   border: #1a73e8 2px solid;
@@ -183,11 +183,7 @@ button:hover {
   color: black;
   font-size: 100%;
   width: 17vw;
-}
-
-.accountElm {
-  margin: 2%;
-}
+} */
 
 #loginBtn {
   background: #1a73e8;
@@ -203,7 +199,7 @@ button:hover {
   user-select: none;
 }
 
-#Account span {
+.infoSpan {
   text-decoration: underline;
   color: blue;
   cursor: pointer;
@@ -300,6 +296,17 @@ label {
   z-index: 100;
 }
 
+#statusPopUp span {
+  user-select: none;
+  position: relative;
+  left: 0;
+  transition: font-size 250ms, top 250ms;
+  pointer-events: none;
+  font-weight: 100;
+  font-size: 12pt;
+  top: 1.25vw;
+}
+
 .xWrapper {
   width: 100%;
   display: flex;
@@ -318,7 +325,8 @@ label {
   user-select: none;
 }
 
-#statusPopUp input, #Kontakt input, #passwordPopUp input {
+/* #statusPopUp input, #Kontakt input, #passwordPopUp input { */
+#Kontakt input {
   border-radius: 5px;
   outline: none;
   border: #1a73e8 2px solid;
@@ -364,6 +372,17 @@ label {
   border-radius: 10px;
   padding: 7px;
   z-index: 100;
+}
+
+#passwordPopUp span {
+  user-select: none;
+  position: relative;
+  left: 0;
+  transition: font-size 250ms, top 250ms;
+  pointer-events: none;
+  font-weight: 100;
+  font-size: 12pt;
+  top: 1.25vw;
 }
 
 #closePassword {
@@ -462,4 +481,33 @@ label {
 
 #contactCheckbox {
   display: inline-block;
+}
+
+input {
+  outline: none;
+  border: none;
+  border-bottom: lightgray 2px solid;
+  height: 1.5vw;
+  width: 20vw;
+  display: block;
+  font-size: 100%;
+  transition: border-bottom 250ms ease;
+  cursor: text;
+  margin: 1.5% 0 1.5% 0;
+  padding: 0;
+}
+
+.accountForm span {
+  user-select: none;
+  position: relative;
+  left: 0;
+  transition: font-size 250ms, top 250ms;
+  pointer-events: none;
+  font-weight: 100;
+  font-size: 12pt;
+  top: 1.25vw;
+}
+
+input:focus {
+  border-bottom: darkblue 2px solid;
 }
