@@ -12,6 +12,10 @@ window.addEventListener('load', () => {
 
   let database = firebase.database();
 
+  const strongPassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+  const mediumPassword = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+  const emailValidation = new RegExp("/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/");
+
   const body = document.getElementById('body');
   const errField = document.getElementById('errField');
   const anmelden = document.getElementById('anmelden'); // jetzt class: accountForm
@@ -35,49 +39,108 @@ window.addEventListener('load', () => {
   let isUserPopUpVisible = false;
 
   loginBtn.addEventListener('click', () => {
+    console.log();
     console.log("login button pressed");
-    const email = document.getElementById('emailSignIn').value;
-    const password = document.getElementById('passwordSignIn').value;
+    const email = document.getElementById('emailSignIn');
+    const password = document.getElementById('passwordSignIn');
+    let containsAt = false;
+    let isPasswordValid = false;
+    let isEmailValid = false;
+    let i = 0;
     const auth = firebase.auth();
+
+    do {
+        if (email.value.charAt(i) === '@') {
+          containsAt = true;
+        }
+        i++;
+    } while (!containsAt || i < email.value.length);
+
+    if (containsAt) {
+      const splitEmail  = email.value.split('@');
+      isPasswordValid = validatePassword(password);
+      isEmailValid = validateEmail(email);
+      console.log(isPasswordValid);
+      console.log(isEmailValid);
+    } else {
+      console.log("no @");
+    }
 
     resetErrorField();
     changeDisplayProperty('errField', 'none');
 
-    const promise = auth.signInWithEmailAndPassword(email, password);
-    promise.catch((error) => {
+    if (isPasswordValid && isEmailValid) {
+      const promise = auth.signInWithEmailAndPassword(email.value, password.value);
 
-      changeDisplayProperty('errField', 'block');
-      errField.textContent = error.message;
+      promise.catch((error) => {
 
-    });
-    console.log("logged in");
+        changeDisplayProperty('errField', 'block');
+        errField.textContent = error.message;
+
+      });
+      console.log("logged in");
+    }
+    console.log();
   });
 
   signupBtn.addEventListener('click', () => {
     console.log("signup button pressed");
 
-    const email = document.getElementById('emailSignUp').value;
-    const password = document.getElementById('passwordSignUp').value;
-    const firstname = document.getElementById('firstname').value;
-    const lastname = document.getElementById('lastname').value;
-    const username = document.getElementById('username').value;
+    const email = document.getElementById('emailSignUp');
+    const password = document.getElementById('passwordSignUp');
+    const firstname = document.getElementById('firstname');
+    const lastname = document.getElementById('lastname');
+    const username = document.getElementById('username');
+    let containsAt = false;
+    let isPasswordValid = false;
+    let isEmailValid = false;
+    let isFirstnameValid = false;
+    let isLastnameValid = false;
+    let isUsernameValid = false;
+    let i = 0;
     const auth = firebase.auth();
+
+    do {
+        if (email.value.charAt(i) === '@') {
+          containsAt = true;
+        }
+        i++;
+    } while (!containsAt || i < email.value.length);
 
     resetErrorField();
     changeDisplayProperty('errField', 'none');
 
-    const promise = auth.createUserWithEmailAndPassword(email, password);
-    promise.catch((error) => {
+    if (containsAt) {
+      const splitEmail  = email.value.split('@');
+      isPasswordValid = validatePassword(password);
+      isEmailValid = validateEmail(email);
+      isFirstnameValid = !/[^a-zäöüß ]/i.test(firstname.value) && firstname.value.length > 0;
+      isLastnameValid = !/[^a-zäöüß ]/i.test(lastname.value) && lastname.value.length > 0;
+      isUsernameValid = !/[^a-z0-9._]/i.test(username.value) && username.value.length > 0;
 
-      changeDisplayProperty('errField', 'block');
-      errField.textContent = error.message;
-    });
+      console.log(isPasswordValid);
+      console.log(isEmailValid);
+      console.log(isFirstnameValid);
+      console.log(isLastnameValid);
+      console.log(isUsernameValid);
+    } else {
+      console.log("no @");
+    }
 
-    promise.then(() => {
-      let userId = firebase.auth().currentUser.uid;
-      console.log(userId);
-      writeUserToDatabase(firstname, lastname, username, email, userId);
-    });
+    if (isPasswordValid && isEmailValid && isFirstnameValid && isLastnameValid && isUsernameValid) {
+      const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
+      promise.catch((error) => {
+
+        changeDisplayProperty('errField', 'block');
+        errField.textContent = error.message;
+      });
+
+      promise.then(() => {
+        let userId = firebase.auth().currentUser.uid;
+        console.log(userId);
+        writeUserToDatabase(firstname.value, lastname.value, username.value, email.value, userId);
+      });
+    }
   });
 
   logoutBtn.addEventListener('click', () => {
@@ -185,7 +248,7 @@ window.addEventListener('load', () => {
       const passwordWrapper = document.getElementById('passwordWrapper');
       const passwordRes = document.getElementById('passwordRes');
       const send = document.getElementById('sendPWReset');
-      
+
       changeDisplayProperty('passwordWrapper', 'flex');
 
       send.addEventListener('click', () => {
@@ -285,4 +348,13 @@ function resetErrorField() {
 
 function changeDisplayProperty(id, property) {
   document.getElementById(id).style.display = property;
+}
+
+function validatePassword(password) {
+  return /[a-z]/.test(password.value) && /[A-Z]/.test(password.value) && /[0-9]/.test(password.value) && /[^a-zA-Z0-9]/.test(password.value) && password.value.length > 7;
+}
+
+function validateEmail(email) {
+  const splitEmail = email.value.split('@');
+  return splitEmail.length === 2 && splitEmail[1].split('.').length === 2 && splitEmail[1].split('.')[1].length >= 2;
 }

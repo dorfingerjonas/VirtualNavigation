@@ -161,6 +161,7 @@ button:hover {
 
 #Account i {
   margin: 7px;
+  z-index: 1;
 }
 
 #Account #headline {
