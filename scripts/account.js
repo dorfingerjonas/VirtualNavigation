@@ -36,7 +36,9 @@ window.addEventListener('load', () => {
   const accWindow = document.getElementById('accountWindow');
   const closeAccountWndw = document.getElementById('closeAccountWndw');
   const resetPassword = document.getElementById('forgotPassword');
+  const navigationBtn = document.getElementById('startNavigation');
   let isUserPopUpVisible = false;
+  let loggedIn = false;
 
   loginBtn.addEventListener('click', () => {
     console.log();
@@ -202,16 +204,19 @@ window.addEventListener('load', () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       console.log(user.email);
-        changeDisplayProperty('accountWindow', 'none');
-        changeDisplayProperty('accountNav', 'none');
-        changeDisplayProperty('usernameWindow', 'inline-block')
-        writefirstnameToPopUp(user);
-        writeUsernameToPopUp(user);
-        writeStatusToPopUp(user);
+      changeDisplayProperty('accountWindow', 'none');
+      changeDisplayProperty('accountNav', 'none');
+      changeDisplayProperty('usernameWindow', 'inline-block')
+      writefirstnameToPopUp(user);
+      writeUsernameToPopUp(user);
+      writeStatusToPopUp(user);
+      loggedIn = true;
+      document.getElementById('navigationRes').textContent = '';
     } else {
       console.log("not logged in");
       changeDisplayProperty('usernameWindow', 'none');
       changeDisplayProperty('accountNav', 'inline-block');
+      loggedIn = false;
     }
   });
 
@@ -336,7 +341,22 @@ window.addEventListener('load', () => {
   activateSignUp.addEventListener('click', () => {
     document.getElementById('signup').style.left = '0';
     document.getElementById('signin').style.right = '-25vw';
-  })
+  });
+
+
+  navigationBtn.addEventListener('click', () => {
+    let respond = document.getElementById('navigationRes');
+
+    if (loggedIn) {
+      respond.textContent = '';
+      setTimeout(() => {
+        window.location.href='./navigation';
+      }, 250);
+      console.log('navigation paged opened');
+    } else {
+      respond.textContent = 'Sie müssen eingeloggt sein um die Simulation starten zu können.';
+    }
+  });
 });
 
 function resetErrorField() {
