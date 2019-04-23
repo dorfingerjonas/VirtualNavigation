@@ -417,6 +417,39 @@ label {
   min-height: 80vh;
 }
 
+#homeSection #startNavigation {
+  display: block;
+  margin: 0 auto;
+  margin-top: 2%;
+  padding: 0;
+  width: 20%;
+  height: 70px;
+  border: 2px solid #0f5fa6;
+  border-radius: 40px;
+  background: transparent;
+  color: #0f5fa6;
+  letter-spacing: 1px;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  user-select: none;
+}
+
+#homeSection #startNavigation:hover {
+  background-color: #0f5fa6;
+  color: #fff;
+}
+
+#homeSection span {
+  display: block;
+  color: red;
+  font-weight: 400;
+  margin: 0 auto;
+  margin-top: 1%;
+  text-align: center;
+}
+
+
 /*Kontakt*/
 
 #Kontakt {
