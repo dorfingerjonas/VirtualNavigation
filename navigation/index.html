@@ -4,18 +4,24 @@
     <meta charset="utf-8">
     <title>Virtual Navigation</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="../style/navigation.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:200,400" rel="stylesheet">
+    <script src="../scripts/navigation.js" charset="utf-8"></script>
   </head>
   <body>
     <nav>
-      <div class="navElement"><span>weather</span></div>
-      <div class="navElement"><span>time</span></div>
-      <div class="navElement"><span>route</span></div>
-      <div class="navElement"><span>data</span></div>
-      <div class="navElement"><span>map</span></div>
-      <div class="navElement"><span>satelite map</span></div>
-      <div class="navElement"><span>infos</span></div>
-      <div class="navElement"><span>lift state</span></div>
-      <div class="navElement"><span>slope state</span></div>
+      <div class="navElement" id="weatherNav"><span>Wetter</span></div>
+      <!-- <div class="navElement" id="timeNav"><span>time</span></div> -->
+      <div class="navElement" id="routeNav"><span>Route</span></div>
+      <div class="navElement" id="dataNav"><span>Daten</span></div>
+      <div class="navElement" id="mapNav"><span>Navigation</span></div>
+      <div class="navElement" id="mapNav"><span>Skigebiets Plan</span></div>
+      <!-- <div class="navElement" id="weatherNav"><span>satelite map</span></div> -->
+      <!-- <div class="navElement" id="weatherNav"><span>infos</span></div> -->
+      <div class="navElement" id="emergencyNav"><span>Notruf</span></div>
+      <div class="navElement" id="liftNav"><span>Liften Status</span></div>
+      <div class="navElement" id="slopeNav"><span>Pisten Status</span></div>
     </nav>
   </body>
 </html>
