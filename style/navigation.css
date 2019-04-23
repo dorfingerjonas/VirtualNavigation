@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Gotham Light';
+  src: url(../fonts/Gotham-XLight.otf) format('opentype');
+}
+
+body {
+  overflow-y: hidden;
+  width: 220vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+nav div {
+  display: block;
+  width: 25vw;
+  height: 25vw;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  margin: 1vw;
+  font-size: 350%;
+  border-radius: 15px;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+}
+
+nav div:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 5px 3px rgba(143,143,143,0.8);
+}
