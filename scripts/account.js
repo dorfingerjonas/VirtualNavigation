@@ -144,7 +144,7 @@ window.addEventListener('load', () => {
   });
 
   logoutBtn.addEventListener('click', () => {
-    firebase.auth().signOut().then(function() {
+    firebase.auth().signOut().then(() => {
       // Sign-out successful.
       accountPopUp.style.display = 'none';
       document.getElementById('usernameField').textContent = "";
