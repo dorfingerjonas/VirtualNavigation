@@ -60,7 +60,7 @@ nav {
   height: 7vh;
   background-color: white;
   font-weight: bold;
-  z-index: 101;
+  z-index: 999;
   transition: box-shadow 0.1s linear;
 }
 
@@ -122,7 +122,6 @@ section {
   background-repeat: space;
   background-size: cover;
   padding-top: 2%;
-  /* z-index: -1; */
 }
 
 button:hover {
@@ -147,6 +146,7 @@ button:hover {
   align-items: center;
   font-size: 90%;
   transition: top 0.1s linear;
+  z-index: 50;
 }
 
 #Account {
@@ -161,7 +161,6 @@ button:hover {
 
 #Account i {
   margin: 7px;
-  /* z-index: 1; */
 }
 
 #Account #headline {
@@ -266,7 +265,6 @@ section {
 img {
   width: 50vw;
   display: block;
-  /* z-index: -100; */
 }
 
 label {
@@ -284,6 +282,7 @@ label {
   top: 0;
   left: 0;
   display: none;
+  z-index: 200;
 }
 
 #statusPopUp {
@@ -294,7 +293,6 @@ label {
   box-shadow: 2px 2px 5px 3px rgba(143,143,143,0.8);
   border-radius: 10px;
   padding: 7px;
-  /* z-index: 100; */
 }
 
 #statusPopUp span {
@@ -362,6 +360,7 @@ label {
   top: 0;
   left: 0;
   display: none;
+  z-index: 200;
 }
 
 #passwordPopUp {
@@ -372,7 +371,6 @@ label {
   box-shadow: 2px 2px 5px 3px rgba(143,143,143,0.8);
   border-radius: 10px;
   padding: 7px;
-  /* z-index: 100; */
 }
 
 #passwordPopUp span {
