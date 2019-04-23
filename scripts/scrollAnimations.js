@@ -11,5 +11,9 @@ window.addEventListener('load', () => {
       navTag.style.boxShadow = 'none';
       accWndw.style.top = '5vw';
     }
+
+    if (scrollY > 880) {
+      document.getElementById('navigationRes').textContent = '';
+    }
   }, 10);
 });
