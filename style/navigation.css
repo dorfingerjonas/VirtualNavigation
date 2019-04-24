@@ -27,6 +27,7 @@ nav div {
   border-radius: 15px;
   user-select: none;
   transition: all 0.2s ease-in-out;
+  text-align: center;
 }
 
 nav div:hover {
