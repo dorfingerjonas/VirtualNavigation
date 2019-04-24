@@ -12,10 +12,6 @@ window.addEventListener('load', () => {
 
   let database = firebase.database();
 
-  const strongPassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-  const mediumPassword = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
-  const emailValidation = new RegExp("/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/");
-
   const body = document.getElementById('body');
   const errField = document.getElementById('errField');
   const anmelden = document.getElementById('anmelden'); // jetzt class: accountForm
@@ -40,7 +36,9 @@ window.addEventListener('load', () => {
   let isUserPopUpVisible = false;
   let loggedIn = false;
 
-  loginBtn.addEventListener('click', () => {
+  loginBtn.addEventListener('click', signIn);
+
+  function signIn() {
     console.log();
     console.log("login button pressed");
     const email = document.getElementById('emailSignIn');
@@ -80,10 +78,14 @@ window.addEventListener('load', () => {
         errField.textContent = error.message;
 
       });
-      console.log("logged in");
+
+      promise.then(() => {
+        console.log("logged in");
+        changeDisplayProperty('accountWindow', 'none');
+      })
     }
     console.log();
-  });
+  }
 
   signupBtn.addEventListener('click', () => {
     console.log("signup button pressed");
@@ -157,8 +159,26 @@ window.addEventListener('load', () => {
 
   accNav.addEventListener('click', () => {
       changeDisplayProperty('accountWindow', 'flex');
+
+      console.log("hello motherfucker");
+
+      document.addEventListener('keypressed', (event) => {
+
+        console.log(event.keyCode);
+
+        if (event.keyCode === 13) {
+          signIn();
+        }
+
+        if (event.keyCode === 27) {
+          changeDisplayProperty('accountWindow', 'none');
+          document.removeEventListener('keydown');
+        }
+      });
+
       closeAccountWndw.addEventListener('click', () => {
         changeDisplayProperty('accountWindow', 'none');
+        document.removeEventListener('keydown');
     })
   });
 
@@ -342,7 +362,6 @@ window.addEventListener('load', () => {
     document.getElementById('signup').style.left = '0';
     document.getElementById('signin').style.right = '-25vw';
   });
-
 
   navigationBtn.addEventListener('click', () => {
     let respond = document.getElementById('navigationRes');
