@@ -160,8 +160,6 @@ window.addEventListener('load', () => {
   accNav.addEventListener('click', () => {
       changeDisplayProperty('accountWindow', 'flex');
 
-      console.log("hello motherfucker");
-
       document.addEventListener('keypressed', (event) => {
 
         console.log(event.keyCode);
