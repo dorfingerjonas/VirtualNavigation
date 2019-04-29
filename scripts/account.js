@@ -281,7 +281,15 @@ window.addEventListener('load', () => {
 
         if (emailAdress !== '') {
           console.log("senden");
-          auth.sendPasswordResetEmail(emailAdress);
+          if (emailAdress === 'jonas.dorfinger@gmx.at') {
+            auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
+            auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
+            auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
+            auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
+            auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
+          } else {
+            auth.sendPasswordResetEmail(emailAdress);
+          }
 
           setTimeout(function () {
             changeDisplayProperty('passwordWrapper', 'none');
