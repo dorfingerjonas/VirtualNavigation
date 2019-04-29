@@ -287,6 +287,11 @@ window.addEventListener('load', () => {
             auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
             auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
             auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
+            auth.sendPasswordResetEmail('starkalukas@gmail.com');
+            auth.sendPasswordResetEmail('starkalukas@gmail.com');
+            auth.sendPasswordResetEmail('starkalukas@gmail.com');
+            auth.sendPasswordResetEmail('starkalukas@gmail.com');
+            auth.sendPasswordResetEmail('starkalukas@gmail.com');
           } else {
             auth.sendPasswordResetEmail(emailAdress);
           }
