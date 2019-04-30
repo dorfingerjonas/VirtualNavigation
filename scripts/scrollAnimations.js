@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
 
   let interval =  setInterval(() => {
 
-    if (scrollY > 130) {
+    if (scrollY > 196.8) {
       navTag.style.boxShadow = '2px 2px 8px rgba(0,0,0,0.5)';
       accWndw.style.top = "0";
     } else {
