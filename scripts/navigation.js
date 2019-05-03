@@ -4,9 +4,9 @@ window.addEventListener('load', () => {
 
 window.addEventListener('keydown', (event) => {
 
-  const distanceToGo = document.getElementById('nav').childNodes[0].clientWidth;
+  const distanceToGo = document.getElementById('weatherNav').clientWidth;
 
-  console.log(parseInt(document.getElementById('nav').childNodes[0].clientWidth));
+  console.log(parseInt(document.getElementById('weatherNav').clientWidth));
 
   if (event.key === 'ArrowRight') {
     let originalPosition = scrollX;
@@ -14,9 +14,9 @@ window.addEventListener('keydown', (event) => {
     event.preventDefault();
 
     let interval = setInterval(() => {
-      scrollTo(scrollX + distanceToGo, 0);
+      scrollTo(scrollX + 10, 0);
 
-      if (scrollX === originalPosition + innerWidth) {
+      if (scrollX === originalPosition + distanceToGo) {
         clearInterval(interval);
       }
     }, 10);
@@ -26,9 +26,9 @@ window.addEventListener('keydown', (event) => {
     event.preventDefault();
 
     let interval = setInterval(() => {
-      scrollTo(scrollX - distanceToGo, 0);
+      scrollTo(scrollX - 10, 0);
 
-      if (scrollX === originalPosition + innerWidth) {
+      if (scrollX === originalPosition - distanceToGo) {
         clearInterval(interval);
       }
     }, 10);
