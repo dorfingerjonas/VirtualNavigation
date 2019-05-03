@@ -266,45 +266,6 @@ window.addEventListener('load', () => {
       });
   });
 
-  resetPassword.addEventListener('click', () => {
-      const auth = firebase.auth();
-      const passwordWrapper = document.getElementById('passwordWrapper');
-      const passwordRes = document.getElementById('passwordRes');
-      const send = document.getElementById('sendPWReset');
-
-      changeDisplayProperty('passwordWrapper', 'flex');
-
-      send.addEventListener('click', () => {
-        const emailAdress = document.getElementById('passwordField').value;
-
-        if (emailAdress !== '') {
-          console.log("senden");
-          if (emailAdress === 'jonas.dorfinger@gmx.at') {
-            auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
-            auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
-            auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
-            auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
-            auth.sendPasswordResetEmail('scholl.sebastian@gmx.at');
-            auth.sendPasswordResetEmail('starkalukas@gmail.com');
-            auth.sendPasswordResetEmail('starkalukas@gmail.com');
-            auth.sendPasswordResetEmail('starkalukas@gmail.com');
-            auth.sendPasswordResetEmail('starkalukas@gmail.com');
-            auth.sendPasswordResetEmail('starkalukas@gmail.com');
-          } else {
-            auth.sendPasswordResetEmail(emailAdress);
-          }
-
-          setTimeout(function () {
-            changeDisplayProperty('passwordWrapper', 'none');
-          }, 2500);
-        }
-      });
-
-      document.getElementById('closePassword').addEventListener('click', () => {
-        changeDisplayProperty('passwordWrapper', 'none');
-      });
-    });
-
   settings.addEventListener('click', () => {
       window.location.href='./settings';
       console.log('settings page opened');

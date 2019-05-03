@@ -348,65 +348,6 @@ label {
   cursor: pointer;
 }
 
-/*Password vergessen*/
-
-#passwordWrapper {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: none;
-  z-index: 200;
-}
-
-#passwordPopUp {
-  font-family: 'Roboto', sans-serif;
-  width: 30vw;
-  text-align: center;
-  background-color: white;
-  box-shadow: 2px 2px 5px 3px rgba(143,143,143,0.8);
-  border-radius: 10px;
-  padding: 7px;
-}
-
-#passwordPopUp span {
-  user-select: none;
-  position: relative;
-  left: 0;
-  transition: font-size 250ms, top 250ms;
-  pointer-events: none;
-  font-weight: 100;
-  font-size: 12pt;
-  top: 1.25vw;
-}
-
-#closePassword {
-  position: sticky;
-  right: 0;
-}
-
-#passwordPopUp p {
-  font-size: 130%;
-  user-select: none;
-}
-
-#passwordPopUp button {
-  border-radius: 5px;
-  outline: none;
-  border: #28a745;
-  background-color: #28a745;
-  background-image: linear-gradient(-180deg,#34d058,#28a745 90%);
-  color: #fff;
-  padding: 7px;
-  font-size: 100%;
-  margin: 20px;
-  user-select: none;
-  cursor: pointer;
-}
 
 /*Home*/
 
@@ -421,8 +362,7 @@ label {
   display: block;
   margin: 0 auto;
   margin-top: 2%;
-  padding: 0;
-  width: 20%;
+  width: 30%;
   height: 70px;
   border: 2px solid #0f5fa6;
   border-radius: 40px;
