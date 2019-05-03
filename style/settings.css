@@ -2,7 +2,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: normal;
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 h1 {
   font-weight: normal;
@@ -69,4 +69,10 @@ input:focus {
 p {
   font-size: 130%;
   user-select: none;
+}
+
+#deleteBtn {
+  border: #F44336;
+  background-color: #F44336;
+  background-image: linear-gradient(-180deg,#F44336,#cf1f12 90%);
 }

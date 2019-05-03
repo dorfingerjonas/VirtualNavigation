@@ -17,6 +17,7 @@ window.addEventListener('load', () => {
   const emailBtn = document.getElementById('emailBtn');
   const verifyBtn = document.getElementById('verifyBtn');
   const passwordBtn = document.getElementById('passwordBtn');
+  const deleteBtn = document.getElementById('deleteBtn');
 
   usernameBtn.addEventListener('click', () => {
 
@@ -83,12 +84,11 @@ window.addEventListener('load', () => {
 
   passwordBtn.addEventListener('click', () => {
     const user = firebase.auth().currentUser;
-    const oldPW = document.getElementById('oldPW').value;
     const newPW = document.getElementById('newPW').value;
     const confirmedPW = document.getElementById('CfmNewPW').value;
     const fdb = document.getElementById('pwFDB');
 
-    if (oldPW !== '' && newPW !== '' && confirmedPW !== '') {
+    if (newPW !== '' && confirmedPW !== '' && newPW === confirmedPW) {
       user.updatePassword(newPW);
       fdb.textContent = 'Passwort wurde erfolgreich geändert.';
     } else {
@@ -97,6 +97,16 @@ window.addEventListener('load', () => {
     setTimeout(function () {
       fdb.textContent = '';
     }, 2500);
+  });
+
+  deleteBtn.addEventListener('click', () => {
+    const user = firebase.auth().currentUser;
+
+    user.delete().then(() => {
+      console.log("user deleted");
+    }).catch((error) => {
+      console.log("error - not deleted");
+    });
   });
 });
 
