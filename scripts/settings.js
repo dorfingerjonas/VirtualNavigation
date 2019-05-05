@@ -103,9 +103,9 @@ window.addEventListener('load', () => {
     const user = firebase.auth().currentUser;
 
     user.delete().then(() => {
-      console.log("user deleted");
+      console.log('user deleted');
     }).catch((error) => {
-      console.log("error - not deleted");
+      console.log('error - not deleted');
     });
   });
 });
