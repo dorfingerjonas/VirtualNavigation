@@ -9,6 +9,7 @@
   width: 60vw;
   position: relative;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 2px 5px 15px 0px;
 }
 
 #iconWrapper {
