@@ -12,9 +12,8 @@ window.addEventListener('load', () => {
 
   let database = firebase.database();
 
-  const body = document.getElementById('body');
-  const errField = document.getElementById('errField');
-  const anmelden = document.getElementById('anmelden'); // jetzt class: accountForm
+  const errFieldSignUp = document.getElementById('errFieldSignUp');
+  const errFieldSignIn = document.getElementById('errFieldSignIn');
   const loginBtn = document.getElementById('loginBtn');
   const signupBtn = document.getElementById('signupBtn');
   const logoutBtn = document.getElementById('logoutBtn');
@@ -24,72 +23,44 @@ window.addEventListener('load', () => {
   const usernamePopUp = document.getElementById('usernamePopUp');
   const usernameWindow = document.getElementById('usernameWindow');
   const accountPopUp = document.getElementById('accPopUp');
-  const statusTxT = document.getElementById('statusField');
-  const accStatus = document.getElementById('accStatus');
-  const saveBtn = document.getElementById('saveBtn');
+  const accStatus = document.getElementById('accStatus')
   const settings = document.getElementById('settings');
   const accNav = document.getElementById('accountNav');
-  const accWindow = document.getElementById('accountWindow');
   const closeAccountWndw = document.getElementById('closeAccountWndw');
-  const resetPassword = document.getElementById('forgotPassword');
   const navigationBtn = document.getElementById('startNavigation');
   let isUserPopUpVisible = false;
-  let loggedIn = false;
 
   loginBtn.addEventListener('click', signIn);
 
   function signIn() {
-    console.log();
-    console.log("login button pressed");
     const email = document.getElementById('emailSignIn');
     const password = document.getElementById('passwordSignIn');
-    let containsAt = false;
-    let isPasswordValid = false;
-    let isEmailValid = false;
-    let i = 0;
     const auth = firebase.auth();
 
-    do {
-        if (email.value.charAt(i) === '@') {
-          containsAt = true;
-        }
-        i++;
-    } while (!containsAt || i < email.value.length);
-
-    if (containsAt) {
-      const splitEmail  = email.value.split('@');
-      isPasswordValid = validatePassword(password);
-      isEmailValid = validateEmail(email);
-      console.log(isPasswordValid);
-      console.log(isEmailValid);
-    } else {
-      console.log("no @");
-    }
-
     resetErrorField();
-    changeDisplayProperty('errField', 'none');
 
-    if (isPasswordValid && isEmailValid) {
-      const promise = auth.signInWithEmailAndPassword(email.value, password.value);
+    if (email.value === '' || password.value === '') {
+      changeDisplayProperty('errFieldSignIn', 'block');
+      errFieldSignIn.textContent = 'Bitte überprüfen Sie Ihre Eingaben!';
+    } else {
+      changeDisplayProperty('errFieldSignIn', 'none');
 
-      promise.catch((error) => {
+        const promise = auth.signInWithEmailAndPassword(email.value, password.value);
 
-        changeDisplayProperty('errField', 'block');
-        errField.textContent = error.message;
+        promise.catch((error) => {
 
-      });
+          changeDisplayProperty('errFieldSignIn', 'block');
+          errFieldSignIn.textContent = error.message;
 
-      promise.then(() => {
-        console.log("logged in");
-        changeDisplayProperty('accountWindow', 'none');
-      })
-    }
-    console.log();
+        });
+
+        promise.then(() => {
+          changeDisplayProperty('accountWindow', 'none');
+        });
+      }
   }
 
   signupBtn.addEventListener('click', () => {
-    console.log("signup button pressed");
-
     const email = document.getElementById('emailSignUp');
     const password = document.getElementById('passwordSignUp');
     const firstname = document.getElementById('firstname');
@@ -104,46 +75,43 @@ window.addEventListener('load', () => {
     let i = 0;
     const auth = firebase.auth();
 
-    do {
-        if (email.value.charAt(i) === '@') {
-          containsAt = true;
-        }
-        i++;
-    } while (!containsAt || i < email.value.length);
-
-    resetErrorField();
-    changeDisplayProperty('errField', 'none');
-
-    if (containsAt) {
-      const splitEmail  = email.value.split('@');
-      isPasswordValid = validatePassword(password);
-      isEmailValid = validateEmail(email);
-      isFirstnameValid = !/[^a-zäöüß ]/i.test(firstname.value) && firstname.value.length > 0;
-      isLastnameValid = !/[^a-zäöüß ]/i.test(lastname.value) && lastname.value.length > 0;
-      isUsernameValid = !/[^a-z0-9._]/i.test(username.value) && username.value.length > 0;
-
-      console.log(isPasswordValid);
-      console.log(isEmailValid);
-      console.log(isFirstnameValid);
-      console.log(isLastnameValid);
-      console.log(isUsernameValid);
+    if (email.value === '' || password.value === '' || firstname.value === '' || lastname.value === '' || username.value === '') {
+      changeDisplayProperty('errFieldSignUp', 'block');
+      errFieldSignUp.textContent = 'Bitte überprüfen Sie Ihre Eingaben!';
     } else {
-      console.log("no @");
-    }
 
-    if (isPasswordValid && isEmailValid && isFirstnameValid && isLastnameValid && isUsernameValid) {
-      const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
-      promise.catch((error) => {
+      do {
+          if (email.value.charAt(i) === '@') {
+            containsAt = true;
+          }
+          i++;
+      } while (!containsAt || i < email.value.length);
 
-        changeDisplayProperty('errField', 'block');
-        errField.textContent = error.message;
-      });
+      resetErrorField();
+      changeDisplayProperty('errFieldSignUp', 'none');
 
-      promise.then(() => {
-        let userId = firebase.auth().currentUser.uid;
-        console.log(userId);
-        writeUserToDatabase(firstname.value, lastname.value, username.value, email.value, userId);
-      });
+      if (containsAt) {
+        const splitEmail  = email.value.split('@');
+        isPasswordValid = validatePassword(password);
+        isEmailValid = validateEmail(email);
+        isFirstnameValid = !/[^a-zäöüß ]/i.test(firstname.value) && firstname.value.length > 0;
+        isLastnameValid = !/[^a-zäöüß ]/i.test(lastname.value) && lastname.value.length > 0;
+        isUsernameValid = !/[^a-z0-9._]/i.test(username.value) && username.value.length > 0;
+        }
+
+      if (isPasswordValid && isEmailValid && isFirstnameValid && isLastnameValid && isUsernameValid) {
+        const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
+        promise.catch((error) => {
+
+          changeDisplayProperty('errFieldSignUp', 'block');
+          errFieldSignUp.textContent = error.message;
+        });
+
+        promise.then(() => {
+          let userId = firebase.auth().currentUser.uid;
+          writeUserToDatabase(firstname.value, lastname.value, username.value, email.value, userId);
+        });
+      }
     }
   });
 
@@ -151,8 +119,8 @@ window.addEventListener('load', () => {
     firebase.auth().signOut().then(() => {
       // Sign-out successful.
       accountPopUp.style.display = 'none';
-      document.getElementById('usernameField').textContent = "";
-    }).catch(function(error) {
+      document.getElementById('usernameField').textContent = '';
+    }).catch((error) => {
       // An error happened.
     });
   });
@@ -198,7 +166,7 @@ window.addEventListener('load', () => {
     //     }
     //
     //     if (!isChild) {
-    //       accountPopUp.style.display = "none";
+    //       accountPopUp.style.display = 'none';
     //       window.removeEventListener('click', clickEvent);
     //       isUserPopUpVisible = false;
     //     }
@@ -209,19 +177,18 @@ window.addEventListener('load', () => {
 
   usernameWindow.addEventListener('click', () => {
     if (!isUserPopUpVisible) {
-      accountPopUp.style.display = "block";
-      accountPopUp.style.top = "2vw";
-      accountPopUp.style.right = "6.5vw";
+      accountPopUp.style.display = 'block';
+      accountPopUp.style.top = '2vw';
+      accountPopUp.style.right = '6.5vw';
      isUserPopUpVisible = true;
     } else {
-      accountPopUp.style.display = "none";
+      accountPopUp.style.display = 'none';
       isUserPopUpVisible = false;
     }
   });
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      console.log(user.email);
       changeDisplayProperty('accountWindow', 'none');
       changeDisplayProperty('accountNav', 'none');
       changeDisplayProperty('usernameWindow', 'inline-block')
@@ -231,7 +198,6 @@ window.addEventListener('load', () => {
       loggedIn = true;
       document.getElementById('navigationRes').textContent = '';
     } else {
-      console.log("not logged in");
       changeDisplayProperty('usernameWindow', 'none');
       changeDisplayProperty('accountNav', 'inline-block');
       loggedIn = false;
@@ -240,7 +206,6 @@ window.addEventListener('load', () => {
 
   settings.addEventListener('click', () => {
       window.location.href='./settings';
-      console.log('settings page opened');
   });
 
   function writeUserToDatabase(firstname, lastname, username, email, userId) {
@@ -253,10 +218,8 @@ window.addEventListener('load', () => {
     }, (error) => {
       if (error) {
         // The write failed...
-        console.log("failed");
       } else {
         // Data saved successfully!
-        console.log('successful');
       }
     });
   }
@@ -267,7 +230,6 @@ window.addEventListener('load', () => {
     return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
       let username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
       usernamePopUp.textContent = username;
-      console.log(username);
     });
   }
 
@@ -277,7 +239,6 @@ window.addEventListener('load', () => {
     return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
       let firstname = (snapshot.val() && snapshot.val().firstname) || 'Anonymous';
       usernameField.textContent = firstname;
-      console.log(firstname);
     });
   }
 
@@ -287,7 +248,6 @@ window.addEventListener('load', () => {
     return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
       let status = (snapshot.val() && snapshot.val().status) || 'Anonymous';
       accStatus.textContent = status;
-      console.log(status);
     });
   }
 
@@ -300,11 +260,13 @@ window.addEventListener('load', () => {
   activateSignIn.addEventListener('click', () => {
     document.getElementById('signup').style.left = '-25vw';
     document.getElementById('signin').style.right = '0';
+    resetErrorField();
   });
 
   activateSignUp.addEventListener('click', () => {
     document.getElementById('signup').style.left = '0';
     document.getElementById('signin').style.right = '-25vw';
+    resetErrorField();
   });
 
   navigationBtn.addEventListener('click', () => {
@@ -315,7 +277,6 @@ window.addEventListener('load', () => {
       setTimeout(() => {
         window.location.href='./navigation';
       }, 250);
-      console.log('navigation paged opened');
     } else {
       respond.textContent = 'Sie müssen eingeloggt sein um die Simulation starten zu können.';
     }
@@ -323,10 +284,14 @@ window.addEventListener('load', () => {
 });
 
 function resetErrorField() {
-  const errField = document.getElementById('errField');
+  const errFieldSignUp = document.getElementById('errFieldSignUp');
+  const errFieldSignIn = document.getElementById('errFieldSignIn');
 
-  errField.style.display = "none";
-  errField.textContent = "";
+  errFieldSignUp.style.display = 'none';
+  errFieldSignUp.textContent = '';
+
+  errFieldSignIn.style.display = 'none';
+  errFieldSignIn.textContent = '';
 }
 
 function changeDisplayProperty(id, property) {

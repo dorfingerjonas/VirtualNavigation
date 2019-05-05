@@ -1,112 +1,109 @@
 <!DOCTYPE html>
-<html lang="de" dir="ltr">
+<html lang='de' dir='ltr'>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <title>Virtual Navigation</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/slideshow.css">
-    <link rel="icon" href="img/favicon.png">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:200,400" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <script src="scripts/scrollAnimations.js" charset="utf-8"></script>
-    <script src="scripts/account.js" charset="utf-8"></script>
-    <script src="scripts/slideshow.js" charset="utf-8"></script>
-    <script src="scripts/inputAnimation.js" charset="utf-8"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-messaging.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-functions.js"></script>
+    <link rel='stylesheet' href='style/style.css'>
+    <link rel='stylesheet' href='style/slideshow.css'>
+    <link rel='icon' href='img/favicon.png'>
+    <link href='https://unpkg.com/aos@2.3.1/dist/aos.css' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Sniglet' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,500' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:200,400' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+    <link href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' rel='stylesheet' integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf' crossorigin='anonymous'>
+    <script src='scripts/scrollAnimations.js' charset='utf-8'></script>
+    <script src='scripts/account.js' charset='utf-8'></script>
+    <script src='scripts/slideshow.js' charset='utf-8'></script>
+    <script src='scripts/inputAnimation.js' charset='utf-8'></script>
+    <script src='https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js'></script>
   </head>
-  <body id="body">
-    <div id="Home">
+  <body id='body'>
+    <div id='Home'>
       <h1>Virtual Schiarea-navigation</h1>
-      <nav id="nav">
-        <a title="Home" href="#Home">Home</a>
-        <a title="Funktionen" href="#Funktionen">Funktionen</a>
-        <a title="Über uns" href="#Überuns">Über uns</a>
-        <a title="Kontaktiere uns" href="#Kontakt">Kontaktiere uns</a>
-        <a title="Anmelden" id="accountNav">Anmelden</a>
+      <nav id='nav'>
+        <a title='Home' href='#Home'>Home</a>
+        <a title='Funktionen' href='#Funktionen'>Funktionen</a>
+        <a title='Über uns' href='#Überuns'>Über uns</a>
+        <a title='Kontaktiere uns' href='#Kontakt'>Kontaktiere uns</a>
+        <a title='Anmelden' id='accountNav'>Anmelden</a>
 
-        <p id="usernameWindow"> <span id="usernameField"></span>&nbsp;<i class="fas fa-sort-down"></i></p>
-        <ul id="accPopUp">
-          <li>Eingeloggt als: <span title="Username" id="usernamePopUp"></span> </li>
+        <p id='usernameWindow'> <span id='usernameField'></span>&nbsp;<i class='fas fa-sort-down'></i></p>
+        <ul id='accPopUp'>
+          <li>Eingeloggt als: <span title='Username' id='usernamePopUp'></span> </li>
           <hr>
-          <li title="Status" id="accStatus"></li>
+          <li title='Status' id='accStatus'></li>
           <hr>
-          <li title="Einstellungen" id="settings"><i class="fas fa-cogs"></i> Einstellungen</li>
-          <li title="Abmelden" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Abmelden</li>
+          <li title='Einstellungen' id='settings'><i class='fas fa-cogs'></i> Einstellungen</li>
+          <li title='Abmelden' id='logoutBtn'><i class='fas fa-sign-out-alt'></i> Abmelden</li>
         </ul>
       </nav>
 
-      <div id="accountWindow">
-        <div id="Account">
-          <div class="xWrapper"><i id="closeAccountWndw" class="material-icons">&#xe5cd;</i></div>
-          <p id="headline">Account</p>
-            <div id="signup">
-              <div class="alignToCenter">
-                <form class="accountForm" action='index.html' method='post'>
-                  <span id="firstnameTxt">Vorname</span>
+      <div id='accountWindow'>
+        <div id='Account'>
+          <div class='xWrapper'><i id='closeAccountWndw' class='material-icons'>&#xe5cd;</i></div>
+          <p id='headline'>Account</p>
+            <div id='signup'>
+              <div class='alignToCenter'>
+                <form class='accountForm' action='index.html' method='post'>
+                  <span id='firstnameTxt'>Vorname</span>
                   <input id='firstname' type='text'>
-                  <span id="lastnameTxt">Nachname</span>
+                  <span id='lastnameTxt'>Nachname</span>
                   <input id='lastname' type='text'>
-                  <span id="usernameTxt">Nutzname</span>
+                  <span id='usernameTxt'>Nutzname</span>
                   <input id='username' type='text'>
-                  <span id="emailSignUpTxt">E-Mail</span>
+                  <span id='emailSignUpTxt'>E-Mail</span>
                   <input id='emailSignUp' type='email'>
-                  <span id="passwordSignUpTxt">Passwort</span>
+                  <span id='passwordSignUpTxt'>Passwort</span>
                   <input id='passwordSignUp' type='password'>
-                  <button id="signupBtn" type="button">Sign Up</button>
-                  <p id="errField"></p>
+                  <button id='signupBtn' type='button'>Sign Up</button>
                 </form>
               </div>
-              <p id="asuTextFieldSignIn" style="margin-left: 3vw">Bereits Registriert? <span class="infoSpan" id="alreadySignedUp">Anmelden</span></p>
+              <p id='asuTextFieldSignIn' style='margin-left: 3vw'>Bereits Registriert? <span class='infoSpan' id='alreadySignedUp'>Anmelden</span></p>
+              <p id='errFieldSignUp'></p>
             </div>
-            <div id="signin">
-              <div class="alignToCenter">
-                <form class="accountForm" action="index.html" method="post">
-                  <span id="emailSignInTxt">E-Mail</span>
-                  <input id='emailSignIn' type="email">
-                  <span id="passwordSignInTxt">Password</span>
+            <div id='signin'>
+              <div class='alignToCenter'>
+                <form class='accountForm' action='index.html' method='post'>
+                  <span id='emailSignInTxt'>E-Mail</span>
+                  <input id='emailSignIn' type='email'>
+                  <span id='passwordSignInTxt'>Password</span>
                   <input id='passwordSignIn' type='password'>
-                  <button id="loginBtn" type="button">Log In</button>
-                  <p id="errField"></p>
+                  <button id='loginBtn' type='button'>Log In</button>
                 </form>
               </div>
-              <p id="asuTextFieldSignUp" style="margin-left: 3vw">Noch nicht Registriert? <span class="infoSpan" id="notSignedUp">Registrieren</span></p>
+              <p id='asuTextFieldSignUp' style='margin-left: 3vw'>Noch nicht Registriert? <span class='infoSpan' id='notSignedUp'>Registrieren</span></p>
+              <p id='errFieldSignIn'></p>
             </div>
         </div>
       </div>
 
-      <section id="homeSection">
-        <div id="slideshowWrapper">
-          <div id="images">
-            <div id="iconWrapper">
-              <i class="material-icons" id="arrowLeft">keyboard_arrow_left</i>
-              <i class="material-icons" id="arrowRight">keyboard_arrow_right</i>
+      <section id='homeSection'>
+        <div id='slideshowWrapper'>
+          <div id='images'>
+            <div id='iconWrapper'>
+              <i class='material-icons' id='arrowLeft'>keyboard_arrow_left</i>
+              <i class='material-icons' id='arrowRight'>keyboard_arrow_right</i>
             </div>
           </div>
         </div>
 
-        <button type="button" id="startNavigation">Navigations Simulation Starten</button>
-        <span id="navigationRes"> </span>
+        <button type='button' id='startNavigation'>Navigations Simulation Starten</button>
+        <span id='navigationRes'> </span>
 
       </section>
 
-      <section id="Funktionen">
+      <section id='Funktionen'>
         <h2>Funktionen</h2>
-        <div class="alignToCenter">
-        <!-- <div data-aos="fade-down" style="z-index: -1"> -->
-        <div data-aos="fade-down">
-          <img title="Smith IO Recon" src="img/skibrille.jpeg" alt="Schibrille">
+        <div class='alignToCenter'>
+        <!-- <div data-aos='fade-down' style='z-index: -1'> -->
+        <div data-aos='fade-down'>
+          <img title='Smith IO Recon' src='img/skibrille.jpeg' alt='Schibrille'>
         </div>
         <!-- <label>Schibrillen Model: Smith IO Recon</label> -->
-        <div class="textWrapper"  style="margin-right: 5vw">
+        <div class='textWrapper'  style='margin-right: 5vw'>
         <p>
           Wer auf 160 Pistenkilometern kein Highlight verpassen will, braucht vor allem eines:
           die optimale Orientierung. Egal ob kürzester Weg zur Hütte, Wetterdaten, Pisten- und Liftstatus,
@@ -133,10 +130,10 @@
        </div>
      </section>
 
-      <section id="Überuns">
+      <section id='Überuns'>
         <h2>Über uns</h2>
-        <div class="alignToCenter">
-        <div class="textWrapper">
+        <div class='alignToCenter'>
+        <div class='textWrapper'>
           <p>
             Wir sind eine ambitionierte Gruppe von Entwicklern und Schifahrern die es sich als Aufgabe gemacht hat im Schigebiet Dachstein West den Schifahrern ein besseres Schierlebnis zu bieten.
             <br>Mithilfe der neuen Smith IO Recon Schibrille ist es möglich ein ganzes Navigationssystem mit vielen innovativen und exklusiven Zusatzfunktionen immer beim Schifahren dabei zu haben und dabei ohne zusätzliche Dinge mitnehmen zu müssen.
@@ -155,22 +152,22 @@
        </div>
       </section>
 
-      <section id="Kontakt">
+      <section id='Kontakt'>
         <h2>Kontakt</h2>
-        <div id="kontaktWrapper">
-          <form id="kontaktForm" action="index.html" method="post">
-            <input id="contactFirstname" type="text" value="" placeholder="Vorname">
-            <input id="contactLastname" type="text" value="" placeholder="Nachname">
-            <input id="contactMail" type="email" value="" placeholder="E-Mail Adresse">
-            <textarea placeholder="Nachricht" id="contactMessage" rows="8" cols="80"></textarea>
-            <input type="checkbox" id="contactCheckbox"> <label>Ich habe die AGB und die Datenschutzbedingungen gelesen und stimme diesen zu.</label>
-            <button type="button">Senden</button>
+        <div id='kontaktWrapper'>
+          <form id='kontaktForm' action='index.html' method='post'>
+            <input id='contactFirstname' type='text' value='' placeholder='Vorname'>
+            <input id='contactLastname' type='text' value='' placeholder='Nachname'>
+            <input id='contactMail' type='email' value='' placeholder='E-Mail Adresse'>
+            <textarea placeholder='Nachricht' id='contactMessage' rows='8' cols='80'></textarea>
+            <input type='checkbox' id='contactCheckbox'> <label>Ich habe die AGB und die Datenschutzbedingungen gelesen und stimme diesen zu.</label>
+            <button type='button'>Senden</button>
           </form>
           </div>
         </div>
       </section>
     </div>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src='https://unpkg.com/aos@next/dist/aos.js'></script>
   <script>
     AOS.init({
       duration: 1000,

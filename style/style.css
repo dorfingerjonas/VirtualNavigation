@@ -224,8 +224,10 @@ button:hover {
   user-select: none;
 }
 
-#errField {
+#errFieldSignUp, #errFieldSignIn {
   display: none;
+  margin-left: 3vw;
+  color: red;
 }
 
 #signin {
