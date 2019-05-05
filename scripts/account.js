@@ -238,34 +238,6 @@ window.addEventListener('load', () => {
     }
   });
 
-  accStatus.addEventListener('click', () => {
-      const user = firebase.auth().currentUser;
-      const statusWrapper = document.getElementById('statusWrapper');
-      const statusRes = document.getElementById('statusRes');
-      changeDisplayProperty('statusWrapper', 'flex');
-      console.log('state list opened');
-
-      statusRes.textContent = '';
-
-      saveBtn.addEventListener('click', () => {
-        statusInput = statusTxT.value;
-        if (statusInput !== '') {
-          console.log(statusInput);
-          setNewStatus(user, statusInput);
-          statusRes.textContent = 'Neuer Status wurde erfolgreich gespeichert.';
-          console.log("changed state");
-          writeStatusToPopUp(user);
-        } else {
-          statusRes.textContent = 'Eingegebener Status ist ungültig.';
-        }
-      });
-
-      document.getElementById('closeStatus').addEventListener('click', () => {
-        changeDisplayProperty('statusWrapper', 'none');
-        console.log("closed state list");
-      });
-  });
-
   settings.addEventListener('click', () => {
       window.location.href='./settings';
       console.log('settings page opened');
