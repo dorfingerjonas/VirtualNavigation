@@ -1,68 +1,65 @@
 <!DOCTYPE html>
-<html lang="de" dir="ltr">
+<html lang='de' dir='ltr'>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <title>Settings - Virtual Navigation</title>
-    <link rel="icon" href="../img/favicon.png">
-    <link rel="stylesheet" href="../style/settings.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
-    <script src="../scripts/settings.js" charset="utf-8"></script>
-    <script src="../scripts/inputAnimation.js" charset="utf-8"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-messaging.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-functions.js"></script>
+    <link rel='icon' href='../img/favicon.png'>
+    <link rel='stylesheet' href='../style/settings.css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,500' rel='stylesheet'>
+    <script src='../scripts/settings.js' charset='utf-8'></script>
+    <script src='../scripts/inputAnimation.js' charset='utf-8'></script>
+    <script src='https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js'></script>
   </head>
   <body>
     <h1>SETTINGS</h1>
-    <a href="../index.html">back</a>
+    <a href='../index.html'>back</a>
 
-    <div id="wrapper">
-      <form id="settings" action="index.html" method="post">
-        <div id="usernameWrapper">
-          <span id="usernameTxt">Username ändern</span>
-          <input type="text" id="username">
+    <div id='wrapper'>
+      <form id='settings' action='index.html' method='post'>
+        <div id='usernameWrapper'>
+          <span id='usernameTxt'>Username ändern</span>
+          <input type='text' id='username'>
           <br>
-          <span id="usernameFDB"> </span>
+          <span id='usernameFDB'> </span>
           <br>
-          <button type="button" id="usernameBtn">Speichern</button>
+          <button type='button' id='usernameBtn'>Speichern</button>
         </div>
 
-        <div id="statusWrapper">
-          <span id="stateTxt">neuer Status</span>
-          <input type="text" id="state">
+        <div id='statusWrapper'>
+          <span id='stateTxt'>neuer Status</span>
+          <input type='text' id='state'>
           <br>
-          <span id="stateFDB"> </span>
+          <span id='stateFDB'> </span>
           <br>
-          <button type="button" id="stateBtn">Speichern</button>
+          <button type='button' id='stateBtn'>Speichern</button>
         </div>
 
-        <div id="emailWrapper">
-          <span id="emailTxt">e-mail adresse</span>
-          <input type="email" id="email">
+        <div id='emailWrapper'>
+          <span id='emailTxt'>e-mail adresse</span>
+          <input type='email' id='email'>
           <br>
-          <span id="emailFDB"> </span>
+          <span id='emailFDB'> </span>
           <br>
-          <button type="button" id="emailBtn">Speichern</button>
+          <button type='button' id='emailBtn'>Speichern</button>
           <br>
-          <button type="button" id="verifyBtn">E-Mail Adresse Bestätigen</button>
-          <span id="verifyFDB"> </span>
+          <button type='button' id='verifyBtn'>E-Mail Adresse Bestätigen</button>
+          <span id='verifyFDB'> </span>
         </div>
 
-        <div id="passwordWrapper">
-          <span id="newPWTxt">neues passwort</span>
-          <input type="password" id="newPW">
-          <span id="CfmNewPWTxt">neues passwort wiederholen</span>
-          <input type="password" id="CfmNewPW">
+        <div id='passwordWrapper'>
+          <span id='newPWTxt'>neues passwort</span>
+          <input type='password' id='newPW'>
+          <span id='CfmNewPWTxt'>neues passwort wiederholen</span>
+          <input type='password' id='CfmNewPW'>
           <br>
-          <span id="pwFDB"> </span>
-          <button type="button" id="passwordBtn">Speichern</button>
+          <span id='pwFDB'> </span>
+          <button type='button' id='passwordBtn'>Speichern</button>
         </div>
 
-        <div id="deleteWrapper">
-          <button type="button" id="deleteBtn">Account löschen</button>
+        <div id='deleteWrapper'>
+          <button type='button' id='deleteBtn'>Account löschen</button>
         </div>
       </form>
     </div>
