@@ -1,6 +1,27 @@
 let positionCounter = 0;
 
 window.addEventListener('load', () => {
+
+    const config = {
+      apiKey: 'AIzaSyDHuGnlajKcr4s8_vn9XC5McqalXvWTBsg',
+      authDomain: 'virtualskiareanavigation.firebaseapp.com',
+      databaseURL: 'https://virtualskiareanavigation.firebaseio.com',
+      projectId: 'virtualskiareanavigation',
+      storageBucket: 'virtualskiareanavigation.appspot.com',
+      messagingSenderId: '428865397333'
+    };
+
+    firebase.initializeApp(config);
+
+    let database = firebase.database();
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (!user) {
+      window.location.href='../';
+    }
+  });
+
+
   let currentScroll = scrollX;
 
   setInterval(() => {
