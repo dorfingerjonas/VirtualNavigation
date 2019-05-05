@@ -328,6 +328,7 @@ label {
   transition: all 0.3s ease-in-out;
   outline: none;
   user-select: none;
+  font-size: 130%;
 }
 
 #homeSection #startNavigation:hover {
