@@ -1,7 +1,3 @@
-#slideshowWrapper {
-  margin-top: 50px;
-}
-
 #images {
   user-select: none;
   display: flex;
@@ -10,14 +6,16 @@
 }
 
 #images img {
-  width: 40vw;
+  width: 60vw;
   position: relative;
+  border-radius: 10px;
 }
 
 #iconWrapper {
-  width: 40vw;
-  height: auto;
+  width: 60vw;
   position: absolute;
+  display: flex;
+  align-items: center;
 }
 
 #iconWrapper i {
