@@ -1,5 +1,23 @@
 let positionCounter = 0;
 
+window.addEventListener('load', () => {
+  let currentScroll = scrollX;
+
+  setInterval(() => {
+    if (currentScroll !== scrollX) {
+      currentScroll = scrollX;
+      fadeElementOut('weather');
+      fadeElementOut('route');
+      fadeElementOut('data');
+      fadeElementOut('map');
+      fadeElementOut('emergency');
+      fadeElementOut('liftState');
+      fadeElementOut('slopeState');
+    }
+  }, 10);
+
+});
+
 window.addEventListener('keydown', (event) => {
 
   const distanceToGo = document.getElementById('weatherNav').clientWidth;
@@ -36,3 +54,10 @@ window.addEventListener('keydown', (event) => {
     }, 10);
   }
 });
+
+function fadeElementOut(id) {
+  document.getElementById(id).style.opacity = '0';
+  setTimeout(() => {
+    document.getElementById(id).style.display = 'none';
+  }, 520);
+}
