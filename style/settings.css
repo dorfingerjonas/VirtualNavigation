@@ -1,9 +1,17 @@
+@font-face {
+  font-family: 'Gotham Light';
+  src: url(../fonts/Gotham-XLight.otf) format('opentype');
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: normal;
   text-align: center;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin-bottom: 20%;
 }
+
 h1 {
   font-weight: normal;
 }
@@ -13,12 +21,15 @@ h1 {
   height: 100vh;
   display: flex;
   justify-content: center;
-  overflow: hidden;
   text-align: left;
 }
 
-#settings {
-  width: 40vw;
+#settings div {
+  border-radius: 15px;
+  box-shadow: 0px 0px 14px 6px rgba(217,217,217,1);
+  padding: 5%;
+  margin-top: 7%;
+  width: 20vw;
 }
 
 button {
@@ -55,6 +66,7 @@ span {
   user-select: none;
   position: relative;
   left: 0;
+  margin-bottom: 1%;
   transition: font-size 250ms, top 250ms;
   pointer-events: none;
   font-weight: 100;
@@ -67,18 +79,34 @@ input:focus {
 }
 
 p {
-  font-size: 130%;
   user-select: none;
+  font-weight: 100;
+  font-size: 12pt;
+  color: white;
+  margin: 0;
 }
 
 #deleteBtn {
   border: #F44336;
   background-color: #F44336;
   background-image: linear-gradient(-180deg,#F44336,#cf1f12 90%);
+  margin-top: 10%;
 }
 
-.passwordVisibility {
-  position: relative;
-  left: 0;
-  top: 0.5vmin;
+#back {
+  width: 10vw;
+  padding: 15px;
+  border: 2px solid #0f5fa6;
+  border-radius: 40px;
+  color: #0f5fa6;
+  user-select: none;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+#back:hover {
+  cursor: pointer;
+  background-color: #0f5fa6;
+  color: #fff;
 }
