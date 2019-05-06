@@ -21,34 +21,42 @@ window.addEventListener('load', () => {
 
   usernameBtn.addEventListener('click', () => {
 
-    const newUsername = document.getElementById('username').value;
+    const newUsername = document.getElementById('username');
     const fdb = document.getElementById('usernameFDB');
 
-    if (newUsername !== '') {
-      setNewUsername(firebase.auth().currentUser, newUsername);
+    if (newUsername.value !== '') {
+      setNewUsername(firebase.auth().currentUser, newUsername.value);
+      fdb.style.color = 'black';
       fdb.textContent = 'Neuer Username wude erfolgreich gespeichert.';
     } else {
+      newUsername.style.borderBottom = 'red 2px solid';
+      fdb.style.color = 'red';
       fdb.textContent = 'Der eingegebene Username ist ungültig.'
     }
-    setTimeout(function () {
-      fdb.textContent = '';
-    }, 2500);
+    setTimeout(() => {
+      fdb.style.color = 'white';
+      newUsername.style.borderBottom = 'lightgray 2px solid';
+    }, 6500);
   });
 
   stateBtn.addEventListener('click', () => {
 
-    const newStatus = document.getElementById('state').value;
+    const newStatus = document.getElementById('state');
     const fdb = document.getElementById('stateFDB');
 
-    if (newStatus !== '') {
-      setNewStatus(firebase.auth().currentUser, newStatus);
+    if (newStatus.value !== '') {
+      setNewStatus(firebase.auth().currentUser, newStatus.value);
+      fdb.style.color = 'black';
       fdb.textContent = 'Neuer Status wude erfolgreich gespeichert.';
     } else {
+      newStatus.style.borderBottom = 'red 2px solid';
+      fdb.style.color = 'red';
       fdb.textContent = 'Der eingegebene Status ist ungültig.'
     }
-    setTimeout(function () {
-      fdb.textContent = '';
-    }, 2500);
+    setTimeout(() => {
+      fdb.style.color = 'white';
+      newStatus.style.borderBottom = 'lightgray 2px solid';
+    }, 6500);
   });
 
   verifyBtn.addEventListener('click', () => {
@@ -58,55 +66,76 @@ window.addEventListener('load', () => {
 
     if (!user.emailVerified) {
       user.sendEmailVerification();
+      fdb.style.color = 'black';
+      fdb.textContent = 'Es wurde eine Bestätigungsemail an "' + user.email + '" gesendet.'
     } else {
+      fdb.style.color = 'red';
       fdb.textContent = 'Die aktuelle E-Mail Adresse wurde bereits bestätigt.'
     }
-    setTimeout(function () {
-      fdb.textContent = '';
-    }, 2500);
+    setTimeout(() => {
+      fdb.style.color = 'white';
+    }, 6500);
   });
 
   emailBtn.addEventListener('click', () => {
     const user = firebase.auth().currentUser;
-    const newEmail = document.getElementById('email').value;
+    const newEmail = document.getElementById('email');
     const fdb = document.getElementById('emailFDB');
 
-    if (newEmail !== '') {
-      setNewEmail(user, newEmail);
-      user.updateEmail(newEmail);
+    if (newEmail.value !== '') {
+      setNewEmail(user, newEmail.value);
+      user.updateEmail(newEmail.value);
+      fdb.style.color = 'black';
+      fdb.textContent = 'Die E-Mail Adresse wurde erfolgreich geändert.'
     } else {
+      fdb.style.color = 'red';
+      newEmail.style.borderBottom = 'red 2px solid';
       fdb.textContent = 'Die eingegebene E-Mail Adresse ist ungültig.'
     }
-    setTimeout(function () {
-      fdb.textContent = '';
-    }, 2500);
+    setTimeout(() => {
+      fdb.style.color = 'white';
+      newEmail.style.borderBottom = 'lightgray 2px solid';
+    }, 6500);
   });
 
   passwordBtn.addEventListener('click', () => {
     const user = firebase.auth().currentUser;
-    const newPW = document.getElementById('newPW').value;
-    const confirmedPW = document.getElementById('CfmNewPW').value;
+    const newPW = document.getElementById('newPW')
+    const confirmedPW = document.getElementById('CfmNewPW');
     const fdb = document.getElementById('pwFDB');
+    let isPasswordValid = validatePassword(newPW);
 
-    if (newPW !== '' && confirmedPW !== '' && newPW === confirmedPW) {
-      user.updatePassword(newPW);
-      fdb.textContent = 'Passwort wurde erfolgreich geändert.';
+    if (!isPasswordValid) {
+      fdb.style.color = 'red';
+      newPW.style.borderBottom = 'red 2px solid';
+      confirmedPW.style.borderBottom = 'red 2px solid';
+      fdb.textContent = 'Die Passwörter erfüllen nicht alle Sicherheitsbedinungen (Sonderzeichen, Groß-Kleinbuchstaben, Zahlen, mind. 8 Zeichen lang)';
+    } else if (newPW.value === '' || confirmedPW.value === '') {
+      fdb.style.color = 'red';
+      newPW.style.borderBottom = 'red 2px solid';
+      confirmedPW.style.borderBottom = 'red 2px solid';
+      fdb.textContent = 'Es darf kein Feld leer bleiben.';
+    } else if (newPW.value !== confirmedPW.value) {
+      fdb.style.color = 'red';
+      newPW.style.borderBottom = 'red 2px solid';
+      confirmedPW.style.borderBottom = 'red 2px solid';
+      fdb.textContent = 'Die eingegebenen Passwörter stimmen nicht überein.';
     } else {
-      fdb.textContent = 'Die eingebenen Passwörter sind ungültig.';
+      user.updatePassword(newPW.value);
+      fdb.style.color = 'black';
+      fdb.textContent = 'Passwort wurde erfolgreich geändert.';
     }
     setTimeout(function () {
-      fdb.textContent = '';
-    }, 2500);
+      fdb.style.color = 'white';
+      newPW.style.borderBottom = 'lightgray 2px solid';
+      confirmedPW.style.borderBottom = 'lightgray 2px solid';
+    }, 6500);
   });
 
-  deleteBtn.addEventListener('click', () => {
-    const user = firebase.auth().currentUser;
+  deleteBtn.addEventListener('click', firebase.auth().currentUser.delete());
 
-    user.delete().then(() => {
-      console.log('user deleted');
-    }).catch((error) => {
-      console.log('error - not deleted');
-    });
+  document.getElementById('back').addEventListener('click', () => {
+    window.location.href = '../';
   });
 });
 
@@ -126,4 +155,8 @@ window.addEventListener('load', () => {
     firebase.database().ref('/users/' + user.uid).update({
       email: newEmail
     });
+  }
+
+  function validatePassword(password) {
+    return /[a-z]/.test(password.value) && /[A-Z]/.test(password.value) && /[0-9]/.test(password.value) && /[^a-zA-Z0-9]/.test(password.value) && password.value.length > 7;
   }
