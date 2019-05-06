@@ -6,6 +6,7 @@
     <link rel='icon' href='../img/favicon.png'>
     <link rel='stylesheet' href='../style/settings.css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,500' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
     <script src='../scripts/settings.js' charset='utf-8'></script>
     <script src='../scripts/inputAnimation.js' charset='utf-8'></script>
     <script src='https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js'></script>
@@ -51,8 +52,10 @@
         <div id='passwordWrapper'>
           <span id='newPWTxt'>neues passwort</span>
           <input type='password' id='newPW'>
+          <i class="material-icons passwordVisibility" id="logInPasswordVisibility" style="font-size: 2.5vmin;">visibility</i>
           <span id='CfmNewPWTxt'>neues passwort wiederholen</span>
           <input type='password' id='CfmNewPW'>
+          <i class="material-icons passwordVisibility" id="logInPasswordVisibility" style="font-size: 2.5vmin;">visibility</i>
           <br>
           <span id='pwFDB'> </span>
           <button type='button' id='passwordBtn'>Speichern</button>
