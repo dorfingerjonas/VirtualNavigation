@@ -205,7 +205,7 @@ window.addEventListener('load', () => {
   });
 
   settings.addEventListener('click', () => {
-      window.location.href='./settings';
+      window.location.href = './settings';
   });
 
   function writeUserToDatabase(firstname, lastname, username, email, userId) {
@@ -275,7 +275,7 @@ window.addEventListener('load', () => {
     if (loggedIn) {
       respond.textContent = '';
       setTimeout(() => {
-        window.location.href='./navigation';
+        window.location.href = './navigation';
       }, 250);
     } else {
       respond.textContent = 'Sie müssen eingeloggt sein um die Simulation starten zu können.';
