@@ -228,6 +228,7 @@ button:hover {
   display: none;
   margin-left: 3vw;
   color: red;
+  max-width: 20vw;
 }
 
 #signin {
