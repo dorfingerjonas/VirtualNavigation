@@ -8,7 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:200,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="../scripts/navigation.js" charset="utf-8"></script>
+    <script src="../scripts/navigationNav.js" charset="utf-8"></script>
+    <script src="../scripts/navigationContent.js" charset="utf-8"></script>
     <script src="../scripts/closeNavigationPopUp.js" charset="utf-8"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
@@ -74,11 +75,18 @@
         <i id="closeData" class="material-icons">&#xe5cd;</i>
       </div>
 
-      <h2>Skitagsdaten</h2>
+      <h2>Skitage</h2>
 
-      <p>Hier werden mittels JS die Skitagsdaten eingetragen, diese Daten basieren auf meinen Skiline Daten</p>
+      <div id="header">
+        <div class="output">Datum</div>
+        <div class="output">Distanz</div>
+        <div class="output">Liftfahrten</div>
+        <div class="output">Höhenmeter</div>
+      </div>
+      <div id="contentWrapper">
+        <div id="dataContentWrapper"></div>
+      </div>
 
-      <div id="todaysData"></div>
     </section>
 
     <section id="map">
