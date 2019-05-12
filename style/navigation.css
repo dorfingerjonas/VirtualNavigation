@@ -71,3 +71,46 @@ section i {
   text-align: left;
   font-size: 90%;
 }
+
+#contentWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#data #dataContentWrapper {
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#data #dataContentWrapper div {
+  font-size: 80%;
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  margin-top: 1%;
+
+}
+
+#data #header div {
+  font-size: 100%;
+  text-align: center;
+}
+
+#data #header {
+  width: 65%;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  margin: 0 auto;
+}
+
+.output {
+  display: inline-block !important;
+}
