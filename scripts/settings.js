@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
 
   firebase.initializeApp(config);
 
-  let database = firebase.database();
+  const database = firebase.database();
 
   const usernameBtn = document.getElementById('usernameBtn');
   const stateBtn = document.getElementById('stateBtn');
@@ -132,7 +132,14 @@ window.addEventListener('load', () => {
     }, 6500);
   });
 
-  deleteBtn.addEventListener('click', firebase.auth().currentUser.delete());
+  deleteBtn.addEventListener('click', () => {
+    firebase.auth().currentUser.delete().then(() => {
+      console.log('user deleted');
+    }).catch((error) => {
+      console.log('an error happend while deleting.');
+      console.log(error);
+    });
+  });
 
   document.getElementById('back').addEventListener('click', () => {
     window.location.href = '../';
@@ -140,19 +147,19 @@ window.addEventListener('load', () => {
 });
 
   function setNewStatus(user, newStatus) {
-    firebase.database().ref('/users/' + user.uid).update({
+    firebase.database().ref('users/' + user.uid + '/userdata').update({
       status: newStatus
     });
   }
 
   function setNewUsername(user, newUsername) {
-    firebase.database().ref('/users/' + user.uid).update({
+    firebase.database().ref('users/' + user.uid + '/userdata').update({
       username: newUsername
     });
   }
 
   function setNewEmail(user, newEmail) {
-    firebase.database().ref('/users/' + user.uid).update({
+    firebase.database().ref('users/' + user.uid + '/userdata').update({
       email: newEmail
     });
   }
