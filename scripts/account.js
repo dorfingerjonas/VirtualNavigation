@@ -209,11 +209,11 @@ window.addEventListener('load', () => {
   });
 
   function writeUserToDatabase(firstname, lastname, username, email, userId) {
-    firebase.database().ref('users/' + userId).set({
+    firebase.database().ref('users/' + userId + '/userdata').set({
       firstname: firstname,
       lastname: lastname,
       username: username,
-      status: 'Skiing with love', // TODO: Deutschen Status als default setzen!
+      status: 'Skiing with love',
       email: email
     }, (error) => {
       if (error) {
@@ -227,7 +227,7 @@ window.addEventListener('load', () => {
   function writeUsernameToPopUp(user) {
     let userId = user.uid;
 
-    return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+    return firebase.database().ref('users/' + userId + '/userdata').once('value').then(function(snapshot) {
       let username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
       usernamePopUp.textContent = username;
     });
@@ -236,7 +236,7 @@ window.addEventListener('load', () => {
   function writefirstnameToPopUp(user) {
     let userId = user.uid;
 
-    return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+    return firebase.database().ref('users/' + userId + '/userdata').once('value').then(function(snapshot) {
       let firstname = (snapshot.val() && snapshot.val().firstname) || 'Anonymous';
       usernameField.textContent = firstname;
     });
@@ -245,14 +245,14 @@ window.addEventListener('load', () => {
   function writeStatusToPopUp(user) {
     let userId = user.uid;
 
-    return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+    return firebase.database().ref('users/' + userId + '/userdata').once('value').then(function(snapshot) {
       let status = (snapshot.val() && snapshot.val().status) || 'Anonymous';
       accStatus.textContent = status;
     });
   }
 
   function setNewStatus(user, newStatus) {
-    firebase.database().ref('/users/' + user.uid).update({
+    firebase.database().ref('users/' + user.uid + '/userdata').update({
       status: newStatus
     });
   }
