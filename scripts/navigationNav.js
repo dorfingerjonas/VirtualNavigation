@@ -1,5 +1,3 @@
-let positionCounter = 0;
-
 window.addEventListener('load', () => {
 
     const config = {
@@ -51,20 +49,14 @@ window.addEventListener('keydown', (event) => {
     let interval = setInterval(() => {
       scrollTo(scrollX + 10, 0);
 
-      if (scrollX === originalPosition + distanceToGo || positionCounter === 6) {
+      if (scrollX === originalPosition + distanceToGo || scrollX === Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight)) {
         clearInterval(interval);
       }
     }, 10);
-
-    if (positionCounter < 5) positionCounter++;
-    console.log(positionCounter);
   } else if (event.key === 'ArrowLeft') {
     let originalPosition = scrollX;
 
     event.preventDefault();
-
-    if (positionCounter > 0) positionCounter--;
-    console.log(positionCounter);
 
     let interval = setInterval(() => {
       scrollTo(scrollX - 10, 0);
