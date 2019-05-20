@@ -42,13 +42,15 @@ window.addEventListener('load', () => {
                   let lifts = data[i].lifts + ' Liftfahrten';
                   let altitudedifference = data[i].altitudedifference + 'hm';
 
-                  let contentWrapper = document.getElementById('dataContentWrapper');
-                  let newSkiday = document.createElement('div');
+                  altitudedifference = altitudedifference.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
-                  let dateBox = document.createElement('div');
-                  let distanceBox = document.createElement('div');
-                  let liftsBox = document.createElement('div');
-                  let adBox = document.createElement('div');
+                  let contentWrapper = document.getElementById('dataContentWrapper');
+                  let newSkiday = document.createElement('tr');
+
+                  let dateBox = document.createElement('td');
+                  let distanceBox = document.createElement('td');
+                  let liftsBox = document.createElement('td');
+                  let adBox = document.createElement('td');
 
                   let eintragData = [date, distance, lifts, altitudedifference];
                   let outputArr = [dateBox, distanceBox, liftsBox, adBox];

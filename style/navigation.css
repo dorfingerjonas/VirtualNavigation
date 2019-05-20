@@ -51,6 +51,7 @@ section {
   transition: opacity 500ms ease-out;
   display: none;
   opacity: 0;
+  overflow: hidden;
 }
 
 .arrowWrapper {
@@ -79,38 +80,28 @@ section i {
   flex-direction: row;
 }
 
-#data #dataContentWrapper {
-  overflow: hidden;
-  width: 80%;
-  margin: 0 auto;
+#tableWrapper {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
-#data #dataContentWrapper div {
-  font-size: 80%;
-  display: flex;
-  width: 70%;
-  justify-content: space-between;
-  margin-top: 1%;
-
+#tableWrapper table {
+  width: 95%;
+  overflow-y: scroll;
 }
 
-#data #header div {
-  font-size: 100%;
-  text-align: center;
+#tableWrapper tbody {
 }
 
-#data #header {
-  width: 65%;
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-  margin: 0 auto;
+#tableWrapper td {
+  width: 5%;
+  font-size: 70%;
+  font-weight: 100;
 }
 
-.output {
-  display: inline-block !important;
+#tableWrapper table thead td {
+  font-size: 110% !important;
+  font-weight: 600 !important;
+  margin-bottom: 100%;
 }
