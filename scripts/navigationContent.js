@@ -1,6 +1,12 @@
 window.addEventListener('load', () => {
 
   document.getElementById('dataNav').addEventListener('click', () => {
+    let dataContentWrapper = document.getElementById('dataContentWrapper');
+
+    while (dataContentWrapper.firstChild) {
+      dataContentWrapper.removeChild(dataContentWrapper.firstChild);
+    }
+
     firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/skidata').once('value').then((snapshot) => {
       const content = snapshot.val();
       let data = [];
@@ -67,5 +73,4 @@ window.addEventListener('load', () => {
                     }
                   });
   });
-
 });
