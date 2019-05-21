@@ -5,6 +5,7 @@
     <title>Virtual Navigation</title>
     <link rel='stylesheet' href='style/style.css'>
     <link rel='stylesheet' href='style/slideshow.css'>
+    <link rel="stylesheet" href="style/loader.css">
     <link rel='icon' href='img/favicon.png'>
     <link href='https://unpkg.com/aos@2.3.1/dist/aos.css' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Sniglet' rel='stylesheet'>
@@ -16,11 +17,16 @@
     <script src='scripts/account.js' charset='utf-8'></script>
     <script src='scripts/slideshow.js' charset='utf-8'></script>
     <script src='scripts/inputAnimation.js' charset='utf-8'></script>
+    <script src="scripts/loader.js" charset="utf-8"></script>
     <script src='https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js'></script>
     <script src='https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js'></script>
     <script src='https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js'></script>
   </head>
   <body id='body'>
+    <div id="loaderWrapper">
+      <div class="loader" id="loader1"></div>
+      <div class="loader" id="loader2"></div>
+    </div>
     <div id='Home'>
       <h1>Virtual Schiarea-navigation</h1>
       <nav id='nav'>

@@ -1,0 +1,44 @@
+#loaderWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+}
+
+.loader {
+  border-radius: 25%;
+  width: 125px;
+  height: 125px;
+  position: absolute;
+}
+
+#loader1 {
+  border-top: 7px solid #db3434;
+  border-right: 7px solid #3498db;
+  border-bottom: 7px solid #db3434;
+  border-left: 7px solid #3498db;
+  animation: spin 2s ease-in-out infinite;
+}
+
+#loader2 {
+  border-top: 7px solid #3498db;
+  border-right: 7px solid #db3434;
+  border-bottom: 7px solid #3498db;
+  border-left: 7px solid #db3434;
+  animation: spin2 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin2 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
