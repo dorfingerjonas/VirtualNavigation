@@ -22,6 +22,7 @@ window.addEventListener('load', () => {
   const usernameField = document.getElementById('usernameField');
   const usernamePopUp = document.getElementById('usernamePopUp');
   const usernameWindow = document.getElementById('usernameWindow');
+  const usernameArrow = document.getElementById('usernameArrow');
   const accountPopUp = document.getElementById('accPopUp');
   const accStatus = document.getElementById('accStatus')
   const settings = document.getElementById('settings');
@@ -177,12 +178,18 @@ window.addEventListener('load', () => {
 
   usernameWindow.addEventListener('click', () => {
     if (!isUserPopUpVisible) {
+      usernameArrow.style.transform = "rotateZ(0deg)";
       accountPopUp.style.display = 'block';
+      accountPopUp.style.opacity = 1;
       accountPopUp.style.top = '2vw';
       accountPopUp.style.right = '6.5vw';
-     isUserPopUpVisible = true;
+      isUserPopUpVisible = true;
     } else {
-      accountPopUp.style.display = 'none';
+      usernameArrow.style.transform = "rotateZ(-90deg)";
+      accountPopUp.style.opacity = 0;
+      setTimeout(() => {
+        accountPopUp.style.display = 'none';
+      }, 250);
       isUserPopUpVisible = false;
     }
   });

@@ -23,6 +23,8 @@ body {
   display: block;
   margin: 0;
   padding: 0;
+  opacity: 0;
+  transition: opacity 500ms linear;
 }
 
 h1 {
@@ -77,6 +79,8 @@ nav {
   text-align: left;
   border-radius: 10px;
   box-shadow: 2px 2px 5px 3px rgba(143,143,143,0.8);
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
 }
 
 #accPopUp li {
@@ -95,6 +99,11 @@ nav {
 #usernameWindow {
   display: none;
   cursor: pointer;
+}
+
+#usernameArrow {
+  transform: rotateZ(-90deg);
+  transition: transform 250ms ease-in-out;
 }
 
 a {
