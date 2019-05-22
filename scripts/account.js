@@ -121,15 +121,13 @@ window.addEventListener('load', () => {
   accNav.addEventListener('click', () => {
       changeDisplayProperty('accountWindow', 'flex');
 
-      document.addEventListener('keypressed', (event) => {
+      window.addEventListener('keydown', (event) => {
 
-        console.log(event.keyCode);
-
-        if (event.keyCode === 13) {
+        if (event.key === 'Enter') {
           signIn();
         }
 
-        if (event.keyCode === 27) {
+        if (event.key === 'Escape') {
           changeDisplayProperty('accountWindow', 'none');
           document.removeEventListener('keydown');
         }
@@ -137,7 +135,7 @@ window.addEventListener('load', () => {
 
       closeAccountWndw.addEventListener('click', () => {
         changeDisplayProperty('accountWindow', 'none');
-        document.removeEventListener('keydown');
+        window.removeEventListener('keydown');
     })
   });
 
