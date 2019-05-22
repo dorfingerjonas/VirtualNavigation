@@ -102,7 +102,7 @@ nav {
 }
 
 #usernameArrow {
-  transform: rotateZ(-90deg);
+  transform: rotateZ(0);
   transition: transform 250ms ease-in-out;
 }
 
