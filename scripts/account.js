@@ -149,33 +149,6 @@ window.addEventListener('load', () => {
     })
   });
 
-  function closePopUp(){
-    // usernameWindow.addEventListener('click', () => {
-    //
-    //   let addClickListener = () => {
-    //     window.addEventListener('click', clickEvent);
-    //     usernameWindow.removeEventListener('mouseup', addClickListener);
-    //   }
-    //
-    //   let clickEvent = (event) => {
-    //     let isChild = false;
-    //
-    //     for (let child of accountPopUp.childNodes) {
-    //       if (event.target === child) {
-    //         isChild = true;
-    //       }
-    //     }
-    //
-    //     if (!isChild) {
-    //       accountPopUp.style.display = 'none';
-    //       window.removeEventListener('click', clickEvent);
-    //       isUserPopUpVisible = false;
-    //     }
-    //   };
-    //
-    //   usernameWindow.addEventListener('mouseup', addClickListener);
-    }
-
   usernameWindow.addEventListener('click', () => {
     if (!isUserPopUpVisible) {
       usernameArrow.style.transform = "rotateZ(180deg)";
