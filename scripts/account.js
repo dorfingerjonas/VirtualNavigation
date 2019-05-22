@@ -67,7 +67,6 @@ window.addEventListener('load', () => {
     const firstname = document.getElementById('firstname');
     const lastname = document.getElementById('lastname');
     const username = document.getElementById('username');
-    let containsAt = false;
     let isPasswordValid = false;
     let isEmailValid = false;
     let isFirstnameValid = false;
@@ -81,24 +80,17 @@ window.addEventListener('load', () => {
       errFieldSignUp.textContent = 'Bitte überprüfen Sie Ihre Eingaben!';
     } else {
 
-      do {
-          if (email.value.charAt(i) === '@') {
-            containsAt = true;
-          }
-          i++;
-      } while (!containsAt || i < email.value.length);
-
       resetErrorField();
       changeDisplayProperty('errFieldSignUp', 'none');
 
-      if (containsAt) {
+      if (email.value.includes('@')) {
         const splitEmail  = email.value.split('@');
         isPasswordValid = validatePassword(password);
         isEmailValid = validateEmail(email);
         isFirstnameValid = !/[^a-zäöüß ]/i.test(firstname.value) && firstname.value.length > 0;
         isLastnameValid = !/[^a-zäöüß ]/i.test(lastname.value) && lastname.value.length > 0;
         isUsernameValid = !/[^a-z0-9._]/i.test(username.value) && username.value.length > 0;
-        }
+      }
 
       if (isPasswordValid && isEmailValid && isFirstnameValid && isLastnameValid && isUsernameValid) {
         const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
