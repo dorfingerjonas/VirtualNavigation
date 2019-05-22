@@ -164,7 +164,7 @@ window.addEventListener('load', () => {
       changeDisplayProperty('accountWindow', 'none');
       changeDisplayProperty('accountNav', 'none');
       changeDisplayProperty('usernameWindow', 'inline-block')
-      writefirstnameToPopUp(user);
+      writeFirstnameToPopUp(user);
       writeUsernameToPopUp(user);
       writeStatusToPopUp(user);
       loggedIn = true;
@@ -205,7 +205,7 @@ window.addEventListener('load', () => {
     });
   }
 
-  function writefirstnameToPopUp(user) {
+  function writeFirstnameToPopUp(user) {
     let userId = user.uid;
 
     return firebase.database().ref('users/' + userId + '/userdata').once('value').then(function(snapshot) {
