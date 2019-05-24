@@ -33,6 +33,8 @@ window.addEventListener('load', () => {
 
   loginBtn.addEventListener('click', signIn);
 
+  signupBtn.addEventListener('click', signUp);
+
   function signIn() {
     const email = document.getElementById('emailSignIn');
     const password = document.getElementById('passwordSignIn');
@@ -61,7 +63,7 @@ window.addEventListener('load', () => {
       }
   }
 
-  signupBtn.addEventListener('click', () => {
+  function signUp() {
     const email = document.getElementById('emailSignUp');
     const password = document.getElementById('passwordSignUp');
     const firstname = document.getElementById('firstname');
@@ -106,7 +108,7 @@ window.addEventListener('load', () => {
         });
       }
     }
-  });
+  }
 
   logoutBtn.addEventListener('click', () => {
     firebase.auth().signOut().then(() => {
@@ -123,19 +125,23 @@ window.addEventListener('load', () => {
 
       window.addEventListener('keydown', (event) => {
 
-        if (event.key === 'Enter') {
+        if (event.key === 'Enter' && document.getElementById('signin').style.right === '0') {
           signIn();
+        } else {
+          signUp();
         }
 
         if (event.key === 'Escape') {
           changeDisplayProperty('accountWindow', 'none');
-          document.removeEventListener('keydown');
+          window.removeEventListener('keydown', signIn, true);
+          window.removeEventListener('keydown', signUp, true);
         }
       });
 
       closeAccountWndw.addEventListener('click', () => {
         changeDisplayProperty('accountWindow', 'none');
-        window.removeEventListener('keydown');
+        window.removeEventListener('keydown', signIn, true);
+        window.removeEventListener('keydown', signUp, true);
     })
   });
 
