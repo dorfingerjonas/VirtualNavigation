@@ -33,7 +33,6 @@ setTimeout(() => {
   setTimeout(() => {
     let goRightInterval = setInterval(() => {
       goRight();
-      console.log(".");
     }, 10000);
   }, localStorage.getItem('loaderDelay'));
 
