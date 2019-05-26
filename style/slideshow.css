@@ -8,8 +8,6 @@
 #images img {
   width: 60vw;
   position: relative;
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.5) 2px 5px 15px 0px;
 }
 
 #iconWrapper {
@@ -17,6 +15,16 @@
   position: absolute;
   display: flex;
   align-items: center;
+}
+
+#overflowWrapper {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 2px 5px 15px 0px;
+}
+
+.imgAnimation {
+  animation: imageTransition 10s linear infinite;
 }
 
 #iconWrapper i {
@@ -34,6 +42,11 @@
   position: absolute;
   left: 0;
   animation: arrowLeftAnim 1000ms ease-in-out infinite;
+}
+
+@keyframes imageTransition {
+  from {transform: scale(1)}
+  to   {transform: scale(1.2)}
 }
 
 @keyframes arrowLeftAnim {

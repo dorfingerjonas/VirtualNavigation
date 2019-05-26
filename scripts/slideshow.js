@@ -1,12 +1,14 @@
 window.addEventListener('load', () => {
   const arrowLeft = document.getElementById('arrowLeft');
   const arrowRight = document.getElementById('arrowRight');
-  const imageBox = document.getElementById('images');
+  const imageBox = document.getElementById('overflowWrapper');
   const howmany = 11;
   let images = [];
   let src = [];
 
-setTimeout(function () {
+  alert("currently working on the slideshow animation, please ignore if somethind isn't working well")
+
+setTimeout(() => {
   document.getElementById('iconWrapper').style.height = document.images[0].clientHeight + 'px';
 }, 50);
 
@@ -22,16 +24,15 @@ setTimeout(function () {
     images[i].style.display = 'none';
 	}
   images[0].style.display = 'block';
+  images[0].classList.add('imgAnimation');
 
   arrowLeft.addEventListener('click', goLeft);
 
   arrowRight.addEventListener('click', goRight);
 
-  setTimeout(function () {
-    setInterval(function () {
-      goRight();
-    }, 7000);
-  }, 5000);
+  let goRightInterval = setInterval(() => {
+    goRight();
+  }, 10000);
 
   function goRight() {
     let rack = images[images.length-1].src;
@@ -39,9 +40,12 @@ setTimeout(function () {
     for (let i = images.length - 1; i > 0; i--) {
       images[i].src = images[i-1].src;
       images[i].style.display = 'none';
+      // images[i].classList.remove('imgAnimation');
     }
+    // clearInterval(goRightInterval);
     images[0].src = rack;
     images[0].style.display = 'block';
+    // images[0].classList.add('imgAnimation');
   }
 
   function goLeft() {
@@ -52,7 +56,9 @@ setTimeout(function () {
       images[i].style.display = 'none'
     }
     images[images.length-1].src = rack;
+    // images[0].classList.remove('imgAnimation');
     images[0].style.display = 'block';
+    // images[0].classList.add('imgAnimation');
   }
 
 });
