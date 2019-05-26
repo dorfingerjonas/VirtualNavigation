@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
   let images = [];
   let src = [];
 
-  alert("currently working on the slideshow animation, please ignore if somethind isn't working well")
+  alert("currently working on the slideshow animation, please ignore if something isn't working well")
 
 setTimeout(() => {
   document.getElementById('iconWrapper').style.height = document.images[0].clientHeight + 'px';
@@ -30,9 +30,12 @@ setTimeout(() => {
 
   arrowRight.addEventListener('click', goRight);
 
-  let goRightInterval = setInterval(() => {
-    goRight();
-  }, 10000);
+  setTimeout(() => {
+    let goRightInterval = setInterval(() => {
+      goRight();
+      console.log(".");
+    }, 10000);
+  }, localStorage.getItem('loaderDelay'));
 
   function goRight() {
     let rack = images[images.length-1].src;
@@ -40,12 +43,11 @@ setTimeout(() => {
     for (let i = images.length - 1; i > 0; i--) {
       images[i].src = images[i-1].src;
       images[i].style.display = 'none';
-      // images[i].classList.remove('imgAnimation');
+      images[0].classList.remove('imgAnimation');
     }
-    // clearInterval(goRightInterval);
     images[0].src = rack;
     images[0].style.display = 'block';
-    // images[0].classList.add('imgAnimation');
+    images[0].classList.add('imgAnimation');
   }
 
   function goLeft() {
@@ -56,9 +58,7 @@ setTimeout(() => {
       images[i].style.display = 'none'
     }
     images[images.length-1].src = rack;
-    // images[0].classList.remove('imgAnimation');
     images[0].style.display = 'block';
-    // images[0].classList.add('imgAnimation');
   }
 
 });
