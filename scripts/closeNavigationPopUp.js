@@ -104,10 +104,8 @@ function fadeElementOut(id) {
 }
 
 function fadeElementIn(id) {
-  setTimeout(() => {
-    document.getElementById(id).style.display = 'block';
+  document.getElementById(id).style.display = 'block';
     setTimeout(() => {
       document.getElementById(id).style.opacity = '1';
-    }, 75);
-  }, 25);
+    }, 100);
 }
