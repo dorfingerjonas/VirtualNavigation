@@ -24,7 +24,7 @@
 }
 
 .imgAnimation {
-  animation: imageTransition 10000ms linear infinite;
+  animation: imageTransition 12000ms linear infinite;
 }
 
 #iconWrapper i {
