@@ -20,7 +20,7 @@ body {
 }
 
 #Home {
-  display: block;
+  display: none;
   margin: 0;
   padding: 0;
   opacity: 0;
