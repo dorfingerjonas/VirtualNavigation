@@ -67,6 +67,16 @@ window.addEventListener('keydown', (event) => {
     }, 10);
   }
 });
+    } else if (event.key === 'Escape') {
+      fadeElementOut('weather');
+      fadeElementOut('route');
+      fadeElementOut('data');
+      fadeElementOut('map');
+      fadeElementOut('emergency');
+      fadeElementOut('liftState');
+      fadeElementOut('slopeState');
+    }
+  });
 
 function fadeElementOut(id) {
   document.getElementById(id).style.opacity = '0';
