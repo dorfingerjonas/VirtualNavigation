@@ -93,27 +93,27 @@ section i {
   flex-direction: row;
 }
 
-#tableWrapper {
+.tableWrapper {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-#tableWrapper table {
+.tableWrapper table {
   width: 95%;
   overflow-y: scroll;
 }
 
-#tableWrapper tbody {
+.tableWrapper tbody {
 }
 
-#tableWrapper td {
+.tableWrapper td {
   width: 5%;
   font-size: 70%;
   font-weight: 100;
 }
 
-#tableWrapper table thead td {
+.tableWrapper table thead td {
   font-size: 110% !important;
   font-weight: 600 !important;
   margin-bottom: 100%;
