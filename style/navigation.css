@@ -105,6 +105,7 @@ section i {
 }
 
 .tableWrapper tbody {
+
 }
 
 .tableWrapper td {
@@ -117,4 +118,9 @@ section i {
   font-size: 110% !important;
   font-weight: 600 !important;
   margin-bottom: 100%;
+}
+
+#slopeState {
+  width: 80vw;
+  left: 10vw;
 }
