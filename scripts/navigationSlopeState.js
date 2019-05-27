@@ -64,13 +64,13 @@ window.addEventListener('load', () => {
           let eintragData = [currentSlope.number, currentSlope.name, currentSlope.state];
           let outputArr = [numberBox, nameBox, stateBox];
 
-          // for (let k = 0; i < outputArr.length; k++) {
-          //     setTimeout(() => {
-          //       outputArr[k].textContent = eintragData[k];
-          //       newSlope.appendChild(outputArr[k]);
-          //     }, 10);
-          // }
-          contentWrapper.appendChild(newSlope);
+          setTimeout(() => {
+            for (let k = 0; k < outputArr.length; k++) {
+              outputArr[k].textContent = eintragData[k];
+              newSlope.appendChild(outputArr[k]);
+            }
+            contentWrapper.appendChild(newSlope);
+          }, 1000);
         }
       }
 });
