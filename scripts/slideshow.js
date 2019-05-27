@@ -9,18 +9,11 @@ window.addEventListener('load', () => {
 
     // alert("currently working on the slideshow animation, please calm if something isn't working well");
 
-    // sessionStorage.setItem('test', 'hello world!');
-
-
-  setTimeout(() => {
-    document.getElementById('iconWrapper').style.height = document.images[0].clientHeight + 'px';
-  }, 50);
-
     for (let i = 0; i < howmany; i++) {
       src[i] = `img/slideshow/slideshow (${i + 1}).jpg`;
     }
 
-    for(let i = 0; i < src.length; i++) {
+    for (let i = 0; i < src.length; i++) {
   		images[i] = document.createElement('img');
   		images[i].src = src[i];
       images[i].alt = (i + 1) + '. Bild';
@@ -29,6 +22,8 @@ window.addEventListener('load', () => {
   	}
     images[0].style.display = 'block';
     images[0].classList.add('imgAnimation');
+
+    document.getElementById('iconWrapper').style.height = document.images[0].clientHeight + 'px';
 
     arrowLeft.addEventListener('click', goLeft);
 
