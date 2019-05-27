@@ -70,7 +70,7 @@ window.addEventListener('load', () => {
               newSlope.appendChild(outputArr[k]);
             }
             contentWrapper.appendChild(newSlope);
-          }, 1000);
+          }, 100);
         }
       }
 });
