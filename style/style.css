@@ -104,6 +104,7 @@ nav {
 #usernameArrow {
   transform: rotateZ(0);
   transition: transform 250ms ease-in-out;
+  transform-origin: 46% 72%;
 }
 
 a {
