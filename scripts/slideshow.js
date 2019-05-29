@@ -42,11 +42,11 @@ window.addEventListener('load', () => {
         images[i].src = images[i-1].src;
         images[i].style.display = 'none';
       }
-      images[0].classList.remove('imgAnimation'); console.log(".");
+      images[0].classList.remove('imgAnimation');
       images[0].src = rack;
       images[0].style.display = 'block';
       setTimeout(() => {
-        images[0].classList.add('imgAnimation'); console.log("!");
+        images[0].classList.add('imgAnimation');
       }, 2);
     }
 
