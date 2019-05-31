@@ -1,13 +1,12 @@
 window.addEventListener('load', () => {
-  setTimeout(function () {
+
+  setTimeout(() => {
     const arrowLeft = document.getElementById('arrowLeft');
     const arrowRight = document.getElementById('arrowRight');
     const imageBox = document.getElementById('overflowWrapper');
     const howmany = 11;
     let images = [];
     let src = [];
-
-    // alert("currently working on the slideshow animation, please calm if something isn't working well");
 
     for (let i = 0; i < howmany; i++) {
       src[i] = `img/slideshow/slideshow (${i + 1}).jpg`;
@@ -47,7 +46,7 @@ window.addEventListener('load', () => {
       images[0].style.display = 'block';
       setTimeout(() => {
         images[0].classList.add('imgAnimation');
-      }, 2);
+      }, 10);
     }
 
     function goLeft() {
