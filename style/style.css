@@ -72,6 +72,8 @@ nav {
   list-style-type: none;
   width: 10vw;
   position: absolute;
+  top: 2vw;
+  right: -15vw;
   text-transform: none;
   background: white;
   font-weight: 100;
