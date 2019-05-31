@@ -104,8 +104,8 @@ section i {
   overflow-y: scroll;
 }
 
-.tableWrapper tbody {
-
+.tableWrapper tr {
+  margin: 2%
 }
 
 .tableWrapper td {
@@ -120,7 +120,14 @@ section i {
   margin-bottom: 100%;
 }
 
-#slopeState {
+#slopeState, #liftState {
   width: 80vw;
   left: 10vw;
+}
+
+#slopeState table i, #liftState table i {
+  font-size: 15px !important;
+  float: left;
+  margin: 0.5% 0 0 0;
+  cursor: default;
 }
