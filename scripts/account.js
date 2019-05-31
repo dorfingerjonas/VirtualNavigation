@@ -149,9 +149,11 @@ window.addEventListener('load', () => {
     if (!isUserPopUpVisible) {
       usernameArrow.style.transform = "rotateZ(180deg)";
       accountPopUp.style.display = 'block';
-      accountPopUp.style.opacity = 1;
       accountPopUp.style.top = '2vw';
       accountPopUp.style.right = '6.5vw';
+      setTimeout(() => {
+        accountPopUp.style.opacity = 1;
+      }, 100);
       isUserPopUpVisible = true;
     } else {
       usernameArrow.style.transform = "rotateZ(0deg)";
