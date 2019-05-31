@@ -452,3 +452,7 @@ input {
 input:focus {
   border-bottom: darkblue 2px solid;
 }
+
+hr {
+  border: 0.5px solid #c9c9c9;
+}
