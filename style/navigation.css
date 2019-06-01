@@ -104,10 +104,6 @@ section i {
   overflow-y: scroll;
 }
 
-.tableWrapper tr {
-  margin: 2%
-}
-
 .tableWrapper td {
   width: 5%;
   font-size: 70%;
