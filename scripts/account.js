@@ -238,6 +238,7 @@ window.addEventListener('load', () => {
   activateSignIn.addEventListener('click', () => {
     document.getElementById('signup').style.left = '-25vw';
     document.getElementById('signin').style.right = '0';
+    document.getElementById('signin').style.top = `-${document.getElementById('signup').clientHeight}px`
     resetErrorField();
   });
 
