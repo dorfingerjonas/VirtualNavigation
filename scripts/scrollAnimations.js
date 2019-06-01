@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
       accWndw.style.top = '5vw';
     }
 
-    if (scrollY > 880) {
+    if (scrollY >= 969) {
       document.getElementById('navigationRes').textContent = '';
     }
   }, 10);
