@@ -40,15 +40,26 @@ window.addEventListener('load', () => {
           let typeBox = document.createElement('td');
           let nameBox = document.createElement('td');
           let stateBox = document.createElement('td');
+          let iBox = document.createElement('i');
 
-          let eintragData = [currentLift.name, currentLift.state, currentLift.lifttype];
-          let outputArr = [nameBox, stateBox, typeBox];
+          let eintragData = [currentLift.name, currentLift.lifttype];
+          let outputArr = [nameBox, typeBox];
 
           setTimeout(() => {
             for (let k = 0; k < outputArr.length; k++) {
               outputArr[k].textContent = eintragData[k];
               newLift.appendChild(outputArr[k]);
             }
+            if (currentLift.state === 'closed') {
+              iBox.classList.add('fas');
+              iBox.classList.add('fa-times-circle');
+              iBox.style.color = '#ff2f2f';
+            } else {
+              iBox.classList.add('fas');
+              iBox.classList.add('fa-check-circle');
+              iBox.style.color = '#81ff81';
+            }
+            newLift.appendChild(iBox);
             contentWrapper.appendChild(newLift);
           }, 100);
         }
