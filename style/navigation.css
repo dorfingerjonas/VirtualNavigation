@@ -105,7 +105,6 @@ section i {
 }
 
 .tableWrapper td {
-  width: 5%;
   font-size: 70%;
   font-weight: 100;
 }
@@ -117,8 +116,8 @@ section i {
 }
 
 #slopeState, #liftState {
-  width: 80vw;
-  left: 10vw;
+  width: 90vw;
+  left: 5vw;
 }
 
 #slopeState table i, #liftState table i {
