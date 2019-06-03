@@ -160,13 +160,11 @@
       <section id='Kontakt'>
         <h2>Kontakt</h2>
         <div id='kontaktWrapper'>
-          <form id='kontaktForm' action='index.html' method='post'>
-            <input id='contactFirstname' type='text' value='' placeholder='Vorname'>
-            <input id='contactLastname' type='text' value='' placeholder='Nachname'>
-            <input id='contactMail' type='email' value='' placeholder='E-Mail Adresse'>
-            <textarea placeholder='Nachricht' id='contactMessage' rows='8' cols='80'></textarea>
-            <input type='checkbox' id='contactCheckbox'> <label>Ich habe die AGB und die Datenschutzbedingungen gelesen und stimme diesen zu.</label>
-            <button type='button'>Senden</button>
+          <form id='kontaktForm' action='https://mailthis.to/jonas.dorfinger@gmx.at' method="POST" encType="multipart/form-data">
+            <input id='contactFirstname' type='text' name="name" placeholder='Name'>
+            <input id='contactMail' type='email' name="_replyto" placeholder='E-Mail Adresse'>
+            <textarea placeholder='Nachricht' name="message" id='contactMessage' rows='8' cols='80'></textarea>
+            <button type='submit'>Senden</button>
           </form>
           </div>
         </div>

@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
 
   for (let input of document.getElementsByTagName('input')) {
 
-    if (input.type !== 'checkbox') {
+    if (input.type !== 'checkbox' && input.parentElement.id !== 'kontaktForm') {
       input.addEventListener('focus', () => {
         let text = document.getElementById(`${input.id}Txt`).style;
 
