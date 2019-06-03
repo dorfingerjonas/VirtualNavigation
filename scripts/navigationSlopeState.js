@@ -67,18 +67,22 @@ window.addEventListener('load', () => {
 
           setTimeout(() => {
             for (let k = 0; k < outputArr.length; k++) {
+              if (k === 0) outputArr[k].classList.add('exactName');
               outputArr[k].textContent = eintragData[k];
               newSlope.appendChild(outputArr[k]);
             }
+
+            iBox.classList.add('exactName');
+            iBox.classList.add('fas');
+
             if (currentSlope.state === 'closed') {
-              iBox.classList.add('fas');
               iBox.classList.add('fa-times-circle');
               iBox.style.color = '#ff2f2f';
             } else {
-              iBox.classList.add('fas');
               iBox.classList.add('fa-check-circle');
               iBox.style.color = '#81ff81';
             }
+            
             newSlope.appendChild(iBox);
             contentWrapper.appendChild(newSlope);
           }, 100);

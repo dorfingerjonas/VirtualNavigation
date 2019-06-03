@@ -100,7 +100,7 @@ section i {
 }
 
 .tableWrapper table {
-  width: 95%;
+  width: 60%;
   overflow-y: scroll;
   table-layout: auto;
 }
@@ -110,17 +110,19 @@ section i {
   font-weight: 100;
 }
 
-.tableWrapper tbody td {
-  font-size: 70%;
-  font-weight: 100;
+#slopeState .tableWrapper tbody td, #liftState .tableWrapper tbody td {
   text-align: justify;
-  max-width: 3vw;
+  width: 55%;
 }
 
 .tableWrapper table thead td {
   font-size: 110% !important;
   font-weight: 600 !important;
   margin-bottom: 100%;
+}
+
+.exactName {
+  width: 2vw !important;
 }
 
 #slopeState, #liftState {

@@ -64,5 +64,5 @@ window.addEventListener('load', () => {
         contentWrapper.appendChild(newSkiday);
       }
     });
-  }, 750);
+  }, 1000);
 });
