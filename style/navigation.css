@@ -102,11 +102,19 @@ section i {
 .tableWrapper table {
   width: 95%;
   overflow-y: scroll;
+  table-layout: auto;
 }
 
 .tableWrapper td {
   font-size: 70%;
   font-weight: 100;
+}
+
+.tableWrapper tbody td {
+  font-size: 70%;
+  font-weight: 100;
+  text-align: justify;
+  max-width: 3vw;
 }
 
 .tableWrapper table thead td {
