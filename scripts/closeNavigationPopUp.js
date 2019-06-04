@@ -1,7 +1,6 @@
 window.addEventListener('load', () => {
 
   const weather = document.getElementById('weatherNav');
-  const route = document.getElementById('routeNav');
   const data = document.getElementById('dataNav');
   const map = document.getElementById('mapNav');
   const emergency = document.getElementById('emergencyNav');
@@ -9,7 +8,6 @@ window.addEventListener('load', () => {
   const slopeState = document.getElementById('slopeNav');
 
   const weatherArrow = document.getElementById('closeWeather');
-  const routeArrow = document.getElementById('closeRoute');
   const dataArrow = document.getElementById('closeData');
   const mapArrow = document.getElementById('closeMap');
   const emergencyArrow = document.getElementById('closeEmergency');
@@ -22,12 +20,6 @@ window.addEventListener('load', () => {
     if (currentPopUp !== '' && currentPopUp !== 'weather') fadeElementOut(currentPopUp);
     fadeElementIn('weather');
     currentPopUp = 'weather';
-  });
-
-  route.addEventListener('click', () => {
-    if (currentPopUp !== '' && currentPopUp !== 'route') fadeElementOut(currentPopUp);
-    fadeElementIn('route');
-    currentPopUp = 'route';
   });
 
   data.addEventListener('click', () => {
@@ -62,11 +54,6 @@ window.addEventListener('load', () => {
 
   weatherArrow.addEventListener('click', () => {
     fadeElementOut('weather');
-    currentPopUp = '';
-  });
-
-  routeArrow.addEventListener('click', () => {
-    fadeElementOut('route');
     currentPopUp = '';
   });
 
