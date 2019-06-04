@@ -29,7 +29,6 @@ window.addEventListener('load', () => {
     if (currentScroll !== scrollX) {
       currentScroll = scrollX;
       fadeElementOut('weather');
-      fadeElementOut('route');
       fadeElementOut('data');
       fadeElementOut('map');
       fadeElementOut('emergency');
@@ -69,7 +68,6 @@ window.addEventListener('load', () => {
       }, 10);
     } else if (event.key === 'Escape') {
       fadeElementOut('weather');
-      fadeElementOut('route');
       fadeElementOut('data');
       fadeElementOut('map');
       fadeElementOut('emergency');
