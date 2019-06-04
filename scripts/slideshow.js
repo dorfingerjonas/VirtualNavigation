@@ -28,11 +28,9 @@ window.addEventListener('load', () => {
 
     arrowRight.addEventListener('click', goRight);
 
-    // setTimeout(() => {
       let goRightInterval = setInterval(() => {
         goRight();
       }, 10000);
-    // }, );
 
     function goRight() {
       let rack = images[images.length-1].src;
