@@ -33,6 +33,7 @@ window.addEventListener('load', () => {
       }, 9500);
 
     function goRight() {
+      clearInterval(goRightInterval);
       let rack = images[images.length-1].src;
       images[0].style.opacity = 0;
 
@@ -47,22 +48,26 @@ window.addEventListener('load', () => {
           images[0].classList.add('imgAnimation');
         }, 10);
       }, 250);
+      goRightInterval = setInterval(() => {
+        goRight();
+      }, 9500);
     }
 
     function goLeft() {
+      clearInterval(goRightInterval);
       let rack = images[0].src;
       images[0].style.opacity = 0;
 
       setTimeout(() => {
         for (let i = 0; i < images.length - 1; i++) {
           images[i].src = images[i+1].src;
-          // images[i].style.display = 'none'
         }
         images[images.length-1].src = rack;
         images[0].style.opacity = 1;
-
-        // images[0].style.display = 'block';
       }, 250);
+      goRightInterval = setInterval(() => {
+        goRight();
+      }, 9500);
     }
 
   }, localStorage.getItem('loaderDelay'));
