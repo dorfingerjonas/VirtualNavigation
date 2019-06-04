@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
 
   firebase.initializeApp(config);
 
-  let database = firebase.database();
+  const database = firebase.database();
 
   const errFieldSignUp = document.getElementById('errFieldSignUp');
   const errFieldSignIn = document.getElementById('errFieldSignIn');
@@ -278,7 +278,7 @@ function changeDisplayProperty(id, property) {
 }
 
 function validatePassword(password) {
-  return /[a-z]/.test(password.value) && /[A-Z]/.test(password.value) && /[0-9]/.test(password.value) && /[^a-zA-Z0-9]/.test(password.value) && password.value.length > 7;
+  return /[a-z]/.test(password.value) && /[A-Z]/.test(password.value) && /[0-9]/.test(password.value) && password.value.length > 5;
 }
 
 function validateEmail(email) {
