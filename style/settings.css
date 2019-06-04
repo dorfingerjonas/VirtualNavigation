@@ -19,14 +19,19 @@ h1 {
 #wrapper {
   width: 100vw;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: left;
 }
 
 #settings div {
   border-radius: 15px;
-  box-shadow: 0px 0px 14px 6px rgba(217,217,217,1);
+  -webkit-box-shadow: 0px 0px 14px 6px rgba(217,217,217,1);
+          box-shadow: 0px 0px 14px 6px rgba(217,217,217,1);
   padding: 5%;
   margin-top: 7%;
   width: 20vw;
@@ -37,12 +42,18 @@ button {
   outline: none;
   border: #28a745;
   background-color: #28a745;
+  background-image: -webkit-gradient(linear,left top, left bottom,from(#34d058),color-stop(90%, #28a745));
+  background-image: -webkit-linear-gradient(top,#34d058,#28a745 90%);
+  background-image: -o-linear-gradient(top,#34d058,#28a745 90%);
   background-image: linear-gradient(-180deg,#34d058,#28a745 90%);
   color: #fff;
   padding: 7px;
   font-size: 100%;
   margin: 15px 15px 15px 0;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
 }
 
@@ -58,15 +69,22 @@ input {
   width: 20vw;
   display: block;
   font-size: 100%;
+  -webkit-transition: border-bottom 250ms ease;
+  -o-transition: border-bottom 250ms ease;
   transition: border-bottom 250ms ease;
   cursor: text;
 }
 
 span {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   position: relative;
   left: 0;
   margin-bottom: 1%;
+  -webkit-transition: font-size 250ms, top 250ms;
+  -o-transition: font-size 250ms, top 250ms;
   transition: font-size 250ms, top 250ms;
   pointer-events: none;
   font-weight: 100;
@@ -79,7 +97,10 @@ input:focus {
 }
 
 p {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   font-weight: 100;
   font-size: 12pt;
   color: white;
@@ -89,6 +110,9 @@ p {
 #deleteBtn {
   border: #F44336;
   background-color: #F44336;
+  background-image: -webkit-gradient(linear,left top, left bottom,from(#F44336),color-stop(90%, #cf1f12));
+  background-image: -webkit-linear-gradient(top,#F44336,#cf1f12 90%);
+  background-image: -o-linear-gradient(top,#F44336,#cf1f12 90%);
   background-image: linear-gradient(-180deg,#F44336,#cf1f12 90%);
   margin-top: 10%;
 }
@@ -99,9 +123,14 @@ p {
   border: 2px solid #0f5fa6;
   border-radius: 40px;
   color: #0f5fa6;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   text-decoration: none;
   display: inline-block;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 

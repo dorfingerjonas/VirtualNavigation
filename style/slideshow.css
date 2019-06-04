@@ -1,31 +1,48 @@
 #images {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #images img {
   width: 60vw;
   position: relative;
+  -webkit-transition: opacity 250ms ease-out;
+  -o-transition: opacity 250ms ease-out;
   transition: opacity 250ms ease-out;
 }
 
 #iconWrapper {
   width: 60vw;
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #overflowWrapper {
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.5) 2px 5px 15px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 2px 5px 15px 0px;
+          box-shadow: rgba(0, 0, 0, 0.5) 2px 5px 15px 0px;
 }
 
 .imgAnimation {
-  animation: imageTransition 12000ms linear;
+  -webkit-animation: imageTransition 12000ms linear;
+          animation: imageTransition 12000ms linear;
 }
 
 #iconWrapper i {
@@ -36,24 +53,43 @@
 #arrowRight {
   position: absolute;
   right: 0;
-  animation: arrowRightAnim 1000ms ease-in-out infinite;
+  -webkit-animation: arrowRightAnim 1000ms ease-in-out infinite;
+          animation: arrowRightAnim 1000ms ease-in-out infinite;
 }
 
 #arrowLeft {
   position: absolute;
   left: 0;
-  animation: arrowLeftAnim 1000ms ease-in-out infinite;
+  -webkit-animation: arrowLeftAnim 1000ms ease-in-out infinite;
+          animation: arrowLeftAnim 1000ms ease-in-out infinite;
+}
+
+@-webkit-keyframes imageTransition {
+  from {-webkit-transform: scale(1);transform: scale(1)}
+  to   {-webkit-transform: scale(1.2);transform: scale(1.2)}
 }
 
 @keyframes imageTransition {
-  from {transform: scale(1)}
-  to   {transform: scale(1.2)}
+  from {-webkit-transform: scale(1);transform: scale(1)}
+  to   {-webkit-transform: scale(1.2);transform: scale(1.2)}
+}
+
+@-webkit-keyframes arrowLeftAnim {
+  0%   {left: 0}
+  50%  {left: 10px}
+  100% {left: 0}
 }
 
 @keyframes arrowLeftAnim {
   0%   {left: 0}
   50%  {left: 10px}
   100% {left: 0}
+}
+
+@-webkit-keyframes arrowRightAnim {
+  0%   {right: 0}
+  50%  {right: 10px}
+  100% {right: 0}
 }
 
 @keyframes arrowRightAnim {
