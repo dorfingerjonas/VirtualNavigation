@@ -9,6 +9,10 @@ window.addEventListener('load', () => {
   messagingSenderId: '428865397333'
   };
 
+  document.getElementById('backBtn').addEventListener('click', () => {
+    window.location.href='../';
+  });
+
   firebase.initializeApp(config);
 
   let database = firebase.database();

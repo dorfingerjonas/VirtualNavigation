@@ -16,6 +16,21 @@ body {
   color: white;
 }
 
+#backBtn {
+  color: white;
+  position: fixed;
+  top: 2vw;
+  left: 2vw;
+  font-size: 150%;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+  border-radius: 50%;
+}
+
+#backBtn:hover {
+  color: lightgray;
+}
+
 nav div {
   display: block;
   width: 25vw;
