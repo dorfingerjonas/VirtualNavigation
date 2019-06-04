@@ -51,10 +51,8 @@ window.addEventListener('load', () => {
         const promise = auth.signInWithEmailAndPassword(email.value, password.value);
 
         promise.catch((error) => {
-
           changeDisplayProperty('errFieldSignIn', 'block');
           errFieldSignIn.textContent = error.message;
-
         });
 
         promise.then(() => {
@@ -97,7 +95,6 @@ window.addEventListener('load', () => {
       if (isPasswordValid && isEmailValid && isFirstnameValid && isLastnameValid && isUsernameValid) {
         const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
         promise.catch((error) => {
-
           changeDisplayProperty('errFieldSignUp', 'block');
           errFieldSignUp.textContent = error.message;
         });
@@ -112,12 +109,15 @@ window.addEventListener('load', () => {
 
   logoutBtn.addEventListener('click', () => {
     firebase.auth().signOut().then(() => {
-      // Sign-out successful.
       accountPopUp.style.display = 'none';
       document.getElementById('usernameField').textContent = '';
-    }).catch((error) => {
-      // An error happened.
-    });
+      usernameArrow.style.transform = "rotateZ(0deg)";
+      accountPopUp.style.opacity = 0;
+      setTimeout(() => {
+        accountPopUp.style.display = 'none';
+      }, 250);
+      isUserPopUpVisible = false;
+    }).catch((error) => {});
   });
 
   accNav.addEventListener('click', () => {
@@ -125,9 +125,9 @@ window.addEventListener('load', () => {
 
       window.addEventListener('keydown', (event) => {
 
-        if (event.key === 'Enter' && document.getElementById('signin').style.right === '0') {
+        if (event.key === 'Enter' && document.getElementById('signin').style.right === '0px') {
           signIn();
-        } else {
+        } else if (event.key === 'Enter' && document.getElementById('signin').style.right === '-25vw') {
           signUp();
         }
 
