@@ -172,9 +172,15 @@ section i {
 }
 
 .tableWrapper table {
+  min-width: 20%;
+  overflow-y: scroll;
+  margin: 0 2% 2% 2%;
+}
+
+#data .tableWrapper table {
   width: 60%;
   overflow-y: scroll;
-  table-layout: auto;
+  margin: 0 2% 2% 2%;
 }
 
 .tableWrapper td {
@@ -183,7 +189,7 @@ section i {
 }
 
 #slopeState .tableWrapper tbody td, #liftState .tableWrapper tbody td {
-  text-align: justify;
+  text-align: left;
   width: 55%;
 }
 
