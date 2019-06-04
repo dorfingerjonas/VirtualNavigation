@@ -30,21 +30,23 @@ window.addEventListener('load', () => {
 
       let goRightInterval = setInterval(() => {
         goRight();
-      }, 10000);
+      }, 9500);
 
     function goRight() {
       let rack = images[images.length-1].src;
+      images[0].style.opacity = 0;
 
-      for (let i = images.length - 1; i > 0; i--) {
-        images[i].src = images[i-1].src;
-        images[i].style.display = 'none';
-      }
-      images[0].classList.remove('imgAnimation');
-      images[0].src = rack;
-      images[0].style.display = 'block';
       setTimeout(() => {
-        images[0].classList.add('imgAnimation');
-      }, 10);
+        for (let i = images.length - 1; i > 0; i--) {
+          images[i].src = images[i-1].src;
+        }
+        images[0].classList.remove('imgAnimation');
+        images[0].src = rack;
+        images[0].style.opacity = 1;
+        setTimeout(() => {
+          images[0].classList.add('imgAnimation');
+        }, 10);
+      }, 250);
     }
 
     function goLeft() {
