@@ -37,17 +37,17 @@ window.addEventListener('load', () => {
 
   window.addEventListener('keydown', (event) => {
 
-    const distanceToGo = document.getElementById('weatherNav').clientWidth;
+    const distanceToGo = scrollX + document.getElementById('weatherNav').clientWidth + (innerWidth / 100) * 1.5;
+    const margin = (document.body.clientWidth - document.getElementById('nav').clientWidth) / 2;
+    const originalPosition = scrollX;
 
     if (event.key === 'ArrowRight') {
-      let originalPosition = scrollX;
-
       event.preventDefault();
 
       let interval = setInterval(() => {
         scrollTo(scrollX + 10, 0);
 
-        if (scrollX === originalPosition + distanceToGo || scrollX === Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight)) {
+        if ((originalPosition === 0 && scrollX >= distanceToGo + margin) || (originalPosition !== 0 && scrollX >= distanceToGo) || scrollX - innerWidth >= document.body.clientWidth) {
           clearInterval(interval);
         }
       }, 10);

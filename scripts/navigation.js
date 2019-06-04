@@ -41,17 +41,15 @@ window.addEventListener('load', () => {
 
 window.addEventListener('keydown', (event) => {
 
-  const distanceToGo = document.getElementById('weatherNav').clientWidth;
+  const distanceToGo = scrollX + document.getElementById('weatherNav').clientWidth;
 
   if (event.key === 'ArrowRight') {
-    let originalPosition = scrollX;
-
     event.preventDefault();
 
     let interval = setInterval(() => {
       scrollTo(scrollX + 10, 0);
 
-      if (scrollX === originalPosition + distanceToGo || positionCounter === 6) {
+      if (scrollX >= distanceToGo) {
         clearInterval(interval);
       }
     }, 10);
