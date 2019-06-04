@@ -128,9 +128,23 @@ section i {
   z-index: -1;
 }
 
-#emergency p {
+#emergency a:link {
   text-align: left;
   font-size: 90%;
+  color: white;
+  text-decoration: none;
+}
+
+#emergency a:hover {
+  text-align: left;
+  font-size: 90%;
+  color: white;
+}
+
+#emergency a:visited {
+  text-align: left;
+  font-size: 90%;
+  color: white;
 }
 
 #contentWrapper {
